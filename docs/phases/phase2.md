@@ -1,14 +1,14 @@
-# Phase 2: Viewing Blogs and Posts
+# Phase 2: Viewing Taskers
 
 ## Rails
 ### Models
 
 ### Controllers
-Api::BlogsController (create, destroy, index, show)
+Api::UsersController (show)
 Api::PostsController (create, destroy, show, update)
 
 ### Views
-* blogs/show.json.jbuilder
+* users/show.json.jbuilder
 
 ## Backbone
 ### Models
