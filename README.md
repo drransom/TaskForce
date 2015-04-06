@@ -1,8 +1,6 @@
 # TaskForce
 
-[Heroku link][heroku]
-
-[heroku]: http://flux-capacitr.herokuapp.com
+Link to Heroku coming soon.
 
 ## Minimum Viable Product
 TaskForce is a TaskRabbit-inspired app built on Rails and Backbone. Users can
