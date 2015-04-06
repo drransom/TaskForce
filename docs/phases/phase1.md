@@ -18,9 +18,15 @@
 
 ## Backbone
 ### Models
+* User
+* Task
 
 ### Collections
 
 ### Views
+* New
+* TaskForm
+* TaskShow (composite, contains TaskDeatil and will contain MiniUser)
+* TaskDetail
 
 ## Gems/Libraries

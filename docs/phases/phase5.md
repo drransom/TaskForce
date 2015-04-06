@@ -2,21 +2,24 @@
 
 ## Rails
 ### Models
+* Comment
+* Commenting
 
 ### Controllers
-Api::BlogsController (search)
-Api::PostsController (search)
+CommentsController (create)
 
 ### Views
 
 ## Backbone
 ### Models
+* UserComment
+
 
 ### Collections
+* Comments
 
 ### Views
 * BlogSearchItem
 * SearchShow (composite view, contains BlogsIndex and PostsIndex subviews)
 
 ## Gems/Libraries
-

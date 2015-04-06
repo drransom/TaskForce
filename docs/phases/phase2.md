@@ -5,25 +5,20 @@
 
 ### Controllers
 Api::UsersController (show)
-Api::PostsController (create, destroy, show, update)
 
 ### Views
 * users/show.json.jbuilder
 
 ## Backbone
 ### Models
-* Blog (parses nested `posts` association)
-* Post
 
 ### Collections
-* Blogs
-* Posts
+* Users
 
 ### Views
-* BlogForm
-* BlogShow (composite view, contains PostsIndex subview)
-* PostsIndex (composite view, contains PostsIndexItem subviews)
-* PostsIndexItem
-* PostShow
+* UserShow (composite view, contains UserDetail subview and will contain
+            UserComment subview)
+* UserDetail
+* MiniUser
 
 ## Gems/Libraries

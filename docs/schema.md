@@ -28,19 +28,6 @@ author_id   | integer   | not null, foreign key (references users)
 title       | string    | not null
 body        | string    | not null
 
-## tags
-column name | data type | details
-------------|-----------|-----------------------
-id          | integer   | not null, primary key
-label       | string    | not null, unique
-
-## taggings
-column name | data type | details
-------------|-----------|-----------------------
-id          | integer   | not null, primary key
-post_id     | integer   | not null, foreign key (references posts)
-tag_id      | integer   | not null, foreign key (references tags)
-
 ## users
 column name     | data type | details
 ----------------|-----------|-----------------------

@@ -1,4 +1,4 @@
-# Phase 4: User Feeds
+# Phase 4: Task Feed
 
 ## Rails
 ### Models
@@ -15,6 +15,6 @@ posts/feed.json.jbuilder
 ### Collections
 
 ### Views
-* FeedShow (composite view, contains PostsIndex subview)
+* TaskIndex (composite view, contains PostsIndex subview)
 
 ## Gems/Libraries

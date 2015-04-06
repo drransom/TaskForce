@@ -6,21 +6,29 @@
 ## Feed Show (landing page)
 ![feed-show]
 
-## Blog Show
-![blog-show]
+## User Show
+![user-show]
 
-## Post Show
-![post-show]
+## Task Show
+![task-show]
 
-## Post Form
-![post-form]
+## Task Form
+![task-form]
+
+## Proposed Taskers
+![proposed-taskers]
+
+## Stretch: Task Search Form
+![search-form]
 
 ## Search Results
 ![search-results]
 
 [new-session]: ./wireframes/new_session.png
 [feed-show]: ./wireframes/feed_show.png
-[blog-show]: ./wireframes/blog_show.png
-[post-show]: ./wireframes/post_show.png
-[post-form]: ./wireframes/post_form.png
+[user-show]: ./wireframes/user_show.png
+[task-show]: ./wireframes/task_show.png
+[task-form]: ./wireframes/task_form.png
+[proposed-taskers]: ./wireframes/proposed_taskers.png
+[search-form]: ./wireframes/search_form.png
 [search-results]: ./wireframes/search_results.png
