@@ -1,0 +1,38 @@
+# == Schema Information
+#
+# Table name: tasks
+#
+#  id          :integer          not null, primary key
+#  owner_id    :integer          not null
+#  tasker_id   :integer
+#  title       :string           not null
+#  description :text             not null
+#  location    :string           not null
+#  vehicle     :string           not null
+#  completed   :string           default("neither"), not null
+#  price       :integer
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  owner_id: 1
+  tasker_id: 1
+  title: MyString
+  description: MyText
+  location: MyString
+  vehicle: MyString
+  completed: false
+  price: 1
+
+two:
+  owner_id: 1
+  tasker_id: 1
+  title: MyString
+  description: MyText
+  location: MyString
+  vehicle: MyString
+  completed: false
+  price: 1

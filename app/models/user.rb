@@ -15,6 +15,9 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 6, allow_nil: true }
   validates :email, uniqueness: true
 
+  has_many :owned_tasks, class_name: "Task", foreign_key: :owner_id
+  has_many :accepted_tasks, class_name: "Task", foreign_key: :tasker_id
+
   attr_reader :password
   after_initialize :ensure_session_token
 
