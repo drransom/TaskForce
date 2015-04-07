@@ -1,3 +1,5 @@
+"use strict";
+
 window.TaskForce = {
   Models: {},
   Collections: {},
@@ -5,6 +7,6 @@ window.TaskForce = {
   Routers: {},
   Mixins: {},
   initialize: function() {
-    console.log("successfully initialized window")
+    console.log("successfully initialized window");
   }
-}
+};
