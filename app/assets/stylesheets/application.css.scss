@@ -16,7 +16,7 @@
 
  @import "bootstrap-sprockets";
  @import "bootstrap";
- // 
+ //
  // @font-face {
  //   font-family: 'starjedihol';
  //   font-style: normal;
@@ -37,4 +37,14 @@
   font-size: 14px;
   color: rgb(56, 151, 170);
   font-weight: normal
+}
+
+body .btn-primary {
+  background-color: #1DA3BF;
+  -webkit-transition: background-color 0.2s;
+  transition: background-color 0.2s;
+}
+
+body .btn-primary:hover {
+  background-color: #0d7488
 }
