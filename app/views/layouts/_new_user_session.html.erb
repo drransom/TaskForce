@@ -1,0 +1,21 @@
+<% if form_type == :login %>
+  <% header = "Log In" %>
+  <% action = "/session" %>
+<% else %>
+  <% header = "Sign Up" %>
+  <% action = "/user" %>
+<% end %>
+
+<h2><%= header %></h2>
+<%= render partial: 'layouts/errors' %>
+
+<form action="<%= action %>" method="post">
+  <%= auth_token_input %>
+  <label>Email<br>
+    <input name="user[email]" type="text"<br>
+  </label><br>
+  <label>Password<br>
+    <input name="user[password]" type="password"><br>
+  </label><br>
+  <input type="submit" value="Submit" class="btn btn-primary"><br>
+</form>

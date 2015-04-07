@@ -1,0 +1,11 @@
+<% if flash[:errors] %>
+  <% if flash[:errors].respond_to?(:each) %>
+    <ul class="list-group">
+      <% flash[:errors].each do |error| %>
+          <li class-"list-group-item"><%= error %></li>
+      <% end %>
+    </ul>
+  <% else %>
+    <%= flash[:errors] %>
+  <% end %>
+<% end %>
