@@ -3,7 +3,6 @@
 ## Rails
 ### Models
 * Comment
-* Commenting
 
 ### Controllers
 CommentsController (create)

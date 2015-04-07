@@ -13,18 +13,12 @@ vehicle     | string    | not null
 completed   | boolean   | default false
 price       | integer   |
 
-## commentings
-column name | data type | details
-------------|-----------|-----------------------
-id          | integer   | not null, primary key
-comment_id  | integer   | not null, foreign key (references comments)
-commentable_id|integer  | not null, foreign key (references commentables)
-
 ## comments
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
 author_id   | integer   | not null, foreign key (references users)
+commentable_id|integer  | not null, foreign key (references commentable)
 title       | string    | not null
 body        | string    | not null
 
