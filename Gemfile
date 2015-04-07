@@ -28,6 +28,8 @@ gem 'backbone-on-rails'
 
 gem 'newrelic_rpm'
 
+gem 'bootstrap-sass'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
