@@ -7,6 +7,7 @@ window.TaskForce = {
   Routers: {},
   Mixins: {},
   initialize: function() {
-    console.log("successfully initialized window");
+    new TaskForce.Routers.Router();
+    Backbone.history.start();
   }
 };
