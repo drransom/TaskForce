@@ -5,6 +5,7 @@ TaskForce.Views.NewTask = Backbone.View.extend({
 
   initialize: function () {
     this.collection = new TaskForce.Collections.Tasks();
+    this.users = new TaskForce.Collections.Users();
     //TODO
     // this.currentStep = 0;
     // this.numCompleted = 0;
@@ -29,17 +30,24 @@ TaskForce.Views.NewTask = Backbone.View.extend({
     collection = this.collection;
     model = this.model;
     content = $('form').serializeJSON();
-    this.model.set(content);
-    this.model.save({}, {
-      success: function() {
-        collection.add(model);
-        console.log('successful save');
-        // Backbone.history.navigate('', {trigger: true})
-      },
-      error: function (model, response) {
-        console.log("save error")
+    this.users.fetch({
+      data: content,
+      success: function () {
+        debugger
       }
     })
+    //
+    // this.model.set(content);
+    // this.model.save({}, {
+    //   success: function() {
+    //     collection.add(model);
+    //     console.log('successful save');
+    //     Backbone.history.navigate('', {trigger: true})
+    //   },
+    //   error: function (model, response) {
+    //     console.log("save error")
+    //   }
+    // })
   }
   //TODO
   // advanceStep: function (event) {

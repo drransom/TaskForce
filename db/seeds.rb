@@ -6,10 +6,20 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-emails = ["luke", "leia", "darthvader"].map { |email| email + "@starwars.com" }
 
-emails.each do |email|
-  user = User.create(email: email, password: "password", tasker: true)
+
+emails = ["luke", "leia", "darthvader"].map { |email| email + "@starwars.com" }
+locations = ["Tattoine", "Tattoine", "Coruscant"]
+starships = ["Starship", "Starship", "Battle Station"]
+
+emails.length.times do |i|
+  email = emails[i]
+  location = locations[i]
+  starships = starships[i]
+  user = User.create(email: email,
+                     password: "password",
+                     tasker: true,
+                     location: location)
 end
 
 t1 = Task.create(owner_id: 1, title: "Destroy Death Star",

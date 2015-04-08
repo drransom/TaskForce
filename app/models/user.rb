@@ -9,6 +9,8 @@
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #  tasker          :boolean          default(FALSE)
+#  vehicle         :string
+#  location        :string
 #
 
 class User < ActiveRecord::Base

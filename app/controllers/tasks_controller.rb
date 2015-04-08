@@ -6,7 +6,6 @@ class TasksController < ApplicationController
       render json: @task
     else
       puts "unsuccessful save"
-      debugger
       render json: @task.errors.full_messages
     end
   end

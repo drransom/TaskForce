@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   end
 
   def index
+    debugger
     taskers = find_taskers.where(user_filter).limit(3)
     if taskers.empty?
       render json: 'sorry, no users found'
