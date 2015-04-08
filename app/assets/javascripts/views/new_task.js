@@ -1,20 +1,38 @@
 "use strict";
 
-TaskForce.Views.NewTask = Backbone.View.extend({
-  template: JST['new_task'],
+TaskForce.Views.NewTask = Backbone.CompositeView.extend({
 
   initialize: function () {
-    this.tasks = new TaskForce.Collections.Tasks();
-    this.users = new TaskForce.Collections.Users();
-    //TODO
-    // this.currentStep = 0;
-    // this.numCompleted = 0;
-    // this.editingStep = nil
-    // this.numQuestions = 5
+    this.$el.append('<div class="form-area"></div>')
+    this.$el.append('<div class="tasker-area"></div>')
+    this.task = new TaskForce.Models.Task();
+    this.taskers = new TaskForce.Collections.Users();
+
+    var displayOptions = { task: this.task, taskers: this.taskers }
+
+    this.taskForm = new TaskForce.Views.NewTaskForm( displayOptions);
+    this.taskerDisplay = new TaskForce.Views.TaskerDisplay( displayOptions );
+
+    this.addSubview('.form-area', this.taskForm);
+    this.addSubview('.tasker-area', this.taskerDisplay);
+
+  },
+
+  render: function () {
+    this.attachSubviews();
+    return this;
+  }
+});
+
+TaskForce.Views.NewTaskForm = Backbone.View.extend({
+  template: JST['new_task'],
+
+  initialize: function (options) {
+    this.task = options.task;
+    this.taskers = options.taskers;
   },
 
   events: {
-    // 'click button.btn-advance-step': 'advanceStep', TODO
     'submit': 'submit'
   },
 
@@ -25,40 +43,34 @@ TaskForce.Views.NewTask = Backbone.View.extend({
   },
 
   submit: function (event) {
+    debugger
     event.preventDefault();
-    var tasks, model, content, users;
-    users = this.users;
+    var tasks, model, content, taskers, area;
+    taskers = this.taskers;
     tasks = this.tasks;
-    model = this.model;
     content = $('form').serializeJSON();
-    this.users.fetch({
+    var area = this.$el;
+
+    taskers.fetch({
       data: content,
       success: function (model, response) {
-        debugger
-        model = new TaskForce.Models.Task(content)
-        users.add(response.taskers, { merge: true })
-        //new subview to display users
+        model = new TaskForce.Models.Task(content);
+        taskers.add(response.taskers, { merge: true });
+      },
+      error: function () {
       }
     })
-    //
-    // this.model.set(content);
-    // this.model.save({}, {
-    //   success: function() {
-    //     collection.add(model);
-    //     console.log('successful save');
-    //     Backbone.history.navigate('', {trigger: true})
-    //   },
-    //   error: function (model, response) {
-    //     console.log("save error")
-    //   }
-    // })
   }
-  //TODO
-  // advanceStep: function (event) {
-  //   event.preventDefault();
-  //   if (this.currentStep >= this.numCompleted) {
-  //     this.currentStep += 1;
-  //     this.numCompleted += 1;
-  //   }
-  // }
+});
+
+TaskForce.Views.TaskerDisplay = Backbone.View.extend({
+
+  initialize: function (options) {
+    this.task = options.task;
+    this.taskers = options.taskers;
+  },
+
+  render: function () {
+    return this;
+  }
 });
