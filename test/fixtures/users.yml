@@ -11,6 +11,7 @@
 #  tasker          :boolean          default(FALSE)
 #  vehicle         :string
 #  location        :string
+#  description     :text
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

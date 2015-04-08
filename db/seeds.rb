@@ -9,17 +9,21 @@
 
 
 emails = ["luke", "leia", "darthvader"].map { |email| email + "@starwars.com" }
-locations = ["Tattoine", "Tattoine", "Coruscant"]
+locations = ["Tatooine", "Tatooine", "Coruscant"]
 starships = ["Starship", "Starship", "Battle Station"]
+descriptions = ["The First New Jedi", "The Real Hero", "Evil Incarnate"]
 
 emails.length.times do |i|
   email = emails[i]
   location = locations[i]
-  starships = starships[i]
+  vehicle = starships[i]
+  description = descriptions[i]
   user = User.create(email: email,
                      password: "password",
                      tasker: true,
-                     location: location)
+                     location: location,
+                     vehicle: vehicle,
+                     description: description)
 end
 
 t1 = Task.create(owner_id: 1, title: "Destroy Death Star",

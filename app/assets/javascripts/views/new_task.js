@@ -32,7 +32,7 @@ TaskForce.Views.NewTask = Backbone.View.extend({
     content = $('form').serializeJSON();
     this.users.fetch({
       data: content,
-      success: function () {
+      success: function (model, response) {
         debugger
       }
     })

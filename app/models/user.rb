@@ -11,6 +11,7 @@
 #  tasker          :boolean          default(FALSE)
 #  vehicle         :string
 #  location        :string
+#  description     :text
 #
 
 class User < ActiveRecord::Base

@@ -3,12 +3,11 @@ class UsersController < ApplicationController
   end
 
   def index
-    debugger
-    taskers = find_taskers.where(user_filter).limit(3)
-    if taskers.empty?
+    @taskers = find_taskers.where(user_filter).limit(3)
+    if @taskers.empty?
       render json: 'sorry, no users found'
     else
-      render json: taskers
+      render :index
     end
   end
 
@@ -24,17 +23,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def match_taskers
-    @task = Task.new(task_params)
-    @task.owner_id = current_user.id
-    if @task.valid?
-      users = User.where(location: @task.location, vehicle: task.vehicle).limit(3)
-      render json: users
-    else
-      render json: @task.errors.full_messages
-    end
-  end
-
   private
 
   def user_params
@@ -45,7 +33,9 @@ class UsersController < ApplicationController
     options = {}
     filter_params = [:location, :vehicle]
     filter_params.each do |filter_param|
-      options[:filter_param] = params[:filter_param] if params[:filter_param]
+      unless filter_param == :vehicle && params[filter_param] == "no vehicle"
+        options[filter_param] = params[filter_param] if params[filter_param]
+      end
     end
     options
   end
