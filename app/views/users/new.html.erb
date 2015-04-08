@@ -1,13 +1,1 @@
-<h2>Sign Up</h2>
-
-<%= render partial: 'layouts/errors' %>
-<form action="/users" method="post">
-  <%= auth_token_input %>
-  <label>Email<br>
-    <input name="user[email]" type="text"><br>
-  </label><br>
-  <label>Password<br>
-    <input name="user[password]" type="password"><br>
-  </label><br>
-  <input type="submit" value="Submit" class="btn btn-primary"><br>
-</form>
+<%= render partial: 'layouts/new_user_session', locals: { form_type: :signup } %>
