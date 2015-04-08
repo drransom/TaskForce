@@ -13,11 +13,14 @@
 #  price       :integer
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  task_date   :date
+#  time_slot   :integer
 #
 
 class Task < ActiveRecord::Base
-  validates :owner_id, :title, :description, :location, presence: true
+  validates :owner_id, :title, :description, :location, :date, presence: true
   validates :price, numericality: { greater_than_or_equal_to: 0, allow_nil: true }
+  validates :time_slot, numericality: { greater_than_or_equal_to: 0 }
 
   belongs_to :owner, class_name: "User", foreign_key: :owner_id
   belongs_to :tasker, class_name: "User", foreign_key: :tasker_id

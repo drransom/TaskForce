@@ -13,6 +13,8 @@
 #  price       :integer
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  task_date   :date
+#  time_slot   :integer
 #
 
 require 'test_helper'

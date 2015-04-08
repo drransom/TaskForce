@@ -13,27 +13,31 @@ TaskForce.Views.NewTask = Backbone.View.extend({
 
   events: {
     // 'click button.btn-advance-step': 'advanceStep', TODO
-    'form input': 'submit'
+    'submit': 'submit'
   },
 
   render: function () {
-    debugger
     var content = this.template();
     this.$el.html(content);
     return this;
   },
 
-  submit: function () {
+  submit: function (event) {
+    debugger
+    event.preventDefault();
     var collection, model, content;
     collection = this.collection;
     model = this.model;
-    content = $('.form').serializeJSON();
+    content = $('form').serializeJSON();
     this.model.set(content);
     this.model.save({}, {
       success: function() {
         collection.add(model);
         console.log('successful save');
         // Backbone.history.navigate('', {trigger: true})
+      },
+      errors: function () {
+        console.log("save error")
       }
     })
   }
