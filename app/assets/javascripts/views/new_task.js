@@ -4,7 +4,7 @@ TaskForce.Views.NewTask = Backbone.View.extend({
   template: JST['new_task'],
 
   initialize: function () {
-    this.collection = new TaskForce.Collections.Tasks();
+    this.tasks = new TaskForce.Collections.Tasks();
     this.users = new TaskForce.Collections.Users();
     //TODO
     // this.currentStep = 0;
@@ -26,14 +26,18 @@ TaskForce.Views.NewTask = Backbone.View.extend({
 
   submit: function (event) {
     event.preventDefault();
-    var collection, model, content;
-    collection = this.collection;
+    var tasks, model, content, users;
+    users = this.users;
+    tasks = this.tasks;
     model = this.model;
     content = $('form').serializeJSON();
     this.users.fetch({
       data: content,
       success: function (model, response) {
         debugger
+        model = new TaskForce.Models.Task(content)
+        users.add(response.taskers, { merge: true })
+        //new subview to display users
       }
     })
     //
