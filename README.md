@@ -1,6 +1,8 @@
 # TaskForce
 
-Link to Heroku coming soon.
+[Heroku][heroku]
+
+[heroku]: https://taskforcejedi.herokuapp.com/
 
 ## Minimum Viable Product
 TaskForce is a TaskRabbit-inspired app built on Rails and Backbone. Users can
@@ -9,9 +11,9 @@ and rate taskers.
 
 Users can:
 
-- [ ] Create accounts
-- [ ] Create sessions (log in)
-- [ ] Create tasks
+- [X] Create accounts
+- [X] Create sessions (log in)
+- [X] Create tasks
 - [ ] View potential Taskers for a task
 - [ ] Submit tasks for approval by a user
 - [ ] Accept tasks
