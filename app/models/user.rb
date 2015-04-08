@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
   validates :email, :session_token, presence: true
   validates :password, length: { minimum: 6, allow_nil: true }
   validates :email, uniqueness: true
+  validates_format_of :email, with: /.+@.+\..+/i, on: [:create, :save]
 
   has_many :owned_tasks, class_name: "Task", foreign_key: :owner_id
   has_many :accepted_tasks, class_name: "Task", foreign_key: :tasker_id
