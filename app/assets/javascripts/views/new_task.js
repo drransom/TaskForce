@@ -43,7 +43,6 @@ TaskForce.Views.NewTaskForm = Backbone.View.extend({
   },
 
   submit: function (event) {
-    debugger
     event.preventDefault();
     var tasks, model, content, taskers, area;
     taskers = this.taskers;
