@@ -5,7 +5,7 @@
 #  id          :integer          not null, primary key
 #  owner_id    :integer          not null
 #  tasker_id   :integer
-#  title       :string           not null
+#  title       :string
 #  description :text             not null
 #  location    :string           not null
 #  vehicle     :string           not null
@@ -18,8 +18,8 @@
 #
 
 class Task < ActiveRecord::Base
-  validates :owner_id, :title, :description, :location, :date, presence: true
-  validates :price, numericality: { greater_than_or_equal_to: 0, allow_nil: true }
+  validates :owner_id, :description, :location, :task_date, presence: true
+  # validates :price, numericality: { greater_than_or_equal_to: 0, allow_nil: true }
   validates :time_slot, numericality: { greater_than_or_equal_to: 0 }
 
   belongs_to :owner, class_name: "User", foreign_key: :owner_id

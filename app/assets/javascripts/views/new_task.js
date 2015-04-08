@@ -4,6 +4,7 @@ TaskForce.Views.NewTask = Backbone.View.extend({
   template: JST['new_task'],
 
   initialize: function () {
+    this.collection = new TaskForce.Collections.Tasks();
     //TODO
     // this.currentStep = 0;
     // this.numCompleted = 0;
@@ -23,7 +24,6 @@ TaskForce.Views.NewTask = Backbone.View.extend({
   },
 
   submit: function (event) {
-    debugger
     event.preventDefault();
     var collection, model, content;
     collection = this.collection;
@@ -36,7 +36,7 @@ TaskForce.Views.NewTask = Backbone.View.extend({
         console.log('successful save');
         // Backbone.history.navigate('', {trigger: true})
       },
-      errors: function () {
+      error: function (model, response) {
         console.log("save error")
       }
     })

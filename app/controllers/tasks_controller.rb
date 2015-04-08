@@ -1,16 +1,18 @@
 class TasksController < ApplicationController
   def create
-    debugger
     @task = Task.new(task_params);
+    @task.owner_id = current_user.id
     if @task.save
-      redirect_to root_url
+      render json: @task
     else
-      fail
+      puts "unsuccessful save"
+      debugger
+      render json: @task.errors.full_messages
     end
   end
 
   def task_params
     params.require(:task).permit(:owner_id, :title, :description, :location,
-      :task_date, :timeslot, :vehicle, :completed, :price)
+      :task_date, :time_slot, :vehicle, :completed, :price)
   end
 end

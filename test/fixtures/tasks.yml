@@ -5,7 +5,7 @@
 #  id          :integer          not null, primary key
 #  owner_id    :integer          not null
 #  tasker_id   :integer
-#  title       :string           not null
+#  title       :string
 #  description :text             not null
 #  location    :string           not null
 #  vehicle     :string           not null
