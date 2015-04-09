@@ -1,4 +1,4 @@
-json.taskers @taskers.each do |tasker|
+json.array! @taskers.each do |tasker|
   json.id tasker.id
   json.email tasker.email
   json.description tasker.description

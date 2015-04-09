@@ -1,0 +1,13 @@
+<% var pick_me = pick_me || false %>
+<div class="col-md-4">
+  <ul class="list-group">
+    <li class="list-group-item"><%= user.get('email') %></li>
+    <li class="list-group-item"><%= user.get('description') %></li>
+  </ul>
+  <% if (pick_me) { %>
+    <div class="btn-group btn-group-lg">
+      <button type="button" class="btn btn-default btn-std-color learn-more">Details</button>
+      <button type="button" class="btn btn-default btn-std-color select-me">Choose this Tasker</button>
+    </div>
+  <% } %>
+</div>
