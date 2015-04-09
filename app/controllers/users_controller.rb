@@ -26,7 +26,9 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email, :password, :tasker)
+    params.require(:user).permit(:email, :password, :tasker,
+                                 :name, :location, :description,
+                                 :profile_url, :price)
   end
 
   def user_filter
