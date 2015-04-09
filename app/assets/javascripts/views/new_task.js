@@ -2,26 +2,52 @@
 
 TaskForce.Views.NewTask = Backbone.CompositeView.extend({
 
+  events: {
+    'click a.tasker-profile' : 'showTasker'
+  },
+
   initialize: function () {
     this.$el.append('<section class="form-area"></section>');
     this.$el.append('<section class="tasker-area"></section>');
-    this.$el.append('<section class="tasker-profile"></section>')
+    this.$el.append('<section class="tasker-detail"></section>');
+
     this.task = new TaskForce.Models.Task();
     this.taskers = new TaskForce.Collections.Users();
+    this.tasker = new TaskForce.Models.User();
 
     var displayOptions = { task: this.task, taskers: this.taskers };
 
-    this.taskForm = new TaskForce.Views.NewTaskForm( displayOptions);
-    this.taskerDisplay = new TaskForce.Views.TaskerDisplay( displayOptions );
+    this.taskForm = new TaskForce.Views.NewTaskForm( { task: this.task, taskers: this.taskers } );
+    this.taskerDisplay = new TaskForce.Views.TaskerDisplay( { task: this.task, taskers: this.taskers, tasker: this.tasker} );
+    this.taskerDetails = new TaskForce.Views.TaskerDetail( { model: this.tasker })
 
     this.addSubview('.form-area', this.taskForm);
     this.addSubview('.tasker-area', this.taskerDisplay);
+    this.addSubview('.tasker-detail', this.taskerDetails);
   },
 
   render: function () {
     this.attachSubviews();
     return this;
+  },
+
+  showTasker: function (event) {
+    this.removeTasker();
+    event.preventDefault();
+    var id = $(event.currentTarget).data('id');
+    var tasker = this.taskers.get(id);
+    var taskView = new TaskForce.Views.TaskerProfile({ model: tasker });
+    this.addSubview('.tasker-profile', taskView);
+    this.$el.append(taskView.render().$el);
+  },
+
+  removeTasker: function() {
+    var subview = this.findSubview('.tasker-profile');
+    if (subview) {
+      this.removeSubview('.tasker-profile', subview)
+    }
   }
+
 });
 
 TaskForce.Views.NewTaskForm = Backbone.CompositeView.extend({
@@ -33,7 +59,7 @@ TaskForce.Views.NewTaskForm = Backbone.CompositeView.extend({
   },
 
   events: {
-    'submit': 'submit'
+    'submit': 'submit',
   },
 
   render: function () {
@@ -44,7 +70,8 @@ TaskForce.Views.NewTaskForm = Backbone.CompositeView.extend({
 
   submit: function (event) {
     event.preventDefault();
-    var tasks, model, content, taskers, area;
+    var tasks, model, content, taskers, area, form;
+    form = this;
     taskers = this.taskers;
     tasks = this.tasks;
     content = $('form').serializeJSON();
@@ -56,8 +83,8 @@ TaskForce.Views.NewTaskForm = Backbone.CompositeView.extend({
       error: function () {
           alert("no taskers available that fit those criteria sorry");
       }
-    })
-  }
+    });
+  },
 });
 
 TaskForce.Views.TaskerDisplay = Backbone.CompositeView.extend({
@@ -69,7 +96,6 @@ TaskForce.Views.TaskerDisplay = Backbone.CompositeView.extend({
 
   events: {
     'click button.select-me' : 'submit',
-    'click a.tasker-profile' : 'showTasker'
   },
 
   initialize: function (options) {
@@ -79,15 +105,17 @@ TaskForce.Views.TaskerDisplay = Backbone.CompositeView.extend({
   },
 
   render: function () {
-    this.removeSubviews();
-    var $el = this.$el;
-    var content;
-    var template = this.template;
-    this.$el.empty();
-    this.taskers.each(function (tasker) {
-      content = template( {user: tasker, pick_me: true} );
-      $el.append(content);
-    })
+    var $el, content, template;
+    if (!this.taskers.isEmpty()) {
+      $el = this.$el;
+      content;
+      template = this.template;
+      this.$el.empty();
+      this.taskers.each(function (tasker) {
+        content = template( {user: tasker, pick_me: true} );
+        $el.append(content);
+      })
+    }
     return this;
   },
 
@@ -106,14 +134,4 @@ TaskForce.Views.TaskerDisplay = Backbone.CompositeView.extend({
     })
   },
 
-  showTasker: function (event) {
-    event.preventDefault();
-    var id = $(event.currentTarget).data('id');
-    var tasker = this.taskers.get(id);
-    var taskView = new TaskForce.Views.TaskerProfile({ model: tasker });
-    this.addSubview('.tasker-profile', taskView);
-    this.$el.append(taskView.render().$el);
-  },
-
-  removeSubviews: function() {}
 });

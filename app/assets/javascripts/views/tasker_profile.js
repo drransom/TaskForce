@@ -23,13 +23,17 @@ TaskForce.Views.TaskerDetail = Backbone.CompositeView.extend({
 
   template: JST['tasker_detail'],
 
-  render: function () {
-    this.attachSubviews();
-    var content = this.template( {user: this.model});
-    this.$el.html(content);
-    return this;
+  initialize: function () {
+    this.listenTo(this.model, 'change', this.render)
   },
 
+  render: function () {
+    if (!this.model.isNew()) {
+      var content = this.template( {user: this.model});
+      this.$el.html(content);
+    }
+    return this;
+  },
 });
 
 // TaskForce.Views.TaskerComments = Backbone.View.extend({

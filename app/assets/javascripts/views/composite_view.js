@@ -65,5 +65,14 @@ Backbone.CompositeView = Backbone.View.extend({
     } else {
       return this._subviews;
     }
+  },
+
+  findSubview: function(selector) {
+    subviews = this.subviews(selector)
+    if (subviews.length > 0) {
+      return subviews[0]
+    } else {
+      return null
+    }
   }
 });
