@@ -5,6 +5,7 @@ TaskForce.Views.NewTask = Backbone.CompositeView.extend({
   initialize: function () {
     this.$el.append('<section class="form-area"></section>');
     this.$el.append('<section class="tasker-area"></section>');
+    this.$el.append('<section class="tasker-profile"></section>')
     this.task = new TaskForce.Models.Task();
     this.taskers = new TaskForce.Collections.Users();
 
@@ -59,7 +60,7 @@ TaskForce.Views.NewTaskForm = Backbone.CompositeView.extend({
   }
 });
 
-TaskForce.Views.TaskerDisplay = Backbone.View.extend({
+TaskForce.Views.TaskerDisplay = Backbone.CompositeView.extend({
 
   template: JST['mini_profile'],
 
@@ -67,7 +68,8 @@ TaskForce.Views.TaskerDisplay = Backbone.View.extend({
   className: 'container',
 
   events: {
-    'click button.select-me' : 'submit'
+    'click button.select-me' : 'submit',
+    'click a.tasker-profile' : 'showTasker'
   },
 
   initialize: function (options) {
@@ -77,6 +79,7 @@ TaskForce.Views.TaskerDisplay = Backbone.View.extend({
   },
 
   render: function () {
+    this.removeSubviews();
     var $el = this.$el;
     var content;
     var template = this.template;
@@ -89,10 +92,9 @@ TaskForce.Views.TaskerDisplay = Backbone.View.extend({
   },
 
   submit: function (event) {
-    debugger
     event.preventDefault();
-    var id = $(event.currentTarget).data('id')
-    this.task.set( { tasker_id: id })
+    var id = $(event.currentTarget).data('id');
+    this.task.set( { tasker_id: id });
     this.task.save ({}, {
       success: function () {
         alert("successfully created task");
@@ -102,7 +104,16 @@ TaskForce.Views.TaskerDisplay = Backbone.View.extend({
         alert("something went wrong")
       }
     })
-  }
+  },
 
+  showTasker: function (event) {
+    event.preventDefault();
+    var id = $(event.currentTarget).data('id');
+    var tasker = this.taskers.get(id);
+    var taskView = new TaskForce.Views.TaskerProfile({ model: tasker });
+    this.addSubview('.tasker-profile', taskView);
+    this.$el.append(taskView.render().$el);
+  },
 
+  removeSubviews: function() {}
 });

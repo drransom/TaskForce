@@ -3,4 +3,7 @@ json.array! @taskers.each do |tasker|
   json.name tasker.name
   json.num_completed tasker.num_completed
   json.profile_url tasker.profile_url
+  json.description tasker.description
+  json.vehicle tasker.vehicle
+  json.location tasker.location
 end

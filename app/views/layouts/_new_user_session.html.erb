@@ -5,23 +5,32 @@
   <% header = "Sign Up" %>
   <% action = "/users" %>
 <% end %>
+<section class=".container login-form">
+  <div class="col-md-3 col-md-offset-4">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h2 class="panel-title"><%= header %></h2>
+      </div>
+      <div class="panel-body">
+        <%= render partial: 'layouts/errors' %>
 
-<h2><%= header %></h2>
-<%= render partial: 'layouts/errors' %>
-
-<form action="<%= action %>" method="post">
-  <%= auth_token_input %>
-  <label>Email<br>
-    <input name="user[email]" type="text"<br>
-  </label><br>
-  <label>Password<br>
-    <input name="user[password]" type="password"><br>
-  </label><br>
-  <input type="submit" value="Submit" class="btn btn-primary btn-std-color">
-</form>
-or <form action="/session" method="post">
-  <%= auth_token_input %>
-    <input type = "hidden" name="user[email]" value="guest@starwars.com">
-    <input name="user[password]" type ="hidden" value="password">
-    <input type="submit" value="Login as guest" class="btn btn-primary btn-std-color">
-</form>
+        <form action="<%= action %>" method="post">
+          <%= auth_token_input %>
+          <label>Email<br>
+            <input name="user[email]" type="text"<br>
+          </label><br>
+          <label>Password<br>
+            <input name="user[password]" type="password"><br>
+          </label><br>
+          <input type="submit" value="Submit" class="btn btn-primary btn-std-color">
+        </form>
+        or <form action="/session" method="post">
+          <%= auth_token_input %>
+            <input type = "hidden" name="user[email]" value="guest@starwars.com">
+            <input name="user[password]" type ="hidden" value="password">
+            <input type="submit" value="Login as guest" class="btn btn-primary btn-std-color">
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

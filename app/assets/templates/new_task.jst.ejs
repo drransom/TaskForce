@@ -5,29 +5,33 @@
 <% var times = ["Any Time", "8AM - 12PM", "12PM - 4PM", "4PM - 8PM"] %>
 <% var locations = ["Coruscant", "Endor", "Hoth", "Tatooine"] %>
 
-<h2>New Task</h2>
-<form class="navbar-form navbar-left" action="/tasks" method="post">
-  <h4>Will the task require a vehicle?</h4>
-  <% for (i = 0; i < vehicles.length; i++ ) { %>
-    <label><input type="radio" name="vehicle" value = "<%= vehicles[i][0] %>"><%= vehicles[i][1] %></label><br>
-  <% } %>
+<section class=".container new-task-form row">
+  <div class="col-md-3 col-md-offset-4">
+    <h2>New Task</h2>
+    <form class="form-group" action="/tasks" method="post">
+      <h3>Will the task require a vehicle?</h4>
+      <% for (i = 0; i < vehicles.length; i++ ) { %>
+        <label><input type="radio" name="vehicle" value = "<%= vehicles[i][0] %>" required><%= vehicles[i][1] %></label>&nbsp;
+      <% } %>
 
-  <h4>Tell Us About Your Task</h4>
-  <textarea class="field textarea form--block-input" name="description" placeholder="EXAMPLE: There's a restaurant on 3rd St. that I really want to try, but a group of Imperial Stormtroopers are blocking the path. Can you take them out for me?" rows="8">
-  </textarea>
+      <h3>Tell Us About Your Task</h3>
+      <textarea class="form-control" name="description" placeholder="EXAMPLE: There's a restaurant on 3rd St. that I really want to try, but a group of Imperial Stormtroopers are blocking the path. Can you take them out for me?" rows="8" required></textarea>
 
-  <h4>Your Task Date & Time</h4>
-  <div class="input-group">
-    <input type="date" name="task_date"><br>
-    <% for (var i = 0; i < times.length; i++) { %>
-      <label><input type="radio" name="time_slot" value = "<%= i %>"><%= times[i] %></label><br>
-    <% } %>
+      <h3>Your Task Date & Time</h3>
+      <div class="input-group">
+        <input type="date" name="task_date" required><br>
+        <% for (var i = 0; i < times.length; i++) { %>
+          <label><input type="radio" name="time_slot" value = "<%= i %>" required><%= times[i] %></label>&nbsp;
+        <% } %>
+      </div>
+
+      <h3>Where is your task taking place?</h3>
+      <div class="input-group">
+        <% for (var i=0; i < locations.length; i++) { %>
+          <label><input type="radio" name="location" value="<%= locations[i] %>" required><%= locations[i] %></label>&nbsp;
+        <% } %>
+      </div><br>
+      <input type="submit" value="Submit" class="btn btn-primary btn-std-color">
+    </form>
   </div>
-
-  <h4>Where is your task taking place?</h4>
-  <% for (var i=0; i < locations.length; i++) { %>
-    <label><input type="radio" name="location" value="<%= locations[i] %>"><%= locations[i] %></label><br>
-  <% } %>
-
-  <input type="submit" value="Submit" class="btn btn-primary btn-std-color">
-</form>
+</section><br>
