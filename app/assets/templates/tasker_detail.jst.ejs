@@ -1,4 +1,5 @@
-  <div class="col-md-4 col-md-offset-4">
+  <div class="modal fade">
+    <div class="modal-body">
     <div class="thumbnail">
       <img src="<%= user.get('profile_url') %>">
     </div>
@@ -9,5 +10,6 @@
       <li class="list-group-item">Location: <%= user.get('location') %></li>
       <li class="list-group-item"><%= user.get('description') %></li>
     </ul>
+  </div>
   </div>
 </div>

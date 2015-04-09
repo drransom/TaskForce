@@ -18,7 +18,7 @@
       <textarea class="form-control" name="description" placeholder="EXAMPLE: There's a restaurant on 3rd St. that I really want to try, but a group of Imperial Stormtroopers are blocking the path. Can you take them out for me?" rows="8" required></textarea>
 
       <h3>Your Task Date & Time</h3>
-      <div class="input-group">
+      <div class="input-group" type="hidden">
         <input type="date" name="task_date" required><br>
         <% for (var i = 0; i < times.length; i++) { %>
           <label><input type="radio" name="time_slot" value = "<%= i %>" required><%= times[i] %></label>&nbsp;
@@ -34,4 +34,4 @@
       <input type="submit" value="Submit Task" class="btn btn-primary btn-std-color btn-submit">
     </form>
   </div>
-</section><br>
+</section>
