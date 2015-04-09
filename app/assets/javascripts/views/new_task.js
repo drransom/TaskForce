@@ -2,10 +2,6 @@
 
 TaskForce.Views.NewTask = Backbone.CompositeView.extend({
 
-  events: {
-    'click a.tasker-profile' : 'showTasker'
-  },
-
   initialize: function () {
     this.$el.append('<section class="form-area"></section>');
     this.$el.append('<section class="tasker-area"></section>');
@@ -15,9 +11,7 @@ TaskForce.Views.NewTask = Backbone.CompositeView.extend({
     this.taskers = new TaskForce.Collections.Users();
     this.tasker = new TaskForce.Models.User();
 
-    var displayOptions = { task: this.task, taskers: this.taskers };
-
-    this.taskForm = new TaskForce.Views.NewTaskForm( { task: this.task, taskers: this.taskers } );
+    this.taskForm = new TaskForce.Views.NewTaskForm( { task: this.task, taskers: this.taskers, tasker: this.tasker } );
     this.taskerDisplay = new TaskForce.Views.TaskerDisplay( { task: this.task, taskers: this.taskers, tasker: this.tasker} );
     this.taskerDetails = new TaskForce.Views.TaskerDetail( { model: this.tasker })
 
@@ -31,23 +25,6 @@ TaskForce.Views.NewTask = Backbone.CompositeView.extend({
     return this;
   },
 
-  showTasker: function (event) {
-    this.removeTasker();
-    event.preventDefault();
-    var id = $(event.currentTarget).data('id');
-    var tasker = this.taskers.get(id);
-    var taskView = new TaskForce.Views.TaskerProfile({ model: tasker });
-    this.addSubview('.tasker-profile', taskView);
-    this.$el.append(taskView.render().$el);
-  },
-
-  removeTasker: function() {
-    var subview = this.findSubview('.tasker-profile');
-    if (subview) {
-      this.removeSubview('.tasker-profile', subview)
-    }
-  }
-
 });
 
 TaskForce.Views.NewTaskForm = Backbone.CompositeView.extend({
@@ -56,6 +33,7 @@ TaskForce.Views.NewTaskForm = Backbone.CompositeView.extend({
   initialize: function (options) {
     this.task = options.task;
     this.taskers = options.taskers;
+    this.tasker = options.tasker
   },
 
   events: {
@@ -70,16 +48,16 @@ TaskForce.Views.NewTaskForm = Backbone.CompositeView.extend({
 
   submit: function (event) {
     event.preventDefault();
-    var tasks, model, content, taskers, area, form;
-    form = this;
-    taskers = this.taskers;
-    tasks = this.tasks;
-    content = $('form').serializeJSON();
-    area = this.$el;
+    var content = $('form').serializeJSON();
+    var tasker = this.tasker;
     this.task.set(content);
 
-    taskers.fetch({
+    this.taskers.fetch({
       data: content,
+      success: function () {
+        tasker.unset('id');
+        $('.btn-submit').attr("value", "Change Task"); // trigger detail reset and mark model new
+      },
       error: function () {
           alert("no taskers available that fit those criteria sorry");
       }
@@ -96,11 +74,13 @@ TaskForce.Views.TaskerDisplay = Backbone.CompositeView.extend({
 
   events: {
     'click button.select-me' : 'submit',
+    'click a.tasker-profile' : 'updateModel'
   },
 
   initialize: function (options) {
     this.task = options.task;
     this.taskers = options.taskers;
+    this.tasker = options.tasker;
     this.listenTo(this.taskers, 'add remove', this.render)
   },
 
@@ -134,4 +114,9 @@ TaskForce.Views.TaskerDisplay = Backbone.CompositeView.extend({
     })
   },
 
+  updateModel: function (event) {
+    event.preventDefault();
+    var id = $(event.currentTarget).data('id');
+    this.tasker.set(this.taskers.get(id).attributes);
+  }
 });
