@@ -3,8 +3,8 @@
 TaskForce.Views.NewTask = Backbone.CompositeView.extend({
 
   initialize: function () {
-    this.$el.append('<div class="form-area"></div>');
-    this.$el.append('<div class="tasker-area"></div>');
+    this.$el.append('<section class="form-area"></section>');
+    this.$el.append('<section class="tasker-area"></section>');
     this.task = new TaskForce.Models.Task();
     this.taskers = new TaskForce.Collections.Users();
 
@@ -48,12 +48,12 @@ TaskForce.Views.NewTaskForm = Backbone.CompositeView.extend({
     tasks = this.tasks;
     content = $('form').serializeJSON();
     area = this.$el;
+    this.task.set(content);
 
     taskers.fetch({
       data: content,
-      success: function (collection, response) {
-      },
       error: function () {
+          alert("no taskers available that fit those criteria sorry");
       }
     })
   }
@@ -65,6 +65,10 @@ TaskForce.Views.TaskerDisplay = Backbone.View.extend({
 
   tagName: 'section',
   className: 'container',
+
+  events: {
+    'click button.select-me' : 'submit'
+  },
 
   initialize: function (options) {
     this.task = options.task;
@@ -82,5 +86,23 @@ TaskForce.Views.TaskerDisplay = Backbone.View.extend({
       $el.append(content);
     })
     return this;
+  },
+
+  submit: function (event) {
+    debugger
+    event.preventDefault();
+    var id = $(event.currentTarget).data('id')
+    this.task.set( { tasker_id: id })
+    this.task.save ({}, {
+      success: function () {
+        alert("successfully created task");
+        Backbone.history.navigate('', {trigger: true});
+      },
+      error: function () {
+        alert("something went wrong")
+      }
+    })
   }
+
+
 });

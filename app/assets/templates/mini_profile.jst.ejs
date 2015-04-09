@@ -2,12 +2,13 @@
 <div class="col-md-4">
   <ul class="list-group">
     <li class="list-group-item"><%= user.get('email') %></li>
-    <li class="list-group-item"><%= user.get('description') %></li>
+    <li class="list-group-item">100% Positive <%= user.get('tasks_completed') %></li>
+
   </ul>
   <% if (pick_me) { %>
-    <div class="btn-group btn-group-lg">
-      <button type="button" class="btn btn-default btn-std-color learn-more">Details</button>
-      <button type="button" class="btn btn-default btn-std-color select-me">Choose this Tasker</button>
+    <button type="button" class="btn btn-default btn-large btn-std-color select-me"
+      data-id="<%= user.get('id') %>">Choose This Tasker</button>
+    <a href="javascript:void(0)>See reviews & profile</a>
     </div>
   <% } %>
 </div>

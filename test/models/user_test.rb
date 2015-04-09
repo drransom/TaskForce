@@ -12,6 +12,10 @@
 #  vehicle         :string
 #  location        :string
 #  description     :text
+#  profile_url     :string
+#  price           :integer
+#  num_completed   :integer          default(0)
+#  name            :string
 #
 
 require 'test_helper'
