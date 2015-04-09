@@ -12,6 +12,6 @@ class TasksController < ApplicationController
 
   def task_params
     params.require(:task).permit(:owner_id, :title, :description, :location,
-      :task_date, :time_slot, :vehicle, :completed, :price)
+      :task_date, :time_slot, :vehicle, :completed, :price, :tasker_id)
   end
 end
