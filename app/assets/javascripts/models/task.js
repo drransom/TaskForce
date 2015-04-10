@@ -1,6 +1,6 @@
 "use strict";
 
 TaskForce.Models.Task = Backbone.Model.extend({
-  urlRoot: '/tasks'
+  urlRoot: '/api/tasks'
 
 });
