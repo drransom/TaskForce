@@ -54,11 +54,31 @@ guest = User.create({
         password: 'password'
         })
 
+yoda = User.create({
+        email: "yoda@starwars.com",
+        name: "Yoda",
+        location: "Dagobah",
+        vehicle: "none",
+        description: "A wise master",
+        num_completed: Random.rand(100) + 1,
+        price: 25,
+        profile_url: 'http://www.empireonline.com/images/features/100greatestcharacters/photos/25.jpg'
+        tasker: true,
+        password: 'password'
+  })
+
 emails = ["luke", "leia", "darthvader"].map { |email| email + "@starwars.com" }
 locations = ["Tatooine", "Tatooine", "Coruscant"]
 starships = ["Starship", "Starship", "Battle Station"]
 descriptions = ["The First New Jedi", "The Real Hero", "Evil Incarnate"]
 
-t1 = Task.create(owner_id: 1, title: "Destroy Death Star",
+t1 = Task.create(owner_id: 4, title: "Destroy Death Star",
               description: "Create a chain reaction", location: "Death Star",
-              vehicle: "Starship", completed: "neither")
+              vehicle: "Starship", completed: "neither"
+              category: "military", tasker_id: 1
+              )
+
+t2 = Task.create(owner_id: 4, title: "Move X-wing", description:
+                 "My X-wing is in a swamp and needs to be removed."
+                 location: "Dagobah", vehicle: "none", completed: "neither",
+                 category: "move", tasker_id: 5)

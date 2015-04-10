@@ -15,6 +15,7 @@
 #  updated_at  :datetime         not null
 #  task_date   :date
 #  time_slot   :integer
+#  category    :string
 #
 
 require 'test_helper'

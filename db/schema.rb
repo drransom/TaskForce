@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150409020203) do
+ActiveRecord::Schema.define(version: 20150410163214) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20150409020203) do
     t.datetime "updated_at",                      null: false
     t.date     "task_date"
     t.integer  "time_slot"
+    t.string   "category"
   end
 
   add_index "tasks", ["location"], name: "index_tasks_on_location", using: :btree
