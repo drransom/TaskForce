@@ -21,9 +21,14 @@ TaskForce.Views.TaskerProfile = Backbone.CompositeView.extend({
 
 TaskForce.Views.TaskerDetail = Backbone.CompositeView.extend({
 
+  events: {
+    'click button.select-me' : 'submit'
+  },
+
   template: JST['tasker_detail'],
 
-  initialize: function () {
+  initialize: function (options) {
+    this.task = options.task;
     this.listenTo(this.model, 'change set', this.render)
   },
 
@@ -34,6 +39,20 @@ TaskForce.Views.TaskerDetail = Backbone.CompositeView.extend({
       $('#taskerDetail').modal('show');
     }
     return this;
+  },
+
+  submit: function (event) {
+    event.preventDefault();
+    this.task.set( { tasker_id: this.model.get('id') });
+    this.task.save ({}, {
+      success: function () {
+        alert("successfully created task");
+        Backbone.history.navigate('', {trigger: true});
+      },
+      error: function () {
+        alert("something went wrong")
+      }
+    })
   },
 });
 

@@ -1,16 +1,20 @@
 <div class="modal" id="taskerDetail">
-  <div class="container.fluid">
+  <div class="container-fluid">
     <% if (!user.isNew()) { %>
-      <div class="col-md-4">
+      <div class="col-md-3">
+        <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h2><%= user.get('name') %></h2>
         <div class="thumbnail">
           <img src="<%= user.get('profile_url') %>">
         </div>
         <ul class="list-group">
-          <li class="list-group-item"><%= user.get('name') %></li>
           <li class="list-group-item">100% Positive <%= user.get('num_completed') %> completed</li>
           <li class="list-group-item">Vehicle: <%= user.get('vehicle') %></li>
           <li class="list-group-item">Location: <%= user.get('location') %></li>
           <li class="list-group-item"><%= user.get('description') %></li>
+          <li class="list-group-item"><button type="button" class="btn btn-default btn-large btn-std-color select-me"
+                  >Choose This Tasker</button><br></li>
         </ul>
       </div>
     <% } %>

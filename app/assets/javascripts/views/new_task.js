@@ -13,7 +13,7 @@ TaskForce.Views.NewTask = Backbone.CompositeView.extend({
 
     this.taskForm = new TaskForce.Views.NewTaskForm( { task: this.task, taskers: this.taskers, tasker: this.tasker } );
     this.taskerDisplay = new TaskForce.Views.TaskerDisplay( { task: this.task, taskers: this.taskers, tasker: this.tasker} );
-    this.taskerDetails = new TaskForce.Views.TaskerDetail( { model: this.tasker })
+    this.taskerDetails = new TaskForce.Views.TaskerDetail( { model: this.tasker, task: this.task })
 
     this.addSubview('.form-area', this.taskForm);
     this.addSubview('.tasker-area', this.taskerDisplay);
@@ -91,6 +91,7 @@ TaskForce.Views.TaskerDisplay = Backbone.CompositeView.extend({
       content;
       template = this.template;
       this.$el.empty();
+      this.$el.append("<h2>Taskers</h2>")
       this.taskers.each(function (tasker) {
         content = template( {user: tasker, pick_me: true} );
         $el.append(content);
