@@ -28,11 +28,10 @@ TaskForce.Views.TaskerDetail = Backbone.CompositeView.extend({
   },
 
   render: function () {
+    var content = this.template( {user: this.model});
+    this.$el.html(content);
     if (!this.model.isNew()) {
-      var content = this.template( {user: this.model});
-      this.$el.html(content);
-    } else {
-      this.$el.empty();
+      $('#taskerDetail').modal('show');
     }
     return this;
   },

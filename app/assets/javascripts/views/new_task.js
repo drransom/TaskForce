@@ -117,6 +117,10 @@ TaskForce.Views.TaskerDisplay = Backbone.CompositeView.extend({
   updateModel: function (event) {
     event.preventDefault();
     var id = $(event.currentTarget).data('id');
-    this.tasker.set(this.taskers.get(id).attributes);
+    if (id !== this.tasker.get('id')) {
+      this.tasker.set(this.taskers.get(id).attributes);
+    } else {
+      this.tasker.trigger('change');
+    }
   }
 });
