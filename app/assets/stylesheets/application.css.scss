@@ -70,3 +70,16 @@ div.form-field-title-section {
   color: #969d9e;
   font-size: 16px;
 }
+
+div.date-picker_date-container {
+  font-family: Proxima, Arial, Helvetica, sans-serif;
+}
+
+div.date-picker_date-container.u-semibold {
+  font-weight: bold;
+}
+
+div.date-picker_date-container.active {
+  color: white;
+  background-color: #00964B
+}

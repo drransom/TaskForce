@@ -1,0 +1,22 @@
+<% var date = new Date(); %>
+<% var s = date.toString().split() %>
+<% var day = s[0] %>
+<% var month = s[1] %>
+<% var day_num = date.day %>
+
+<div class="date-picker_date-container">
+  <input class="date-picker__date-input" name="date" type="radio" value="<%= date %>">
+    <label class="date_picker-item">
+      <div class="date-item_month <%= fontClass %>"><%= month %></div>
+      <div class="date-item_day_num <%= fontClass %>"><%= day_num %></div>
+      <div class="date-item_day <%= fontClass %>"><%= day %></div>
+      <select class="date-item__time-select" name="time_slot">
+        <option value="">Pick timeslot</option>
+        <option value="0">Any Time</option>
+        <option value="1">8AM - 12PM</option>
+        <option value="2">12PM - 4PM</option>
+        <option value="3">4PM - 8PM</option>
+      </select>
+    </label>
+  </input>
+</div>
