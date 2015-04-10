@@ -5,7 +5,10 @@
     </div>
     <ul class="list-group">
       <li class="list-group-item"><%= user.get('name') %></li>
-      <li class="list-group-item">100% Positive <%= user.get('num_completed') %> completed</li>
+      <li class="list-group-item"><a href="javascript:void(0)"
+        data-toggle="tooltip" data-placement="left"
+        title="<= TaskForce.Api.guarantee %>"
+        >100% Positive<%= user.get('num_completed') %> completed</li>
     </ul>
     <% if (pick_me) { %>
       <button type="button" class="btn btn-default btn-large btn-std-color select-me"

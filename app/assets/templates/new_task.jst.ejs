@@ -6,29 +6,30 @@
 <% var locations = ["Coruscant", "Endor", "Hoth", "Tatooine"] %>
 
 <section class=".container new-task-form row">
-  <div class="col-md-3 col-md-offset-4">
+  <div class="col-md-6 col-md-offset-3">
     <h2>New Task</h2>
     <form class="form-group" action="/tasks" method="post">
-      <h3>Will the task require a vehicle?</h4>
+      <div class="form-field-title-section">TASK DETAILS</div>
+      <h4 class="input-fields-title">Will the task require a vehicle?</h4>
       <% for (i = 0; i < vehicles.length; i++ ) { %>
-        <label><input type="radio" name="vehicle" value = "<%= vehicles[i][0] %>" required><%= vehicles[i][1] %></label>&nbsp;
+        <label><input type="radio" name="vehicle" value = "<%= vehicles[i][0] %>" required><%= vehicles[i][1] %></label><br>
       <% } %>
 
-      <h3>Tell Us About Your Task</h3>
+      <div class="form-field-title-section">TELL US ABOUT YOUR TASK</div>
       <textarea class="form-control" name="description" placeholder="EXAMPLE: There's a restaurant on 3rd St. that I really want to try, but a group of Imperial Stormtroopers are blocking the path. Can you take them out for me?" rows="8" required></textarea>
 
-      <h3>Your Task Date & Time</h3>
+      <div class="form-field-title-section">YOUR TASK DATE & TIME</div>
       <div class="input-group" type="hidden">
         <input type="date" name="task_date" required><br>
         <% for (var i = 0; i < times.length; i++) { %>
-          <label><input type="radio" name="time_slot" value = "<%= i %>" required><%= times[i] %></label>&nbsp;
+          <label><input type="radio" name="time_slot" value = "<%= i %>" required><%= times[i] %></label><br>
         <% } %>
       </div>
 
-      <h3>Where is your task taking place?</h3>
+      <div class="form-field-title-section">WHAT SYSTEM IS YOUR TASK IN?</div>
       <div class="input-group">
         <% for (var i=0; i < locations.length; i++) { %>
-          <label><input type="radio" name="location" value="<%= locations[i] %>" required><%= locations[i] %></label>&nbsp;
+          <label><input type="radio" name="location" value="<%= locations[i] %>" required><%= locations[i] %></label><br>
         <% } %>
       </div><br>
       <input type="submit" value="Submit Task" class="btn btn-primary btn-std-color btn-submit">
