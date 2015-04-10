@@ -14,7 +14,7 @@ Users can:
 - [X] Create accounts
 - [X] Create sessions (log in)
 - [X] Create tasks
-- [ ] View potential Taskers for a task
+- [X] View potential Taskers for a task
 - [ ] Submit tasks for approval by a user
 - [ ] Accept tasks
 - [ ] Mark tasks as completed
