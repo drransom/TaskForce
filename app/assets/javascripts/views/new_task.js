@@ -28,7 +28,7 @@ TaskForce.Views.NewTask = Backbone.CompositeView.extend({
 });
 
 TaskForce.Views.NewTaskForm = Backbone.CompositeView.extend({
-  template: JST['new_task'],
+  template: JST['date_container'],
 
   initialize: function (options) {
     this.task = options.task;
