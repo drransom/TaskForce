@@ -1,17 +1,16 @@
 TaskForce.Views.IndexView = Backbone.CompositeView.extend({
-  //expects submission of: template, collection, index_model, user_model,
-  //heading, template_options
+  //expects submission of: template, collection, indexModel, user_model,
+  //heading, templateOptions
   //assumes that each individual template item will have id data
 
   tagName: 'section',
   className: 'container',
 
   initialize: function (options) {
-    debugger
-    this.index_model = options.index_model;
+    this.indexModel = options.indexModel;
     this.heading = options.heading;
     this.template = options.template;
-    this.template_options = options.template_options || {};
+    this.templateOptions = options.templateOptions || {};
     this.listenTo(this.collection, 'add remove set', this.render)
   },
 
@@ -20,9 +19,8 @@ TaskForce.Views.IndexView = Backbone.CompositeView.extend({
       this.$el.empty();
       this.$el.append(this.heading)
       this.collection.each(function (model) {
-        debugger
         content = this.template( this.mergeObjects(
-          this.template_options, { model: model } ));
+          this.templateOptions, { model: model } ));
         this.$el.append(content);
       }.bind(this))
     }
@@ -32,10 +30,10 @@ TaskForce.Views.IndexView = Backbone.CompositeView.extend({
   updateModel: function (event) {
     event.preventDefault();
     var id = $(event.currentTarget).data('id');
-    if (id !== this.index_model.get('id')) {
-      this.index_model.set(this.collection.get(id).attributes);
+    if (id !== this.indexModel.get('id')) {
+      this.indexModel.set(this.collection.get(id).attributes);
     } else {
-      this.index_model.trigger('change');
+      this.indexModel.trigger('change');
     }
   },
 
