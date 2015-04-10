@@ -24,6 +24,7 @@ TaskForce.Views.IndexView = Backbone.CompositeView.extend({
         this.$el.append(content);
       }.bind(this))
     }
+    this.$el.find('[data-toggle="tooltip"]').tooltip();
     return this;
   },
 

@@ -1,14 +1,14 @@
 <% var pick_me = pick_me || false %>
-  <div class="col-md-4">
+  <div class="col-md-4 mini-profile">
     <div class="thumbnail">
       <img src="<%= model.get('profile_url')%>"  class="profile-img">
     </div>
     <ul class="list-group">
       <li class="list-group-item"><%= model.get('name') %></li>
-      <li class="list-group-item"><a href="javascript:void(0)"
-        data-toggle="tooltip" data-placement="left"
-        title="<= TaskForce.Api.guarantee %>"
-        >100% Positive<%= model.get('num_completed') %> completed</li>
+      <li class="list-group-item"><a class="a-rating rating-tasks" href="javascript:void(0)"
+        data-toggle="tooltip" data-placement="left" data-delay="100"
+        title="<%= TaskForce.Helpers.guarantee %>"
+        >100% Positive</a> <%= model.get('num_completed') %> completed</li>
     </ul>
     <% if (pick_me) { %>
       <button type="button" class="btn btn-default btn-large btn-std-color select-me"
