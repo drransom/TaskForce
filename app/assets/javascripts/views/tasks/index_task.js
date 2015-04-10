@@ -10,9 +10,10 @@ TaskForce.Views.TaskIndex = Backbone.CompositeView.extend({
 
     this.collection.fetch();
 
-    this.model = new TaskForce.Collections.Task();
+    this.model = new TaskForce.Models.Task();
 
     var displayOptions = {
+      collection: this.collection,
       indexModel: this.model,
       heading: "<h2 class='tasks-header'>Your tasks</h2>",
       template: JST['mini_task'],
@@ -32,6 +33,6 @@ TaskForce.Views.TaskIndex = Backbone.CompositeView.extend({
 
 });
 
-TaskForce.Views.TaskerDisplay = TaskForce.Views.IndexView.extend({
+TaskForce.Views.TaskDisplay = TaskForce.Views.IndexView.extend({
   //no body needed here yet
 });
