@@ -1,0 +1,17 @@
+<% var times = ["any time", "morning", "afternoon", "evening"] %>
+
+<% var date = model.get('date').toDateString().split(' ') %>
+<% var day = date[0] %>
+<% var month = date[1] %>
+<% var day_num = date[2] %>
+<% var year = date[3] %>
+<% var time = times[model.get('time')] %>
+
+<div class="col-md-4 mini-task">
+  <ul class="list-group">
+    <li class="list-group-item"><%= model.get('category') %></li>
+    <li class="list-group-item">Tasker: <%= model.get('taskerName') %></li>
+  </ul>
+  <button type="button" class="btn btn-default btn-std-color select-me"
+    data-id="<%= model.get('id') %>">Mark complete</button><br>
+</div>

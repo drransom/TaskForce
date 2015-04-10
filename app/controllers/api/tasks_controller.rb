@@ -12,6 +12,12 @@ module Api
       end
     end
 
+    def index
+      @tasks = Task.where(tasker_id: current_user.id)
+      render :index
+      end
+    end
+
     def task_params
       params.require(:task).permit(:owner_id, :title, :description, :location,
         :task_date, :time_slot, :vehicle, :completed, :price, :tasker_id, :category)

@@ -6,14 +6,14 @@ TaskForce.Routers.Router = Backbone.Router.extend({
   },
 
   routes: {
-  //  '' : 'home',
+  '' : 'home',
     'tasks/new' : 'taskNew'
   },
-  //
-  // home: function() {
-  //   var view = new TaskForce.Views.Home();
-  //   this._swapView(view);
-  // },
+
+  home: function() {
+    var view = new TaskForce.Views.TaskIndex();
+    this._swapView(view);
+  },
 
   taskNew: function() {
     var task = new TaskForce.Models.Task();
@@ -24,6 +24,7 @@ TaskForce.Routers.Router = Backbone.Router.extend({
   _swapView: function(view) {
     this.currentView && this.currentView.remove();
     this.currentView = view;
-    this.$rootEl.html(view.render().$el)
+    this.$rootEl.html(view.$el)
+    view.render();
   }
 });

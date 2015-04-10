@@ -6,13 +6,9 @@ TaskForce.Views.TaskIndex = Backbone.CompositeView.extend({
     this.$el.append('<section class="task-area"></section>');
     this.$el.append('<section class="task-detail"></section>');
 
-    this.user = options.user;
-
     this.collection = new TaskForce.Collections.Tasks();
 
-    this.collection.fetch({
-      data: { user_id: this.user.get('id') }
-    })
+    this.collection.fetch();
 
     this.model = new TaskForce.Collections.Task();
 
@@ -37,5 +33,5 @@ TaskForce.Views.TaskIndex = Backbone.CompositeView.extend({
 });
 
 TaskForce.Views.TaskerDisplay = TaskForce.Views.IndexView.extend({
-
+  //no body needed here yet
 });
