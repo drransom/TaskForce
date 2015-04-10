@@ -16,6 +16,13 @@
         <label><input type="radio" name="vehicle" value = "<%= vehicles[i][0] %>" required><%= vehicles[i][1] %></label><br>
       <% } %>
 
+      <div class="form-field-title-section">WHAT TYPE OF TASK IS IT?</div>
+      <div class="input-group" type="hidden">
+        <% for (var i = 0; i < task_types.length; i++) { %>
+          <label><input type="radio" name="category" value = "<%= task_types[i][0] %>" required><%= task_types[i][1] %></label><br>
+        <% } %>
+      </div>
+
       <div class="form-field-title-section">TELL US ABOUT YOUR TASK</div>
       <textarea class="form-control" name="description" placeholder="EXAMPLE: There's a restaurant on 3rd St. that I really want to try, but a group of Imperial Stormtroopers are blocking the path. Can you take them out for me?" rows="8" required></textarea>
 
