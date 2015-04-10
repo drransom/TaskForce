@@ -7,8 +7,8 @@ TaskForce.Views.IndexView = Backbone.CompositeView.extend({
   className: 'container',
 
   initialize: function (options) {
+    debugger
     this.index_model = options.index_model;
-    this.user_model = options.user_model;
     this.heading = options.heading;
     this.template = options.template;
     this.template_options = options.template_options || {};
@@ -20,6 +20,7 @@ TaskForce.Views.IndexView = Backbone.CompositeView.extend({
       this.$el.empty();
       this.$el.append(this.heading)
       this.collection.each(function (model) {
+        debugger
         content = this.template( this.mergeObjects(
           this.template_options, { model: model } ));
         this.$el.append(content);

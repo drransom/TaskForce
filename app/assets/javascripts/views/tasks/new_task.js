@@ -11,8 +11,18 @@ TaskForce.Views.NewTask = Backbone.CompositeView.extend({
     this.taskers = new TaskForce.Collections.Users();
     this.tasker = new TaskForce.Models.User();
 
+    var viewsOptions = {
+      collection: this.taskers,
+
+      index_model: this.tasker,
+      heading: "<h2>Taskers</h2>",
+      template: JST['mini_profile'],
+      template_options: { pick_me: true },
+    }
+
     this.taskForm = new TaskForce.Views.NewTaskForm( { task: this.task, taskers: this.taskers, tasker: this.tasker } );
-    this.taskerDisplay = new TaskForce.Views.TaskerDisplay( { task: this.task, taskers: this.taskers, tasker: this.tasker} );
+    this.taskerDisplay = new TaskForce.Views.TaskerDisplay( viewsOptions );
+    this.taskerDisplay.setTask(this.task);
     this.taskerDetails = new TaskForce.Views.TaskerDetail( { model: this.tasker, task: this.task })
 
     this.addSubview('.form-area', this.taskForm);
@@ -28,13 +38,15 @@ TaskForce.Views.NewTask = Backbone.CompositeView.extend({
 });
 
 TaskForce.Views.NewTaskForm = Backbone.CompositeView.extend({
-  template: JST['new_task'],
+
 
   initialize: function (options) {
     this.task = options.task;
     this.taskers = options.taskers;
     this.tasker = options.tasker
   },
+
+  template: JST['new_task'],
 
   events: {
     'submit': 'submit',
@@ -65,9 +77,7 @@ TaskForce.Views.NewTaskForm = Backbone.CompositeView.extend({
   },
 });
 
-TaskForce.Views.TaskerDisplay = Backbone.CompositeView.extend({
-
-  template: JST['mini_profile'],
+TaskForce.Views.TaskerDisplay = TaskForce.Views.IndexView.extend({
 
   tagName: 'section',
   className: 'container',
@@ -77,28 +87,10 @@ TaskForce.Views.TaskerDisplay = Backbone.CompositeView.extend({
     'click a.tasker-profile' : 'updateModel'
   },
 
-  initialize: function (options) {
-    this.task = options.task;
-    this.taskers = options.taskers;
-    this.tasker = options.tasker;
-    this.listenTo(this.taskers, 'add remove', this.render)
+  setTask: function (task) {
+    this.task = task;
   },
 
-  render: function () {
-    var $el, content, template;
-    if (!this.taskers.isEmpty()) {
-      $el = this.$el;
-      content;
-      template = this.template;
-      this.$el.empty();
-      this.$el.append("<h2>Taskers</h2>")
-      this.taskers.each(function (tasker) {
-        content = template( {user: tasker, pick_me: true} );
-        $el.append(content);
-      })
-    }
-    return this;
-  },
 
   submit: function (event) {
     event.preventDefault();
@@ -114,14 +106,4 @@ TaskForce.Views.TaskerDisplay = Backbone.CompositeView.extend({
       }
     })
   },
-
-  updateModel: function (event) {
-    event.preventDefault();
-    var id = $(event.currentTarget).data('id');
-    if (id !== this.tasker.get('id')) {
-      this.tasker.set(this.taskers.get(id).attributes);
-    } else {
-      this.tasker.trigger('change');
-    }
-  }
 });
