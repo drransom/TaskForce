@@ -17,6 +17,7 @@
 #  category         :string
 #  user_completed   :boolean          default(FALSE)
 #  tasker_completed :boolean          default(FALSE)
+#  rated            :boolean          default(FALSE)
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
