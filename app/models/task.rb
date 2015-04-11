@@ -20,9 +20,9 @@
 #
 
 class Task < ActiveRecord::Base
-  validates :owner_id, :description, :location, :task_date, presence: true
+  validates :owner_id, :description, :location, presence: true
   # validates :price, numericality: { greater_than_or_equal_to: 0, allow_nil: true }
-  validates :time_slot, numericality: { greater_than_or_equal_to: 0 }
+  # validates :time_slot, numericality: { greater_than_or_equal_to: 0 }
 
   belongs_to :owner, class_name: "User", foreign_key: :owner_id
   belongs_to :tasker, class_name: "User", foreign_key: :tasker_id

@@ -14,7 +14,6 @@ module Api
 
     def index
       @tasks = Task.where(owner_id: current_user.id).includes(:tasker)
-
       render :index
     end
 
