@@ -41,9 +41,11 @@ TaskForce.Views.TaskDisplay = TaskForce.Views.IndexView.extend({
     'click button.mark-complete' : 'markComplete'
   },
 
-  markComplete: function () {
-    var id = $(this.currentTarget).get('id');
-    this.collection.get('id').set('ownerCompleted', true)
-    model.save();
+  markComplete: function (event) {
+    var id = $(event.currentTarget).data('id');
+    var model = this.collection.get(id)
+
+
+    model.save( {user_completed: true}, {patch: true, wait: true});
   }
 });
