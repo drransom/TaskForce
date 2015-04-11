@@ -8,7 +8,7 @@
 <% month = date[1] %>
 <% day_num = date[2] %>
 <% year = date[3] %>
-<% date_str = month + " " + day + ", " + year %>
+<% date_str = day + " " + month + " " + day_num + ", " + year %>
 <% time = times[model.get('time')] %>
 <% taskerName = (function () { %>
   <% if (model.get('tasker_name')) { %>
@@ -32,6 +32,6 @@
     <li class="list-group-item">Tasker: <%= taskerName %></li>
     <li class="list-group-item date-time"><span class="text-left"><%=date_str %></span><span class="pull-right"><%= time %></span></li>
   </ul>
-  <button type="button" class="btn btn-default btn-std-color mark-complete"
-    data-id="<%= model.get('id') %>">Mark complete</button><br>
+  <button type="button" class="btn btn-default <%= buttonClass %>"
+    data-id="<%= model.get('id') %>"><%=buttonText%></button><br>
 </div>
