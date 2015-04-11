@@ -22,7 +22,7 @@ TaskForce.Views.TaskIndex = Backbone.CompositeView.extend({
     this.taskDisplay = new TaskForce.Views.TaskDisplay( displayOptions );
     //this.taskDetails = new TaskForce.Views.TaskDetail( { task: this.task, user: this.user})
 
-    this.addSubview('.model-area', this.taskDisplay);
+    this.addSubview('.task-area', this.taskDisplay);
     //this.addSubview('.model-detail', this.taskDetails);
   },
 

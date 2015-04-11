@@ -11,7 +11,7 @@ TaskForce.Views.IndexView = Backbone.CompositeView.extend({
     this.heading = options.heading;
     this.template = options.template;
     this.templateOptions = options.templateOptions || {};
-    this.listenTo(this.collection, 'add remove set', this.render)
+    this.listenTo(this.collection, 'sync', this.render)
   },
 
   render: function () {
@@ -19,7 +19,7 @@ TaskForce.Views.IndexView = Backbone.CompositeView.extend({
       this.$el.empty();
       this.$el.append(this.heading)
       this.collection.each(function (model) {
-        content = this.template( this.mergeObjects(
+        var content = this.template( this.mergeObjects(
           this.templateOptions, { model: model } ));
         this.$el.append(content);
       }.bind(this))
