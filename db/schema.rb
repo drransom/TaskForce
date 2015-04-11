@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150411223929) do
+ActiveRecord::Schema.define(version: 20150411225724) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20150411223929) do
     t.string   "category"
     t.boolean  "user_completed",   default: false
     t.boolean  "tasker_completed", default: false
-    t.boolean  "rated",            default: false
+    t.integer  "rating",           default: 0
   end
 
   add_index "tasks", ["location"], name: "index_tasks_on_location", using: :btree

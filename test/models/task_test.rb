@@ -17,7 +17,7 @@
 #  category         :string
 #  user_completed   :boolean          default(FALSE)
 #  tasker_completed :boolean          default(FALSE)
-#  rated            :boolean          default(FALSE)
+#  rating           :integer          default(0)
 #
 
 require 'test_helper'

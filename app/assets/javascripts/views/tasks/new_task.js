@@ -46,7 +46,7 @@ TaskForce.Views.NewTaskForm = Backbone.CompositeView.extend({
     this.tasker = options.tasker
   },
 
-  template: JST['new_task'],
+  template: JST['tasks/new_task'],
 
   events: {
     'submit': 'submit',
