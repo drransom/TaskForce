@@ -62,7 +62,7 @@ yoda = User.create({
         description: "A wise master",
         num_completed: Random.rand(100) + 1,
         price: 25,
-        profile_url: 'http://www.empireonline.com/images/features/100greatestcharacters/photos/25.jpg'
+        profile_url: 'http://www.empireonline.com/images/features/100greatestcharacters/photos/25.jpg',
         tasker: true,
         password: 'password'
   })
@@ -74,11 +74,10 @@ descriptions = ["The First New Jedi", "The Real Hero", "Evil Incarnate"]
 
 t1 = Task.create(owner_id: 4, title: "Destroy Death Star",
               description: "Create a chain reaction", location: "Death Star",
-              vehicle: "Starship", completed: "neither"
-              category: "military", tasker_id: 1
+              vehicle: "Starship", category: "military", tasker_id: 1
               )
 
 t2 = Task.create(owner_id: 4, title: "Move X-wing", description:
-                 "My X-wing is in a swamp and needs to be removed."
-                 location: "Dagobah", vehicle: "none", completed: "neither",
+                 "My X-wing is in a swamp and needs to be removed.",
+                 location: "Dagobah", vehicle: "none", 
                  category: "move", tasker_id: 5)

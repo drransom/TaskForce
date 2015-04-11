@@ -11,25 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150410163214) do
+ActiveRecord::Schema.define(version: 20150411011949) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "tasks", force: :cascade do |t|
-    t.integer  "owner_id",                        null: false
+    t.integer  "owner_id",                         null: false
     t.integer  "tasker_id"
     t.string   "title"
-    t.text     "description",                     null: false
-    t.string   "location",                        null: false
-    t.string   "vehicle",                         null: false
-    t.string   "completed",   default: "neither", null: false
+    t.text     "description",                      null: false
+    t.string   "location",                         null: false
+    t.string   "vehicle",                          null: false
     t.integer  "price"
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
     t.date     "task_date"
     t.integer  "time_slot"
     t.string   "category"
+    t.boolean  "user_completed",   default: false
+    t.boolean  "tasker_completed", default: false
   end
 
   add_index "tasks", ["location"], name: "index_tasks_on_location", using: :btree

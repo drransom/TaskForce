@@ -1,5 +1,7 @@
 json.array! @tasks do |task|
   json.id task.id
+  json.user_completed task.user_completed
+  json tasker_completed task.tasker_completed
   json.tasker_id task.tasker_id
   json.category task.category
   json.price task.price

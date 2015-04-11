@@ -14,13 +14,14 @@ module Api
 
     def index
       @tasks = Task.where(owner_id: current_user.id).includes(:tasker)
-      
+
       render :index
     end
 
     def task_params
       params.require(:task).permit(:owner_id, :title, :description, :location,
-        :task_date, :time_slot, :vehicle, :completed, :price, :tasker_id, :category)
+        :task_date, :time_slot, :vehicle, :price, :tasker_id, :category,
+        :user_completed, :tasker_completed)
     end
   end
 end
