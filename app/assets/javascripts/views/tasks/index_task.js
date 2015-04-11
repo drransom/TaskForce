@@ -35,4 +35,15 @@ TaskForce.Views.TaskIndex = Backbone.CompositeView.extend({
 
 TaskForce.Views.TaskDisplay = TaskForce.Views.IndexView.extend({
   //no body needed here yet
+
+  events: {
+    'click button.rate-tasker' : 'rateTasker',
+    'click button.mark-complete' : 'markComplete'
+  },
+
+  markComplete: function () {
+    var id = $(this.currentTarget).get('id');
+    this.collection.get('id').set('ownerCompleted', true)
+    model.save();
+  }
 });
