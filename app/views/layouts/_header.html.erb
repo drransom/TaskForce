@@ -1,4 +1,5 @@
-<div class="container">
+<div class="view-header">
+  <div class="container">
   <nav class ="navbar navbar-default">
     <div class = "container-fluid">
       <div class="navbar-header">
@@ -13,13 +14,13 @@
           <li><a href="#" class="ur-nav">How it works</a></li>
           <li class="divider"></li>
           <% if signed_in? %>
-            <li><a href="#tasks/new" class="ur-nav">New Task</a></li>
+            <li><a href="#tasks/new" class="ur-nav ur-nav-first">New Task</a></li>
             <li class="divider"></li>
             <li><%= link_to "Log Out", session_url, method: :delete, class: "ur-nav" %></li>
           <% else %>
-            <li><a href="<%= new_user_url %>" class="ur-nav">Sign up</a></li>
+            <li><a href="<%= new_user_url %>" class="ur-nav header-link-first">Sign up</a></li>
             <li class="divider"></li>
-            <li><a href="<%= new_session_url %>" class="ur-nav">Log in</a></li>
+            <li><a href="<%= new_session_url %>" class="ur-nav header-link-first">Log in</a></li>
           <% end %>
         </ul>
       </div>

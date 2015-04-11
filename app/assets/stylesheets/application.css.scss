@@ -35,6 +35,7 @@ body {
 
 .navbar {
   background: transparent;
+  border: none;
 }
 
 .navbar-default .navbar-nav > li > a {
@@ -78,6 +79,19 @@ h4.input-fields-title {
 div.form-field-title-section {
   color: #969d9e;
   font-size: 16px;
+}
+
+div.view-header {
+  background-color: #d1dfd2;
+  padding:  16px 8px 16px 8px;
+  height: 100px;
+  width: 100%
+}
+
+nav ul.navbar-right {
+  background-color: #F5F6F6;
+  border-radius: 6px
+
 }
 
 section.front-page {
@@ -128,4 +142,17 @@ div.date-picker_date-container.u-semibold {
 div.date-picker_date-container.active {
   color: white;
   background-color: #00964B
+}
+
+nav a.ur-nav.header-link-first::before {
+  content: "";
+  display: inline-block;
+  height: 14px;
+  width: 1px;
+  vertical-align: middle;
+}
+
+#main {
+  background-color: #F5F6F6;
+  padding-top: 10px
 }
