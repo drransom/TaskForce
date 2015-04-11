@@ -1,13 +1,16 @@
-<% var times = ["any time", "morning", "afternoon", "evening"] %>
+<% var times, date, day, month, day_num, year, date_str, time %>
+<% var taskerName, buttonText, buttonClass %>
 
-<% var date = (new Date(model.get('date'))).toDateString().split(' ') %>
-<% var day = date[0] %>
-<% var month = date[1] %>
-<% var day_num = date[2] %>
-<% var year = date[3] %>
-<% var date_str = month + " " + day + ", " + year %>
-<% var time = times[model.get('time')] %>
-<% var taskerName = (function () { %>
+<% times = ["any time", "morning", "afternoon", "evening"] %>
+
+<% date = (new Date(model.get('date'))).toDateString().split(' ') %>
+<% day = date[0] %>
+<% month = date[1] %>
+<% day_num = date[2] %>
+<% year = date[3] %>
+<% date_str = month + " " + day + ", " + year %>
+<% time = times[model.get('time')] %>
+<% taskerName = (function () { %>
   <% if (model.get('tasker_name')) { %>
     <% return model.get('tasker_name') %>
   <% } else { %>
@@ -15,13 +18,20 @@
   <% } %>
 <% })() %>
 
+<% if (!model.userMarkedComplete()) { %>
+  <% buttonText = "Mark complete" %>
+  <% buttonClass = "btn-std-color mark-complete" %>
+<% } else { %>
+  <% buttonText = "Rate Tasker" %>
+  <% buttonClass = "btn-alt-color rate-tasker" %>
+<% } %>
 
 <div class="col-md-4 mini-task">
   <ul class="list-group mini-task-group">
     <li class="list-group-item"><%= model.get('category') %></li>
     <li class="list-group-item">Tasker: <%= taskerName %></li>
-    <li class="list-group-item date-time"><%=date_str %> <div class="right-justify"><%= time %></div></li>
+    <li class="list-group-item date-time"><span class="text-left"><%=date_str %></span><span class="pull-right"><%= time %></span></li>
   </ul>
-  <button type="button" class="btn btn-default btn-std-color select-me"
+  <button type="button" class="btn btn-default btn-std-color mark-complete"
     data-id="<%= model.get('id') %>">Mark complete</button><br>
 </div>
