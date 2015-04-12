@@ -2,7 +2,6 @@
   <div class="container-fluid">
     <% if (!user.isNew()) { %>
       <div class="col-md-2 col-md-offset-5">
-        <h2>Were you satisfied with <%= task.get('name')
         <h2><%= user.get('name') %></h2>
         <div class="thumbnail">
           <img src="<%= user.get('profile_url') %>">

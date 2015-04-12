@@ -105,7 +105,7 @@ guest = User.create({
 
 
 t1 = Task.create({
-  owner_id: 4,
+  owner_id: User.last.id,
   title: "Destroy Death Star",
   description: "Create a chain reaction",
   location: "Death Star",
@@ -115,7 +115,7 @@ t1 = Task.create({
   })
 
 t2 = Task.create({
- owner_id: 4,
+ owner_id: User.last.id,
  title: "Move X-wing",
  description: "My X-wing is in a swamp and needs to be removed.",
  location: "Dagobah",

@@ -13,7 +13,6 @@ module Api
     end
 
     def update
-      debugger
       @task = Task.find(params[:id])
       if @task.update(task_params)
         render json: @task
