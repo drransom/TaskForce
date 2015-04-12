@@ -14,7 +14,7 @@ TaskForce.Views.IndexView = Backbone.CompositeView.extend({
     this.listenTo(this.collection, 'sync', this.render)
     if (options.model2) {
       this.model2 = options.model2;
-      this.listenTo(this.collection, 'sync change', this.render)
+      this.listenTo(this.collection, 'sync', this.render)
     }
   },
 
