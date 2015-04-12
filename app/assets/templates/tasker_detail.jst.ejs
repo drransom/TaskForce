@@ -1,7 +1,8 @@
-<div class="modal" id="taskerDetail">
+<div class="modal" id="tasker-detail">
   <div class="container-fluid">
     <% if (!user.isNew()) { %>
       <div class="col-md-2 col-md-offset-5">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h2><%= user.get('name') %></h2>
         <div class="thumbnail">
           <img src="<%= user.get('profile_url') %>">
