@@ -12,6 +12,7 @@ class UsersController < ApplicationController
   end
 
   def create
+    debugger
     @user = User.new(user_params)
 
     if @user.save
@@ -23,12 +24,22 @@ class UsersController < ApplicationController
     end
   end
 
+  def update
+    @user = User.find(params[:id])
+    debugger
+    if @user.update(user_params)
+      render json: @user
+    else
+      render json: @user.errors.full_messages, status: :unprocessable_entity
+    end
+  end
+
   private
 
   def user_params
     params.require(:user).permit(:email, :password, :tasker,
                                  :name, :location, :description,
-                                 :profile_url, :price)
+                                 :profile_url, :price, :alive)
   end
 
   def user_filter

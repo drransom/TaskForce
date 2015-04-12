@@ -1,5 +1,5 @@
 <% var taskerName = task.get('tasker_name').split(' ')[0] %>
-<% var rating = task.get('rating') %>
+<% var rating = task.get('rating') + offset %>
 
 
 
@@ -19,11 +19,11 @@
         <span class="question">Are you sure? <%= taskerName %> will be permanently removed.</span>
         </div>
         <div class="modal-footer">
-          <button type="button" class="confirmDelete">Eliminate</button>
+          <button type="button" class="confirm-delete">Eliminate</button>
           <button type="button" class="upvote">No, I was satisfied</button>
         </div>
       <% } else { %>
-        <span class="confirmation">Task Rated</span>
+        <span class="confirmation"><%= confirmationText %></span>
       <% } %>
     </div>
   </div>

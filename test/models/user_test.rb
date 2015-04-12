@@ -16,6 +16,7 @@
 #  price           :integer
 #  num_completed   :integer          default(0)
 #  name            :string
+#  alive           :boolean          default(TRUE)
 #
 
 require 'test_helper'

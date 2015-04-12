@@ -9,6 +9,13 @@ json.array! @tasks do |task|
   json.date task.task_date
   json.time task.time_slot
   json.rating task.rating
-  json.tasker_name task.tasker ? task.tasker.name : nil
-  json.tasker_profile_url task.tasker ? task.tasker.profile_url : nil
+  if task.tasker
+    json.tasker_name task.tasker.name
+    json.tasker_profile_url task.tasker.profile_url
+    json.tasker_alive task.tasker.alive
+  else
+    json.tasker_name nil
+    json.tasker_profile_url nil
+    json.tasker_alive nil
+  end
 end

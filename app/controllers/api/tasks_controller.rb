@@ -30,7 +30,7 @@ module Api
     def task_params
       params.require(:task).permit(:owner_id, :title, :description, :location,
         :task_date, :time_slot, :vehicle, :price, :tasker_id, :category,
-        :user_completed, :tasker_completed)
+        :user_completed, :tasker_completed, :rating)
     end
   end
 end
