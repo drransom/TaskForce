@@ -8,10 +8,17 @@ TaskForce.Views.TaskIndex = Backbone.CompositeView.extend({
     this.$el.append('<section class="rating-modal"></section>')
 
     this.collection = new TaskForce.Collections.Tasks();
+    this.taskers = new TaskForce.Collections.Users();
 
-    this.collection.fetch();
+    this.collection.fetch({
+      success: function () {
+        TaskForce.Helpers.createTaskersFromTasks(this.collection, this.taskers)
+        this.listenTo(this.taskers, 'change', this.render)
+      }.bind(this)
+    });
 
     this.model = new TaskForce.Models.Task();
+    this.tasker = new TaskForce.Models.User();
 
     var displayOptions = {
       collection: this.collection,
@@ -22,7 +29,11 @@ TaskForce.Views.TaskIndex = Backbone.CompositeView.extend({
 
     this.taskDisplay = new TaskForce.Views.TaskDisplay( displayOptions );
     //this.taskDetails = new TaskForce.Views.TaskDetail( { task: this.task, user: this.user})
-    this.taskRating = new TaskForce.Views.TaskRating( { collection: this.collection, model: this.model })
+    this.taskRating = new TaskForce.Views.TaskRating( {
+      collection: this.collection,
+      model: this.model,
+      taskers: this.taskers }
+    )
 
     this.addSubview('.task-area', this.taskDisplay);
     //this.addSubview('.model-detail', this.taskDetails);
@@ -30,6 +41,7 @@ TaskForce.Views.TaskIndex = Backbone.CompositeView.extend({
   },
 
   render: function () {
+
     this.attachSubviews();
     return this;
   },

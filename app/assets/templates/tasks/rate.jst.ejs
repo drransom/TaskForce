@@ -1,5 +1,5 @@
 <% var taskerName = task.get('tasker_name').split(' ')[0] %>
-<% var rating = task.get('rating') + offset %>
+<% var rating = task.get('rating') %>
 
 
 
@@ -8,14 +8,14 @@
     <div class="modal-content">
       <div class="modal-body modal-rating">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-      <% if (rating === 0) { %>
+      <% if (flag === "") { %>
         <span class="question">Were you satisfied with <%= taskerName %>'s performance?</span>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default btn-std-color upvote">Yes</button>
           <button type="button" class="btn btn-default btn-std-color downvote">No</button>
         </div>
-      <% } else if (rating < 0) { %>
+      <% } else if (flag === "downvote") { %>
         <span class="question">Are you sure? <%= taskerName %> will be permanently removed.</span>
         </div>
         <div class="modal-footer">

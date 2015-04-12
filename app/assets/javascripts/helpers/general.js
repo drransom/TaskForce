@@ -2,8 +2,7 @@ TaskForce.Helpers = {
 
   guarantee: "100% satisfaction is guaranteed for all Taskers.",
 
-  createTaskersFromTasks: function(tasks) {
-    var taskers = new TaskForce.Collections.Users();
+  createTaskersFromTasks: function(tasks, taskers) {
     tasks.each(function(task) {
       var taskerId = task.get('tasker_id');
       if (taskerId && !(taskers.find(taskerId))) {

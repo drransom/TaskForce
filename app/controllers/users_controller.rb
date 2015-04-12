@@ -12,7 +12,6 @@ class UsersController < ApplicationController
   end
 
   def create
-    debugger
     @user = User.new(user_params)
 
     if @user.save
@@ -26,7 +25,6 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    debugger
     if @user.update(user_params)
       render json: @user
     else
