@@ -1,3 +1,5 @@
+
+
 <% var times, date, day, month, day_num, year, date_str, time %>
 <% var taskerName, buttonText, buttonClass %>
 
@@ -31,10 +33,16 @@
   <% buttonClass = "tasker rated" %>
 <% } %>
 
+<% if (!tasker.get('alive')) { %>
+  <% var taskerDead = "" %>
+<% } else { %>
+ <% var taskerDead = "tasker-dead" %>
+<% } %>
+
 <div class="col-md-4 mini-task">
   <ul class="list-group mini-task-group">
     <li class="list-group-item"><%= activities[model.get('category')] %></li>
-    <li class="list-group-item">Tasker: <%= taskerName %></li>
+    <li class="list-group-item">Tasker: <span class="<%= taskerDead %>"><%= taskerName %></span></li>
     <li class="list-group-item date-time"><span class="text-left"><%=date_str %></span><span class="pull-right"><%= time %></span></li>
   </ul>
   <button type="button" class="btn btn-default <%= buttonClass %>"
