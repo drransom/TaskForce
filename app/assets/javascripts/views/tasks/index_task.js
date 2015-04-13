@@ -17,13 +17,11 @@ TaskForce.Views.TaskIndex = Backbone.CompositeView.extend({
     });
 
     this.taskRating = new TaskForce.Views.TaskRating( {
-      tasks: this.tasks,
-      taskers: this.taskers
+
     })
   },
 
   render: function () {
-    debugger
     this.attachSubviews();
     return this;
   },
