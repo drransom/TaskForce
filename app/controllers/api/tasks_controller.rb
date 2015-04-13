@@ -7,7 +7,6 @@ module Api
       if @task.save
         render json: @task
       else
-        puts "unsuccessful save"
         render json: @task.errors.full_messages, status: :unprocessable_entity
       end
     end
@@ -16,8 +15,7 @@ module Api
       @task = Task.find(params[:id])
       if @task.update(task_params)
         render json: @task
-      else
-        puts "unsuccessful save"
+      elsef
         render json: @task.errors.full_messages, status: :unprocessable_entity
       end
     end
