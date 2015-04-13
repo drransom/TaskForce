@@ -1,9 +1,8 @@
 TaskForce.Views.Modal = Backbone.View.extend({
   initialize: function (options) {
-    debugger
     this.template = options.template;
     this.templateOptions = (function () {
-      return this.templateOptions ? this.templateOptions : {};
+      return options.templateOptions ? options.templateOptions : {};
     }.bind(this))();
     if (this.continueInitializing) {
       this.continueInitializing(options);

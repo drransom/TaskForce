@@ -16,6 +16,14 @@ TaskForce.Views.TaskRating = TaskForce.Views.Modal.extend({
     this.events['click button.confirm-delete'] = 'confirmDelete'
   },
 
+  render: function () {
+    $('body').prepend('<section class="taskforce-modal"></section>')
+    this.setElement('.taskforce-modal');
+    var content = this.template({ task: this.task, tasker: this.tasker, flag: this.voteFlag, confirmationText: this.confirmationText});
+    this.$el.html(content);
+    return this;
+  },
+
   upvote: function () {
     this.confirmationText = "We're glad you were satisfied with " +
       this.taskerFirstName() + "'s performance!"
