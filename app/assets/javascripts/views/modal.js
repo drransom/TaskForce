@@ -1,4 +1,4 @@
-TaskForce.Views.Modal = Backbone.View.extend({
+TaskForce.Views.Modal = Backbone.CompositeView.extend({
   initialize: function (options) {
     this.template = options.template;
     this.templateOptions = (function () {

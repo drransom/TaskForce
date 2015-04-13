@@ -1,12 +1,14 @@
 "use strict"
 
-TaskForce.Views.TaskerProfile = Backbone.CompositeView.extend({
+TaskForce.Views.TaskerProfile = TaskForce.Views.Modal.extend({
 
-  initialize: function () {
+  continueInitializing: function (options) {
+    this.task = options.task
     this.$el.append('<section class="tasker-detail"></section>');
     this.$el.append('<section class="tasker-comments"></section>');
 
-    this.taskerDetail = new TaskForce.Views.TaskerDetail( {model: this.model });
+    this.taskerDetail = new TaskForce.Views.TaskerDetail( {model: this.model,
+                                                           task: this.task});
     // this.taskerComments = new TaskForce.Views.TaskerComments( {model: this.model } );
 
     this.addSubview('.tasker-detail', this.taskerDetail);
@@ -14,6 +16,10 @@ TaskForce.Views.TaskerProfile = Backbone.CompositeView.extend({
   },
 
   render: function () {
+    if ($('section.taskforce-modal').length === 0) {
+      $('body').prepend('<section class="taskforce-modal"></section>');
+      this.setElement('.taskforce-modal');
+    }
     this.attachSubviews();
     return this;
   }
@@ -29,15 +35,11 @@ TaskForce.Views.TaskerDetail = Backbone.CompositeView.extend({
 
   initialize: function (options) {
     this.task = options.task;
-    this.listenTo(this.model, 'change set', this.render)
   },
 
   render: function () {
     var content = this.template( {user: this.model});
     this.$el.html(content);
-    if (!this.model.isNew()) {
-      $('#tasker-detail').modal('show');
-    }
     return this;
   },
 
