@@ -69,7 +69,6 @@ TaskForce.Views.NewTaskForm = Backbone.CompositeView.extend({
       success: function () {
         tasker.unset('id');
         $('.btn-submit').attr("value", "Change Task");
-        debugger
         $('html, body').animate({
           scrollTop: $('#tasker-area').position().top
         }); // trigger detail reset and mark model new

@@ -76,8 +76,8 @@ obi_wan = User.create({
 yoda = User.create({
   email: "yoda@starwars.com",
   name: "Yoda",
-  location: "Coruscant",
-  vehicle: "none",
+  location: "Endor",
+  vehicle: "Starship",
   description: "I do. I do not do not. There is no try.",
   num_completed: Random.rand(100) + 1,
   price: 25,
@@ -96,6 +96,58 @@ stormtrooper = User.create({
   password: 'password'
   })
 
+gmt = User.create({
+  email: "gmt@starwars.com",
+  name: "Wilhuff T.",
+  location: "Hoth",
+  vehicle: "Battle Station",
+  description: "Fear will keep the local systems in line. Fear of this battle station.",
+  num_completed: Random.rand(100) + 1,
+  price: 58,
+  profile_url: "http://img1.wikia.nocookie.net/__cb20100620213033/starwars/images/thumb/c/c1/Tarkininfobox.jpg/400px-Tarkininfobox.jpg",
+  tasker: true,
+  password: 'password'
+  })
+
+palpatine = User.create({
+  email: "palpatine@starwars.com",
+  name: "Darth S.",
+  location: "Endor",
+  vehicle: "Battle Station",
+  description: "I'm looking forward to completing your training. In time you will call me master.",
+  num_completed: Random.rand(100) + 1,
+  price: 1000,
+  profile_url: "http://img1.wikia.nocookie.net/__cb20130620100935/starwars/images/thumb/d/d8/Emperor_Sidious.png/400px-Emperor_Sidious.png",
+  tasker: true,
+  password: 'password'
+  })
+
+c3P0 = User.create({
+  email: "c3PO@starwars.com",
+  name: "C-3PO",
+  location: "Tattoine",
+  vehicle: "none",
+  description: "I am fluent in over six million forms of communication.",
+  num_completed: Random.rand(100) + 1,
+  price: 15,
+  profile_url: "http://img2.wikia.nocookie.net/__cb20131005124036/starwars/images/thumb/5/51/C-3PO_EP3.png/400px-C-3PO_EP3.png",
+  tasker: true,
+  password: 'password'
+  })
+
+r2D2 = User.create({
+  email: "r2d2@starwars.com",
+  name: "R2-D2",
+  location: "Endor",
+  vehicle: "Starship",
+  description: "I am the most competent being in the galaxy.",
+  num_completed: Random.rand(100) + 1,
+  price: 72,
+  profile_url: "http://img2.wikia.nocookie.net/__cb20090524204255/starwars/images/1/1a/R2d2.jpg",
+  tasker: true,
+  password: 'password'
+  })
+
 guest = User.create({
   email: "guest@starwars.com",
   name: "Guest",
@@ -103,27 +155,28 @@ guest = User.create({
   password: 'password'
   })
 
-3.times do
-  t1 = Task.create({
-    owner_id: User.last.id,
-    title: "Destroy Death Star",
-    description: "Create a chain reaction",
-    location: "Death Star",
-    vehicle: "Starship",
-    category: "military",
-    tasker_id: 1,
-    price: User.find(1).price
-    })
+t1 = Task.create({
+  owner_id: User.last.id,
+  title: "Destroy Death Star",
+  description: "Create a chain reaction",
+  location: "Endor",
+  vehicle: "Starship",
+  category: "military",
+  tasker_id: 1,
+  price: User.find(1).price,
+  time_slot: Random.rand(4),
+  task_date: Date.today - 1
+  })
 
-  t2 = Task.create({
-   owner_id: User.last.id,
-   title: "Move X-wing",
-   description: "My X-wing is in a swamp and needs to be removed.",
-   location: "Dagobah",
-   vehicle: "none",
-   category: "moving",
-   tasker_id: 5,
-   price: User.find(5).price
-   })
-
-end
+t2 = Task.create({
+ owner_id: User.last.id,
+ title: "Move X-wing",
+ description: "My X-wing is in a swamp and needs to be removed.",
+ location: "Dagobah",
+ vehicle: "none",
+ category: "moving",
+ tasker_id: 5,
+ price: User.find(5).price,
+ task_date: Date.today() - 3,
+ time_slot: Random.rand(4)
+ })
