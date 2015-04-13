@@ -15,7 +15,7 @@ module Api
       @task = Task.find(params[:id])
       if @task.update(task_params)
         render json: @task
-      elsef
+      elsif
         render json: @task.errors.full_messages, status: :unprocessable_entity
       end
     end

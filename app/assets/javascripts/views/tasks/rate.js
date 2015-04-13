@@ -18,7 +18,6 @@ TaskForce.Views.TaskRating = Backbone.CompositeView.extend({
   },
 
   render: function () {
-    debugger
     if (!this.model.isNew()) {
       $('#task-rate').modal('hide');
       var content = this.template( {task: this.model, flag: this.voteFlag,
@@ -49,7 +48,6 @@ TaskForce.Views.TaskRating = Backbone.CompositeView.extend({
 
   confirmDownvote: function () {
     var tasker = this.taskers.get( {id: this.model.get('tasker_id') } )
-    debugger
     this.confirmationText = this.taskerFirstName() + " has failed for " +
     "the last time."
     this.voteFlag = "dead"
