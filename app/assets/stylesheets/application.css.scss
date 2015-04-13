@@ -158,3 +158,22 @@ nav a.ur-nav.header-link-first::before {
   padding-top: 20px;
   height: 100%
 }
+
+.body div.modal-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 50;
+  opacity: 50%;
+}
+
+.body div.modal-body {
+  position: relative;
+  width: 400px;
+  margin: 10% auto;
+  padding: 5px 20px 13px 20px;
+  border-radius: 10px;
+  background: #fff;
+}
