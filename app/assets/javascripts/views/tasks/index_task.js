@@ -51,7 +51,7 @@ TaskForce.Views.TaskDisplay = TaskForce.Views.IndexView.extend({
   //no body needed here yet
 
   events: {
-    'click button.rate-tasker' : 'updateModel',
+    'click button.rate-tasker' : 'addModal',
     'click button.mark-complete' : 'markComplete'
   },
 
@@ -60,5 +60,13 @@ TaskForce.Views.TaskDisplay = TaskForce.Views.IndexView.extend({
     var model = this.collection.get(id)
     model.save( {user_completed: true}, {wait: true} );
   },
+
+  addModal: function(event) {
+    var modal = new TaskForce.Views.Modal({template: JST['modal_test']});
+    $('body').prepend('<section class="taskforce-modal"></section>');
+    var $modalEl = $('.taskforce-modal')
+    modal.setElement($modalEl);
+    modal.render();
+  }
 
 });
