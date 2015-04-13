@@ -21,5 +21,11 @@ TaskForce.Views.MiniTask = Backbone.View.extend({
     var content = this.template({ task: this.task, tasker: this.tasker });
     this.$el.html(content);
     return this;
-  }
+  },
+
+  markComplete: function (event) {
+    var id = $(event.currentTarget).data('id');
+    var model = this.collection.get(id)
+    model.save( {user_completed: true}, {wait: true} );
+  },
 });
