@@ -46,7 +46,6 @@ TaskForce.Views.TaskerDetail = Backbone.CompositeView.extend({
     this.task.set( { tasker_id: this.model.get('id') });
     this.task.save ({}, {
       success: function () {
-        alert("successfully created task");
         Backbone.history.navigate('', {trigger: true});
       },
       error: function () {

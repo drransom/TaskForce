@@ -98,7 +98,6 @@ TaskForce.Views.TaskerDisplay = TaskForce.Views.IndexView.extend({
     this.task.set( { tasker_id: id });
     this.task.save ({}, {
       success: function () {
-        alert("successfully created task");
         Backbone.history.navigate('', {trigger: true});
       },
       error: function () {

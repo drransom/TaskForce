@@ -31,6 +31,7 @@
 
 body {
   font-family: Proxima, Arial, Helvetica, sans-serif;
+  background-color: #F5F6F6;
 }
 
 .navbar {
@@ -83,7 +84,7 @@ div.form-field-title-section {
 
 div.view-header {
   background-color: black;
-  padding:  16px 8px 16px 8px;
+  padding:  25px 8px 0px 8px;
   height: 100px;
   width: 100%
 }
@@ -153,6 +154,8 @@ nav a.ur-nav.header-link-first::before {
 }
 
 #main {
-  background-color: #F5F6F6;
-  padding-top: 10px
+
+  width: 100%;
+  padding-top: 20px;
+  height: 100%
 }
