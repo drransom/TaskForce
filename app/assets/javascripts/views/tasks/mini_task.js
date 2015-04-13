@@ -5,6 +5,8 @@ TaskForce.Views.MiniTask = Backbone.View.extend({
   initialize: function (options) {
     this.task = options.task;
     this.tasker = options.tasker;
+    this.listenTo(this.task, 'set change', this.render);
+    this.listenTo(this.tasker, 'set change', this.render);
   },
 
   template: JST['tasks/mini-task'],
@@ -20,6 +22,4 @@ TaskForce.Views.MiniTask = Backbone.View.extend({
     this.$el.html(content);
     return this;
   }
-
-
 });
