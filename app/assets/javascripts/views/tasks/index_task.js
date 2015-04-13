@@ -23,7 +23,7 @@ TaskForce.Views.TaskIndex = Backbone.CompositeView.extend({
     var displayOptions = {
       collection: this.collection,
       indexModel: this.model,
-      heading: "<h2 class='tasks-header'>Your tasks</h2>",
+      heading: '<h2 class="tasks-header">Your tasks</h2>We\'ve created some sample tasks for you, click "New Task" to create a new one!<br>',
       template: JST['tasks/mini_task'],
     }
 

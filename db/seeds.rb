@@ -111,7 +111,8 @@ t1 = Task.create({
   location: "Death Star",
   vehicle: "Starship",
   category: "military",
-  tasker_id: 1
+  tasker_id: 1,
+  price: User.find(1).price
   })
 
 t2 = Task.create({
@@ -120,6 +121,7 @@ t2 = Task.create({
  description: "My X-wing is in a swamp and needs to be removed.",
  location: "Dagobah",
  vehicle: "none",
- category: "move",
- tasker_id: 5
+ category: "moving",
+ tasker_id: 5,
+ price: User.find(5).price
  })
