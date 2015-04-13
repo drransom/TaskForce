@@ -41,7 +41,6 @@ TaskForce.Views.TaskIndex = Backbone.CompositeView.extend({
   },
 
   render: function () {
-
     this.attachSubviews();
     return this;
   },

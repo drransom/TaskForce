@@ -103,25 +103,27 @@ guest = User.create({
   password: 'password'
   })
 
+3.times do
+  t1 = Task.create({
+    owner_id: User.last.id,
+    title: "Destroy Death Star",
+    description: "Create a chain reaction",
+    location: "Death Star",
+    vehicle: "Starship",
+    category: "military",
+    tasker_id: 1,
+    price: User.find(1).price
+    })
 
-t1 = Task.create({
-  owner_id: User.last.id,
-  title: "Destroy Death Star",
-  description: "Create a chain reaction",
-  location: "Death Star",
-  vehicle: "Starship",
-  category: "military",
-  tasker_id: 1,
-  price: User.find(1).price
-  })
+  t2 = Task.create({
+   owner_id: User.last.id,
+   title: "Move X-wing",
+   description: "My X-wing is in a swamp and needs to be removed.",
+   location: "Dagobah",
+   vehicle: "none",
+   category: "moving",
+   tasker_id: 5,
+   price: User.find(5).price
+   })
 
-t2 = Task.create({
- owner_id: User.last.id,
- title: "Move X-wing",
- description: "My X-wing is in a swamp and needs to be removed.",
- location: "Dagobah",
- vehicle: "none",
- category: "moving",
- tasker_id: 5,
- price: User.find(5).price
- })
+end
