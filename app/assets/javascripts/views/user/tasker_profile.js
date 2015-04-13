@@ -46,6 +46,7 @@ TaskForce.Views.TaskerDetail = Backbone.CompositeView.extend({
     this.task.set( { tasker_id: this.model.get('id') });
     this.task.save ({}, {
       success: function () {
+        $('#tasker-detail').modal('hide');
         Backbone.history.navigate('', {trigger: true});
       },
       error: function () {
