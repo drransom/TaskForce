@@ -6,6 +6,7 @@ TaskForce.Routers.Router = Backbone.Router.extend({
   },
 
   routes: {
+  'index' : 'home',
   '' : 'home',
   'about' : 'about',
   'tasks/new' : 'taskNew'
