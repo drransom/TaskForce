@@ -90,7 +90,7 @@ stormtrooper = User.create({
   email: "stormtrooper@starwars.com",
   name: "Anthony S.",
   location: "Hoth",
-  vehicle: "none",
+  vehicle: "Starship",
   profile_url: 'http://img2.wikia.nocookie.net/__cb20111205022230/starwars/images/0/0d/Storm-CHRON.jpg',
   tasker: false,
   password: 'password'

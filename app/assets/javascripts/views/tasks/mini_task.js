@@ -10,7 +10,7 @@ TaskForce.Views.MiniTask = Backbone.View.extend({
   },
 
   template: JST['tasks/mini_task'],
-  rateTemplate: JST['modal_test'],
+  rateTemplate: JST['tasks/rate'],
 
   events: {
     'click button.mark-complete' : 'markComplete',
@@ -28,9 +28,8 @@ TaskForce.Views.MiniTask = Backbone.View.extend({
   },
 
   rateTasker: function () {
-    debugger
     var rating = new TaskForce.Views.TaskRating( {
-      displayOptions: { tasker: this.tasker, task: this.task },
+      templateOptions: { tasker: this.tasker, task: this.task },
       tasker: this.tasker,
       task: this.task,
       template: this.rateTemplate,
