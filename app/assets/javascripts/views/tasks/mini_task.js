@@ -15,6 +15,7 @@ TaskForce.Views.MiniTask = Backbone.View.extend({
   events: {
     'click button.mark-complete' : 'markComplete',
     'click button.rate-tasker' : 'rateTasker',
+    'click a.tasker-profile' : 'showTasker',
   },
 
   render: function () {
@@ -35,5 +36,12 @@ TaskForce.Views.MiniTask = Backbone.View.extend({
       template: this.rateTemplate,
     })
     rating.render();
+  },
+
+  showTasker: function () {
+    $('#main').prepend('<section class="tasker-detail"></section>');
+    var taskerDetails = new TaskForce.Views.TaskerDetail( { model: this.tasker, task: this.task });
+    taskerDetails.setElement('.tasker-detail')
+    taskerDetails.render();
   }
 });
