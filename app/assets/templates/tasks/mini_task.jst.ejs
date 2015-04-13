@@ -42,7 +42,7 @@
 <div class="col-md-4 mini-task">
   <ul class="list-group mini-task-group">
     <li class="list-group-item"><%= activities[model.get('category')] %></li>
-    <li class="list-group-item">Tasker: <span class="<%= taskerDead %>"><%= taskerName %></span></li>
+    <li class="list-group-item">Tasker: <span class="<%= taskerDead %>"><a href="javascript:void(0)" class="tasker-profile"><%= taskerName %></a></span></li>
     <li class="list-group-item date-time"><span class="text-left"><%=date_str %></span><span class="pull-right"><%= time %></span></li>
   </ul>
   <button type="button" class="btn btn-default <%= buttonClass %>"
