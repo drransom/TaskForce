@@ -13,8 +13,8 @@ TaskForce.Views.MiniTask = Backbone.View.extend({
   rateTemplate: JST['modal_test'],
 
   events: {
-    'click button .mark-complete' : 'markComplete',
-    'click button .rate-tasker' : 'rateTasker',
+    'click button.mark-complete' : 'markComplete',
+    'click button.rate-tasker' : 'rateTasker',
   },
 
   render: function () {
@@ -24,8 +24,17 @@ TaskForce.Views.MiniTask = Backbone.View.extend({
   },
 
   markComplete: function (event) {
-    var id = $(event.currentTarget).data('id');
-    var model = this.collection.get(id)
-    model.save( {user_completed: true}, {wait: true} );
+    this.task.save( {user_completed: true}, {wait: true} );
   },
+
+  rateTasker: function () {
+    debugger
+    var rating = new TaskForce.Views.TaskRating( {
+      displayOptions: { tasker: this.tasker, task: this.task },
+      tasker: this.tasker,
+      task: this.task,
+      template: this.rateTemplate,
+    })
+    rating.render();
+  }
 });

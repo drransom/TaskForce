@@ -1,31 +1,19 @@
 "use strict"
 
-TaskForce.Views.TaskRating = Backbone.CompositeView.extend({
+TaskForce.Views.TaskRating = TaskForce.Views.Modal.extend({
 
-  events: {
-    'click button.upvote' : 'upvote',
-    'click button.downvote' : 'downvote',
-    'click button.confirm-delete' : 'confirmDownvote',
-  },
-
-  template: JST['tasks/rate'],
-
-  initialize: function (options) {
-    this.taskers = options.taskers;
+  continueInitializing: function (options) {
+    this.task = options.task;
+    this.tasker = options.tasker
     this.voteFlag = "";
     this.confirmationText = "";
+    this.addEvents();
   },
 
-  render: function () {
-    if (!this.model.isNew()) {
-      $('#task-rate').modal('hide');
-      var content = this.template( {task: this.model, flag: this.voteFlag,
-        confirmationText: this.confirmationText });
-      this.$el.html(content);
-      $('#task-rate').modal('show');
-      this.voteFlag = "";
-    }
-    return this;
+  addEvents: function () {
+    this.events['click button.upvote'] = 'upvote';
+    this.events['click button.downvote'] = 'downvote';
+    this.events['click button.confirm-delete'] = 'confirmDelete'
   },
 
   upvote: function () {
