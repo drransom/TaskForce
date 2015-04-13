@@ -23,12 +23,10 @@ TaskForce.Views.NewTask = Backbone.CompositeView.extend({
     this.taskForm = new TaskForce.Views.NewTaskForm( { task: this.task, taskers: this.taskers, tasker: this.tasker } );
     this.taskerDisplay = new TaskForce.Views.TaskerDisplay( viewsOptions );
     this.taskerDisplay.setTask(this.task);
-    this.taskerDetails = new TaskForce.Views.TaskerDetail( { model: this.tasker, task: this.task })
 
     this.addSubview('.form-area', this.taskForm);
     this.addSubview('.tasker-area', this.taskerDisplay);
-    this.addSubview('.tasker-detail', this.taskerDetails);
-  },
+   },
 
   render: function () {
     this.attachSubviews();
