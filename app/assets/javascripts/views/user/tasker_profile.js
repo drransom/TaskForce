@@ -6,7 +6,7 @@ TaskForce.Views.TaskerProfile = Backbone.CompositeView.extend({
     this.$el.append('<section class="tasker-detail"></section>');
     this.$el.append('<section class="tasker-comments"></section>');
 
-    this.taskerDetail = new TaskForce.Views.TaskerDetail( {model: this.model });
+    this.taskerDetail = new TaskForce.Views.TaskerDetail( {model: this.model, pick_me: true });
     // this.taskerComments = new TaskForce.Views.TaskerComments( {model: this.model } );
 
     this.addSubview('.tasker-detail', this.taskerDetail);
@@ -29,6 +29,7 @@ TaskForce.Views.TaskerDetail = Backbone.CompositeView.extend({
 
   initialize: function (options) {
     this.task = options.task;
+    this.submit = options.submit;
     this.listenTo(this.model, 'change set', this.render)
   },
 
