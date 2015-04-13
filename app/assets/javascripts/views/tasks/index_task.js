@@ -59,7 +59,7 @@ TaskForce.Views.TaskDisplay = TaskForce.Views.IndexView.extend({
   markComplete: function (event) {
     var id = $(event.currentTarget).data('id');
     var model = this.collection.get(id)
-    model.save( {user_completed: true}, {patch: true, wait: true} );
+    model.save( {user_completed: true}, {wait: true} );
   },
 
 });
