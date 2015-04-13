@@ -12,7 +12,6 @@ TaskForce.Views.TaskRating = Backbone.CompositeView.extend({
 
   initialize: function (options) {
     this.taskers = options.taskers;
-    this.listenTo(this.model, 'change set', this.render)
     this.voteFlag = "";
     this.confirmationText = "";
   },
