@@ -9,7 +9,7 @@ TaskForce.Views.MiniTask = Backbone.View.extend({
     this.listenTo(this.tasker, 'set change', this.render);
   },
 
-  template: JST['tasks/mini-task'],
+  template: JST['tasks/mini_task'],
   rateTemplate: JST['modal_test'],
 
   events: {
@@ -18,7 +18,7 @@ TaskForce.Views.MiniTask = Backbone.View.extend({
   },
 
   render: function () {
-    var content = this.template({ task: this.task, tasker: this.tasker });
+    var content = this.template({ model: this.task, tasker: this.tasker });
     this.$el.html(content);
     return this;
   },
