@@ -17,7 +17,7 @@ TaskForce.Views.Modal = Backbone.View.extend({
   },
 
   closeBackdrop: function() {
-    if (!($(event.target).hasClass('taskforce-modal-window'))) {
+    if (!($(event.target).hasClass('modal-noclose'))) {
       this.remove();
     }
   }
