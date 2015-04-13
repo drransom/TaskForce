@@ -3,6 +3,10 @@
 TaskForce.Views.TaskerProfile = TaskForce.Views.Modal.extend({
 
   continueInitializing: function (options) {
+    if ($('section.taskforce-modal').length === 0) {
+      $('body').prepend('<section class="taskforce-modal"></section>');
+      this.setElement('.taskforce-modal');
+    }
     this.task = options.task
     this.$el.append('<section class="tasker-detail"></section>');
     this.$el.append('<section class="tasker-comments"></section>');
@@ -16,10 +20,6 @@ TaskForce.Views.TaskerProfile = TaskForce.Views.Modal.extend({
   },
 
   render: function () {
-    if ($('section.taskforce-modal').length === 0) {
-      $('body').prepend('<section class="taskforce-modal"></section>');
-      this.setElement('.taskforce-modal');
-    }
     this.attachSubviews();
     return this;
   }
@@ -38,6 +38,7 @@ TaskForce.Views.TaskerDetail = Backbone.CompositeView.extend({
   },
 
   render: function () {
+    debugger
     var content = this.template( {user: this.model});
     this.$el.html(content);
     return this;
