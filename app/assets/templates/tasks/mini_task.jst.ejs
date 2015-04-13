@@ -1,6 +1,8 @@
 <% var times, date, day, month, day_num, year, date_str, time %>
 <% var taskerName, buttonText, buttonClass %>
 
+<% var activities = { "moving": "Help moving", "military": "Defeat my enemies" } %>
+
 <% times = ["any time", "morning", "afternoon", "evening"] %>
 
 <% date = (new Date(model.get('date'))).toDateString().split(' ') %>
@@ -28,7 +30,7 @@
 
 <div class="col-md-4 mini-task">
   <ul class="list-group mini-task-group">
-    <li class="list-group-item"><%= model.get('category') %></li>
+    <li class="list-group-item"><%= activities[model.get('category')] %></li>
     <li class="list-group-item">Tasker: <%= taskerName %></li>
     <li class="list-group-item date-time"><span class="text-left"><%=date_str %></span><span class="pull-right"><%= time %></span></li>
   </ul>

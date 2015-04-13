@@ -6,4 +6,5 @@ json.array! @taskers.each do |tasker|
   json.description tasker.description
   json.vehicle tasker.vehicle
   json.location tasker.location
+  json.price tasker.price
 end
