@@ -4,7 +4,7 @@ TaskForce.Views.NewTask = Backbone.CompositeView.extend({
 
   initialize: function () {
     this.$el.append('<section class="form-area"></section>');
-    this.$el.append('<section class="tasker-area"></section>');
+    this.$el.append('<section class="tasker-area" id="tasker-area"></section>');
     this.$el.append('<section class="tasker-detail"></section>');
 
     this.task = new TaskForce.Models.Task();
@@ -68,7 +68,11 @@ TaskForce.Views.NewTaskForm = Backbone.CompositeView.extend({
       data: content,
       success: function () {
         tasker.unset('id');
-        $('.btn-submit').attr("value", "Change Task"); // trigger detail reset and mark model new
+        $('.btn-submit').attr("value", "Change Task");
+        debugger
+        $('html, body').animate({
+          scrollTop: $('#tasker-area').position().top
+        }); // trigger detail reset and mark model new
       },
       error: function () {
           alert("no taskers available that fit those criteria sorry");

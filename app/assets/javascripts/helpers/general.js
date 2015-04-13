@@ -5,7 +5,7 @@ TaskForce.Helpers = {
   createTaskersFromTasks: function(tasks, taskers) {
     tasks.each(function(task) {
       var taskerId = task.get('tasker_id');
-      if (taskerId && !(taskers.find(taskerId))) {
+      if (taskerId && !(taskers.get(taskerId))) {
         var tasker = new TaskForce.Models.User({
           id: task.get('tasker_id'),
           name: task.get('tasker_name'),

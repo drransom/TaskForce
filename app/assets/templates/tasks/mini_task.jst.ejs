@@ -33,7 +33,7 @@
   <% buttonClass = "tasker rated" %>
 <% } %>
 
-<% if (!tasker.get('alive')) { %>
+<% if (tasker.get('alive')) { %>
   <% var taskerDead = "" %>
 <% } else { %>
  <% var taskerDead = "tasker-dead" %>

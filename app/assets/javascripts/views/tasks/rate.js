@@ -39,7 +39,7 @@ TaskForce.Views.TaskRating = TaskForce.Views.Modal.extend({
   },
 
   downvote: function () {
-    if (!this.tasker.get('alive')) {
+    if (this.tasker.get('alive')) {
       this.voteFlag = "downvote";
       this.task.trigger('set');
     } else {
