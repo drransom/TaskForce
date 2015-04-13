@@ -5,6 +5,7 @@ TaskForce.Views.MiniTask = Backbone.View.extend({
   initialize: function (options) {
     this.task = options.task;
     this.tasker = options.tasker;
+    this.indexTasker = options.indexTasker;
     this.listenTo(this.task, 'set change', this.render);
     this.listenTo(this.tasker, 'set change', this.render);
   },
@@ -39,9 +40,10 @@ TaskForce.Views.MiniTask = Backbone.View.extend({
   },
 
   showTasker: function () {
-    $('#main').prepend('<section class="tasker-detail"></section>');
-    var taskerDetails = new TaskForce.Views.TaskerDetail( { model: this.tasker, task: this.task });
-    taskerDetails.setElement('.tasker-detail')
-    taskerDetails.render();
+    if (this.indexTasker.get('id') !== this.tasker.get('id')) {
+      this.indexTasker.set(this.tasker.attributes)
+    } else {
+      this.indexTasker.trigger('change')
+    }
   }
 });
