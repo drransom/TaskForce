@@ -10,11 +10,11 @@ TaskForce.Views.TaskerProfile = TaskForce.Views.Modal.extend({
     this.task = options.task
     this.$el.append('<section class="tasker-detail"></section>');
     this.$el.append('<section class="tasker-comments"></section>');
-    this.submit = options.submit || false
-
-    this.taskerDetail = new TaskForce.Views.TaskerDetail( {model: this.model,
+    this.submitButton = options.submitButton || false;
+    this.taskerDetail = new TaskForce.Views.TaskerDetail({ model: this.model,
                                                            task: this.task,
-                                                           parent: this});
+                                                           submitButton: this.submitButton,
+                                                           parent: this });
     // this.taskerComments = new TaskForce.Views.TaskerComments( {model: this.model } );
 
     this.addSubview('.tasker-detail', this.taskerDetail);
@@ -36,12 +36,14 @@ TaskForce.Views.TaskerDetail = Backbone.CompositeView.extend({
   template: JST['tasker_detail'],
 
   initialize: function (options) {
+    debugger
     this.task = options.task;
     this.parent = options.parent;
+    this.submitButton = options.submitButton;
   },
 
   render: function () {
-    var content = this.template( {user: this.model});
+    var content = this.template( { user: this.model, submitButton: this.submitButton });
     this.$el.html(content);
     return this;
   },

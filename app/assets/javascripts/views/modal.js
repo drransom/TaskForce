@@ -4,6 +4,7 @@ TaskForce.Views.Modal = Backbone.CompositeView.extend({
     this.templateOptions = (function () {
       return options.templateOptions ? options.templateOptions : {};
     }.bind(this))();
+    
     if (this.continueInitializing) {
       this.continueInitializing(options);
     }
