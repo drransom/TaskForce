@@ -17,15 +17,15 @@ TaskForce.Views.Modal = Backbone.CompositeView.extend({
 
   render: function (content) {
     content = content || this.template(this.templateOptions)
-    var modal = $('<section class="taskforce-modal taskforce-modal-initial"></section>')
-    $('body').prepend(modal);
-    this.setElement(modal);
-    var content = this.template(this.templateOptions);
-    this.$el.html(content);
-    modal.fadeTo(400, 1, function () {
-      modal.removeClass('taskforce-modal-initial');
-      modal.addClass('taskforce-modal-final');
-    })
+    var modal = $('body').find('.taskforce-modal');
+    if (this.new) {
+      modal = this.addModalSection()
+      this.fadeInAll(modal, content);
+    } else {
+      this.modalWindowFadeOut();
+      this.fadeInContent(modal, content);
+    }
+    this.new = false;
     return this;
   },
 

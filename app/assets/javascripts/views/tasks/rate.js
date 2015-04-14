@@ -19,19 +19,14 @@ TaskForce.Views.TaskRating = TaskForce.Views.Modal.extend({
   },
 
   render: function () {
-    var modal = $('body').find('.taskforce-modal');
-    if (this.new) {
-      modal = this.addModalSection()
-    }
-    var content = this.template({ task: this.task, tasker: this.tasker, flag: this.voteFlag, confirmationText: this.confirmationText});
-    if (!this.new) {
-      this.modalWindowFadeOut();
-      this.fadeInContent(modal, content);
-    } else {
-      this.fadeInAll(modal, content);
-    }
-    this.new = false;
-    return this;
+    var content = this.template({
+                                 task: this.task,
+                                 tasker: this.tasker,
+                                 flag: this.voteFlag,
+                                 confirmationText: this.confirmationText
+                                 });
+    var protoRender = TaskForce.Views.Modal.prototype.render;
+    protoRender.call(this, content);
   },
 
   upvote: function () {
