@@ -1,13 +1,14 @@
 <% var submitButton = submitButton || false %>
 
-<div class="modal-noclose" id="tasker-detail">
-  <div class="container-fluid modal-noclose">
+<div id="tasker-detail taskforce-modal-window">
+  <div class="container modal-noclose profile-modal">
     <% if (!user.isNew()) { %>
+      <div class="thumbnail modal-noclose profile-border">
+        <img src="<%= user.get('profile_url') %>" class="modal-noclose img-circle profile-picture" width ="200">
+      </div>
+      <div class="profile-area">
         <button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h2><%= user.get('name') %></h2>
-        <div class="thumbnail modal-noclose">
-          <img src="<%= user.get('profile_url') %>" class="modal-noclose">
-        </div>
+        <h2 class="profile-name"><%= user.get('name') %></h2>
         <ul class="list-group">
           <li class="list-group-item modal-noclose">100% Positive <%= user.get('num_completed') %> completed</li>
           <li class="list-group-item modal-noclose">Vehicle: <%= user.get('vehicle') %></li>

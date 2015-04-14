@@ -1,6 +1,10 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+$profile-background: white;
+$profile-border-radius: 4px;
+
 a.a-rating {
   text-decoration: none
 }
@@ -12,4 +16,29 @@ a.a-rating:hover {
 
 a.rating-tasks {
   color: #323A3B;
+}
+
+body .profile-modal {
+  position: relative;
+  top: 50px;
+  width: 500px;
+}
+
+body .profile-area {
+  background-color: $profile-background;
+  border-radius: $profile-border-radius;
+}
+
+.profile-picture {
+  border: 2px solid black;
+}
+.profile-modal .profile-border {
+  background-color: $profile-background;
+  border: 0px transparent;
+  margin-bottom: 0px
+}
+
+h2.profile-name {
+  margin-top: 10px;
+  text-align: center;
 }
