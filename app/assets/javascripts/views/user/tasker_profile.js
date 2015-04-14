@@ -28,12 +28,14 @@ TaskForce.Views.TaskerDetail = Backbone.CompositeView.extend({
   template: JST['tasker_detail'],
 
   initialize: function (options) {
+    debugger
     this.task = options.task;
     this.submit = options.submit;
     this.listenTo(this.model, 'change set', this.render)
   },
 
   render: function () {
+    debugger
     var content = this.template( {user: this.model});
     this.$el.html(content);
     if (!this.model.isNew()) {

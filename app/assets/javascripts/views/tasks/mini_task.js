@@ -40,6 +40,7 @@ TaskForce.Views.MiniTask = Backbone.View.extend({
   },
 
   showTasker: function () {
+    debugger
     if (this.indexTasker.get('id') !== this.tasker.get('id')) {
       this.indexTasker.set(this.tasker.attributes)
     } else {
