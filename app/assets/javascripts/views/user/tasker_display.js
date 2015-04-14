@@ -27,7 +27,6 @@ TaskForce.Views.TaskerDisplay = TaskForce.Views.IndexView.extend({
   },
 
   showTaskerDetail: function (event) {
-    debugger
     event.preventDefault();
     var id = $(event.currentTarget).data('id');
     var tasker = this.collection.get(id);
