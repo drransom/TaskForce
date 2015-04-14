@@ -9,7 +9,6 @@ TaskForce.Views.TaskIndex = Backbone.CompositeView.extend({
     this.tasks = new TaskForce.Collections.Tasks();
     this.taskers = new TaskForce.Collections.Users();
     this.indexTasker = new TaskForce.Models.User();
-    debugger
     this.taskerProfile = new TaskForce.Views.TaskerDetail({
       model: this.indexTasker,
       task: {},

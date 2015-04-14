@@ -40,7 +40,6 @@ TaskForce.Views.MiniTask = Backbone.View.extend({
   },
 
   showTasker: function (event) {
-    debugger
     event.preventDefault();
     var detail = new TaskForce.Views.TaskerProfile({task: this.task, model: this.tasker})
     detail.render();

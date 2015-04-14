@@ -1,3 +1,5 @@
+<% var select = select ? select : false %>
+
 <div class="modal-noclose" id="tasker-detail">
   <div class="container-fluid modal-noclose">
     <% if (!user.isNew()) { %>
@@ -11,8 +13,10 @@
           <li class="list-group-item modal-noclose">Vehicle: <%= user.get('vehicle') %></li>
           <li class="list-group-item modal-noclose">Location: <%= user.get('location') %></li>
           <li class="list-group-item modal-noclose"><%= user.get('description') %></li>
-          <li class="list-group-item modal-noclose"><button type="button" class="modal-noclose btn btn-default btn-large btn-std-color select-me"
+          <% if (select) { %>
+            <li class="list-group-item modal-noclose"><button type="button" class="modal-noclose btn btn-default btn-large btn-std-color select-me"
                   >Choose This Tasker</button><br></li>
+          <% } %>
         </ul>
       </div>
     <% } %>

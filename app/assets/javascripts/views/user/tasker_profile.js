@@ -7,7 +7,6 @@ TaskForce.Views.TaskerProfile = TaskForce.Views.Modal.extend({
       $('body').prepend('<section class="taskforce-modal"></section>');
       this.setElement('.taskforce-modal');
     }
-    debugger
     this.task = options.task
     this.$el.append('<section class="tasker-detail"></section>');
     this.$el.append('<section class="tasker-comments"></section>');
