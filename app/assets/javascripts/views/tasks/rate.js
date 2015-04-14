@@ -19,10 +19,21 @@ TaskForce.Views.TaskRating = TaskForce.Views.Modal.extend({
   },
 
   render: function () {
-    $('body').prepend('<section class="taskforce-modal"></section>')
+    var modal = $('<section class="taskforce-modal taskforce-modal-initial"></section>')
+    $('body').prepend(modal);
     this.setElement('.taskforce-modal');
     var content = this.template({ task: this.task, tasker: this.tasker, flag: this.voteFlag, confirmationText: this.confirmationText});
     this.$el.html(content);
+    var modalBody = modal.find('.taskforce-modal-window-initial');
+    modal.fadeTo(400, 0.5, function () {
+      modal.removeClass('taskforce-modal-initial');
+      modal.addClass('taskforce-modal-final');
+    })
+
+    modalBody.fadeTo(400, 1, function () {
+      modalBody.removeClass('taskforce-modal-window-initial');
+      modalBody.addClass('taskforce-modal-window-final')
+    })
     return this;
   },
 
