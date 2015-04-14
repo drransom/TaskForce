@@ -3,7 +3,7 @@
 TaskForce.Views.TaskIndex = Backbone.CompositeView.extend({
 
   initialize: function (options) {
-    this.$el.append('<section id="tasker-detail"></section>')
+    $('body').prepend('<section class="tasker-profile-modal"></section>')
     this.$el.append('<section class="task-area container"></section>');
 
     this.tasks = new TaskForce.Collections.Tasks();
@@ -13,10 +13,11 @@ TaskForce.Views.TaskIndex = Backbone.CompositeView.extend({
     this.taskerProfile = new TaskForce.Views.TaskerDetail({
       model: this.indexTasker,
       task: {},
-      submit: false
+      submit: false,
+      el: $('.tasker-profile-modal')
     })
 
-    this.addSubview('#tasker-detail', this.taskerProfile)
+    this.addSubview('.tasker-profile-modal', this.taskerProfile)
 
     this.tasks.fetch({
       success: function () {
