@@ -3,18 +3,20 @@
 TaskForce.Views.TaskIndex = Backbone.CompositeView.extend({
 
   initialize: function (options) {
-    this.$el.append('<section class=tasker-detail></section>')
+    this.$el.append('<section id="tasker-detail"></section>')
     this.$el.append('<section class="task-area container"></section>');
 
     this.tasks = new TaskForce.Collections.Tasks();
     this.taskers = new TaskForce.Collections.Users();
     this.indexTasker = new TaskForce.Models.User();
+    debugger
     this.taskerProfile = new TaskForce.Views.TaskerDetail({
       model: this.indexTasker,
       task: {},
       submit: false
     })
 
+    this.addSubview('#tasker-detail', this.taskerProfile)
 
     this.tasks.fetch({
       success: function () {
