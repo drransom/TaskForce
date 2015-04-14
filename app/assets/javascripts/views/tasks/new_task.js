@@ -17,11 +17,11 @@ TaskForce.Views.NewTask = Backbone.CompositeView.extend({
       indexModel: this.tasker,
       heading: "<h2>Taskers</h2>",
       template: JST['mini_profile'],
-      templateOptions: { select: true },
+      templateOptions: { pick_me: true },
     }
 
     this.taskForm = new TaskForce.Views.NewTaskForm( { task: this.task, taskers: this.taskers, tasker: this.tasker } );
-    this.taskerDisplay = new TaskForce.Views.TaskerDisplay( viewsOptions );
+    this.taskerDisplay = new TaskForce.Views.MiniProfile( viewsOptions );
     this.taskerDisplay.setTask(this.task);
 
     this.addSubview('.form-area', this.taskForm);

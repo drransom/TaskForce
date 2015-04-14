@@ -4,16 +4,19 @@ TaskForce.Views.TaskerProfile = TaskForce.Views.Modal.extend({
 
   continueInitializing: function (options) {
     if ($('section.taskforce-modal').length === 0) {
-      $('body').prepend('<section class="taskforce-modal"></section>');
+      $('body').prepend('<section class="taskforce-modal taskforce-modal-initial"></section>');
       this.setElement('.taskforce-modal');
     }
+    debugger
     this.task = options.task
-    this.$el.append('<section class="tasker-detail"></section>');
+    this.$el.append('<section class="tasker-detail taskforce-modal-window-final"></section>');
     this.$el.append('<section class="tasker-comments"></section>');
+    this.submit = options.submit || false
 
     this.taskerDetail = new TaskForce.Views.TaskerDetail( {model: this.model,
                                                            task: this.task,
-                                                           parent: this});
+                                                           submit: this.submit,
+                                                           parent: this });
     // this.taskerComments = new TaskForce.Views.TaskerComments( {model: this.model } );
 
     this.addSubview('.tasker-detail', this.taskerDetail);
@@ -35,12 +38,15 @@ TaskForce.Views.TaskerDetail = Backbone.CompositeView.extend({
   template: JST['tasker_detail'],
 
   initialize: function (options) {
+    debugger
     this.task = options.task;
     this.parent = options.parent;
+    this.submit = options.submit || false
   },
 
   render: function () {
-    var content = this.template( {user: this.model});
+    debugger
+    var content = this.template( {user: this.model, submit: this.submit});
     this.$el.html(content);
     return this;
   },
