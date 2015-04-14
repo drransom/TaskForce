@@ -1,4 +1,4 @@
-<% var pick_me = pick_me || false %>
+<% var select = select || false %>
   <div class="col-md-4 mini-profile">
     <div class="thumbnail">
       <img src="<%= model.get('profile_url')%>"  class="profile-img">
@@ -10,7 +10,7 @@
         title="<%= TaskForce.Helpers.guarantee %>"
         >100% Positive</a> <%= model.get('num_completed') %> completed</li>
     </ul>
-    <% if (pick_me) { %>
+    <% if (select) { %>
       <button type="button" class="btn btn-default btn-large btn-std-color select-me"
         data-id="<%= model.get('id') %>">Hire Me! $<%= model.get('price') %>/hr</button><br>
       <a href="javascript:void(0)" data-id="<%= model.get('id') %>" class="tasker-profile">See reviews & profile</a>

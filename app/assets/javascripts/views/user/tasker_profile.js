@@ -10,6 +10,7 @@ TaskForce.Views.TaskerProfile = TaskForce.Views.Modal.extend({
     this.task = options.task
     this.$el.append('<section class="tasker-detail"></section>');
     this.$el.append('<section class="tasker-comments"></section>');
+    this.submit = options.submit || false
 
     this.taskerDetail = new TaskForce.Views.TaskerDetail( {model: this.model,
                                                            task: this.task,
