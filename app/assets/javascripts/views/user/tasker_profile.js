@@ -31,6 +31,9 @@ TaskForce.Views.TaskerDetail = Backbone.CompositeView.extend({
     debugger
     this.task = options.task;
     this.submit = options.submit;
+    if (options.el) {
+      this.$el = options.el
+    }
     this.listenTo(this.model, 'change set', this.render)
   },
 
