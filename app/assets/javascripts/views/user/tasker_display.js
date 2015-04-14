@@ -30,7 +30,7 @@ TaskForce.Views.TaskerDisplay = TaskForce.Views.IndexView.extend({
     event.preventDefault();
     var id = $(event.currentTarget).data('id');
     var tasker = this.collection.get(id);
-    var detail = new TaskForce.Views.TaskerProfile({task: this.model, model: tasker})
+    var detail = new TaskForce.Views.TaskerProfile({task: this.task, model: tasker})
     detail.render();
   }
 });

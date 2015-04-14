@@ -7,12 +7,14 @@ TaskForce.Views.TaskerProfile = TaskForce.Views.Modal.extend({
       $('body').prepend('<section class="taskforce-modal"></section>');
       this.setElement('.taskforce-modal');
     }
+    debugger
     this.task = options.task
     this.$el.append('<section class="tasker-detail"></section>');
     this.$el.append('<section class="tasker-comments"></section>');
 
     this.taskerDetail = new TaskForce.Views.TaskerDetail( {model: this.model,
-                                                           task: this.task});
+                                                           task: this.task,
+                                                           parent: this});
     // this.taskerComments = new TaskForce.Views.TaskerComments( {model: this.model } );
 
     this.addSubview('.tasker-detail', this.taskerDetail);
@@ -35,6 +37,7 @@ TaskForce.Views.TaskerDetail = Backbone.CompositeView.extend({
 
   initialize: function (options) {
     this.task = options.task;
+    this.parent = options.parent;
   },
 
   render: function () {
@@ -48,9 +51,9 @@ TaskForce.Views.TaskerDetail = Backbone.CompositeView.extend({
     this.task.set( { tasker_id: this.model.get('id') });
     this.task.save ({}, {
       success: function () {
-        this.remove();;
+        this.parent.remove();
         Backbone.history.navigate('', {trigger: true})
-      },
+      }.bind(this),
       error: function () {
         alert("something went wrong")
       }
