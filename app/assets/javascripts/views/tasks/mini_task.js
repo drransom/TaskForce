@@ -39,12 +39,10 @@ TaskForce.Views.MiniTask = Backbone.View.extend({
     rating.render();
   },
 
-  showTasker: function () {
+  showTasker: function (event) {
     debugger
-    if (this.indexTasker.get('id') !== this.tasker.get('id')) {
-      this.indexTasker.set(this.tasker.attributes)
-    } else {
-      this.indexTasker.trigger('change')
-    }
+    event.preventDefault();
+    var detail = new TaskForce.Views.TaskerProfile({task: this.task, model: this.tasker})
+    detail.render();
   }
 });
