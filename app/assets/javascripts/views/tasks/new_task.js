@@ -23,12 +23,10 @@ TaskForce.Views.NewTask = Backbone.CompositeView.extend({
     this.taskForm = new TaskForce.Views.NewTaskForm( { task: this.task, taskers: this.taskers, tasker: this.tasker } );
     this.taskerDisplay = new TaskForce.Views.TaskerDisplay( viewsOptions );
     this.taskerDisplay.setTask(this.task);
-    this.taskerDetails = new TaskForce.Views.TaskerDetail( { model: this.tasker, task: this.task })
 
     this.addSubview('.form-area', this.taskForm);
     this.addSubview('.tasker-area', this.taskerDisplay);
-    this.addSubview('.tasker-detail', this.taskerDetails);
-  },
+   },
 
   render: function () {
     this.attachSubviews();
@@ -77,35 +75,5 @@ TaskForce.Views.NewTaskForm = Backbone.CompositeView.extend({
           alert("no taskers available that fit those criteria sorry");
       }
     });
-  },
-});
-
-TaskForce.Views.TaskerDisplay = TaskForce.Views.IndexView.extend({
-
-  tagName: 'section',
-  className: 'container',
-
-  events: {
-    'click button.select-me' : 'submit',
-    'click a.tasker-profile' : 'updateModel'
-  },
-
-  setTask: function (task) {
-    this.task = task;
-  },
-
-
-  submit: function (event) {
-    event.preventDefault();
-    var id = $(event.currentTarget).data('id');
-    this.task.set( { tasker_id: id });
-    this.task.save ({}, {
-      success: function () {
-        Backbone.history.navigate('', {trigger: true});
-      },
-      error: function () {
-        alert("something went wrong")
-      }
-    })
   },
 });

@@ -1,21 +1,33 @@
+<<<<<<< HEAD
 <% var submit = submit || false %>
 
 <div class="modal" id="tasker-detail">
   <div class="container-fluid">
+=======
+<div class="modal-noclose" id="tasker-detail">
+  <div class="container-fluid modal-noclose">
+>>>>>>> refactorModal
     <% if (!user.isNew()) { %>
-      <div class="col-md-2 col-md-offset-5">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h2><%= user.get('name') %></h2>
-        <div class="thumbnail">
-          <img src="<%= user.get('profile_url') %>">
+        <div class="thumbnail modal-noclose">
+          <img src="<%= user.get('profile_url') %>" class="modal-noclose">
         </div>
         <ul class="list-group">
+<<<<<<< HEAD
           <li class="list-group-item">100% Positive <%= user.get('num_completed') %> completed</li>
           <li class="list-group-item">Vehicle: <%= user.get('vehicle') %></li>
           <li class="list-group-item">Location: <%= user.get('location') %></li>
           <li class="list-group-item"><%= user.get('description') %></li>
           <% if (submit) { %>
             <li class="list-group-item"><button type="button" class="btn btn-default btn-large btn-std-color select-me"
+=======
+          <li class="list-group-item modal-noclose">100% Positive <%= user.get('num_completed') %> completed</li>
+          <li class="list-group-item modal-noclose">Vehicle: <%= user.get('vehicle') %></li>
+          <li class="list-group-item modal-noclose">Location: <%= user.get('location') %></li>
+          <li class="list-group-item modal-noclose"><%= user.get('description') %></li>
+          <li class="list-group-item modal-noclose"><button type="button" class="modal-noclose btn btn-default btn-large btn-std-color select-me"
+>>>>>>> refactorModal
                   >Choose This Tasker</button><br></li>
           <% } %>
         </ul>

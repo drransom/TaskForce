@@ -166,16 +166,22 @@ body .taskforce-modal {
   width: 100%;
   height: 100%;
   z-index: 50;
-  background-color: rgba(0, 0, 0, 0.5);
-  -webkit-transition: opacity 400ms ease-in;
-  -moz-transition: opacity 400ms ease-in;
-  transition: opacity 400ms;
+  background-color: black;
+}
+
+body .taskforce-modal-initial {
+  opacity: 0;
+}
+
+body .taskforce-modal-final {
+  opacity: 50;
+
 }
 
 body .taskforce-modal div.taskforce-modal-window {
-  position: relative;
-  top: 200;
-  left: 300;
+  position: absolute;
+  top: 200px;
+  left: 700px;
   width: 400px;
   margin: 10% auto;
   padding: 5px 20px 13px 20px;
@@ -183,4 +189,12 @@ body .taskforce-modal div.taskforce-modal-window {
   background-color: white;
   color: black;
   z-index: 200;
+}
+
+body .taskforce-modal div.taskforce-modal-window-initial {
+  opacity: 0;
+}
+
+.taskforce-modal div.taskforce-modal-window-final {
+  opacity: 1;
 }
