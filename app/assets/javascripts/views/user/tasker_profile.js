@@ -36,7 +36,6 @@ TaskForce.Views.TaskerDetail = Backbone.CompositeView.extend({
   template: JST['tasker_detail'],
 
   initialize: function (options) {
-    debugger
     this.task = options.task;
     this.parent = options.parent;
     this.submitButton = options.submitButton;

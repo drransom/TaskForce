@@ -4,7 +4,8 @@ TaskForce.Views.Modal = Backbone.CompositeView.extend({
     this.templateOptions = (function () {
       return options.templateOptions ? options.templateOptions : {};
     }.bind(this))();
-    
+    this.new = true;
+
     if (this.continueInitializing) {
       this.continueInitializing(options);
     }
@@ -14,13 +15,14 @@ TaskForce.Views.Modal = Backbone.CompositeView.extend({
     'click' : 'closeBackdrop'
   },
 
-  render: function () {
+  render: function (content) {
+    content = content || this.template(this.templateOptions)
     var modal = $('<section class="taskforce-modal taskforce-modal-initial"></section>')
     $('body').prepend(modal);
     this.setElement(modal);
     var content = this.template(this.templateOptions);
     this.$el.html(content);
-    modal.fadeTo(400, 0.5, function () {
+    modal.fadeTo(400, 1, function () {
       modal.removeClass('taskforce-modal-initial');
       modal.addClass('taskforce-modal-final');
     })
@@ -33,5 +35,32 @@ TaskForce.Views.Modal = Backbone.CompositeView.extend({
         this.remove();
       }.bind(this))
     }
+  },
+
+  addModalSection: function () {
+    var modal = $('<section class="taskforce-modal taskforce-modal-initial"></section>');
+    $('body').prepend(modal);
+    this.setElement('.taskforce-modal');
+    return modal
+  },
+
+  modalWindowFadeOut: function () {
+    var modalWindow = $('.taskforce-modal-window')
+    modalWindow.fadeOut(400, function () {
+      modalWindow.remove();
+    }.bind(this))
+  },
+
+  fadeInContent: function (modal, content) {
+    modal.append(content);
+    $(content).fadeIn(400);
+  },
+
+  fadeInAll: function (modal, content) {
+    modal.append(content);
+    modal.fadeTo(400, 1, function () {
+      modal.removeClass('taskforce-modal-initial');
+      modal.addClass('taskforce-modal-final');
+    })
   }
 });
