@@ -16,5 +16,18 @@ TaskForce.Helpers = {
       }
     })
     return taskers
+  },
+
+  taskerRating: function (tasker) {
+    var rating;
+    if (tasker.get('alive')) {
+      rating = "<a class='a-rating rating-tasks' " +
+      "href='javascript:void(0)' data-toggle='tooltip' data-placement='left' " +
+      "data-delay='100' + title='" + this.guarantee +
+      "'>100% Positive</a>";
+    } else {
+      rating = "No longer with us";
+    }
+    return rating
   }
 }

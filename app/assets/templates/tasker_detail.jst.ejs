@@ -11,7 +11,8 @@
       </div>
       <h2 class="profile-name"><%= user.get('name') %></h2>
       <ul class="list-group">
-        <li class="list-group-item modal-noclose">100% Positive <%= user.get('num_completed') %> completed</li>
+        <li class="list-group-item modal-noclose"><%= TaskForce.Helpers.taskerRating(user) %>
+        <%= user.get('num_completed') %> completed</li>
         <li class="list-group-item modal-noclose">Vehicle: <%= user.get('vehicle') %></li>
         <li class="list-group-item modal-noclose">Location: <%= user.get('location') %></li>
         <li class="list-group-item modal-noclose"><%= user.get('description') %></li>
