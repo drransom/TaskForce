@@ -24,6 +24,7 @@ TaskForce.Views.MiniTask = Backbone.View.extend({
   render: function () {
     var content = this.template({ model: this.task, tasker: this.tasker, offset: this.offset });
     this.$el.html(content);
+    this.$el.find('[data-toggle="tooltip"]').tooltip()
     return this;
   },
 
