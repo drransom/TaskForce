@@ -6,6 +6,7 @@ TaskForce.Views.MiniTask = Backbone.View.extend({
     this.task = options.task;
     this.tasker = options.tasker;
     this.indexTasker = options.indexTasker;
+
     this.offset = options.offset || false
     this.listenTo(this.task, 'set change', this.render);
     this.listenTo(this.tasker, 'set change', this.render);

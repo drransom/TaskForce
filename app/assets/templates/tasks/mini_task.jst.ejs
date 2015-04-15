@@ -24,10 +24,10 @@
 
 <% if (!model.get('user_completed')) { %>
   <% buttonText = "Mark complete" %>
-  <% buttonClass = "btn-std-color mark-complete" %>
+  <% buttonClass = "btn-std-color mark-complete mini-task-button" %>
 <% } else if (model.get('rating') === 0) { %>
   <% buttonText = "Rate Tasker" %>
-  <% buttonClass = "btn-alt-color rate-tasker" %>
+  <% buttonClass = "btn-alt-color rate-tasker mini-task-button" %>
 <% } else { %>
   <% buttonText = "tasker rated" %>
   <% buttonClass = "tasker rated" %>

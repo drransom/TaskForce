@@ -3,6 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 $background: #CAEBF2;
+$task-border-radius: 5px;
 
 #task-rate {
   top: 20%;
@@ -22,8 +23,9 @@ body .tasker-dead {
   margin-bottom: 20px;
   padding: 0px 0px 0px 0px;
   background-color: $background;
-  border-radius: 5px;
+  border-radius: $task-border-radius;
   transition: background 0.5s linear, color 0.25s linear
+  overflow: hidden
 }
 
 .mini-task-list > li {
@@ -43,4 +45,8 @@ body .tasker-dead {
 .mini-task:hover {
   background-color: blue;
   color: white;
+}
+
+mini-task-button {
+  border-radius: $task-border-radius
 }
