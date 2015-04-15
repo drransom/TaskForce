@@ -5,7 +5,7 @@
 <% var locations = ["Coruscant", "Endor", "Hoth", "Tatooine"] %>
 <% var task_types = [["military", "Defeat My Enemies"], ["moving", "I need help moving"]] %>
 
-<section class=".container new-task-form row">
+<section class="new-task-form row">
   <div class="col-md-6 col-md-offset-3">
     <h2>New Task</h2>
     <form class="form-group" action="/tasks" method="post">
@@ -27,18 +27,30 @@
 
       <div class="form-field-title-section">YOUR TASK DATE & TIME</div>
       <div class="input-group" type="hidden">
-        <input type="date" name="task_date" required><br>
+        <input type="date" name="task_date" required>
+        <br>
         <% for (var i = 0; i < times.length; i++) { %>
           <label><input type="radio" name="time_slot" value = "<%= i %>" required><%= times[i] %></label><br>
         <% } %>
       </div>
 
       <div class="form-field-title-section">WHAT SYSTEM IS YOUR TASK IN?</div>
-      <div class="input-group">
-        <% for (var i=0; i < locations.length; i++) { %>
-          <label><input type="radio" name="location" value="<%= locations[i] %>" required><%= locations[i] %></label><br>
-        <% } %>
-      </div><br>
+      <% for (var i=0; i < locations.length; i++) { %>
+        <div class="col-md-6">
+          <ul class="planet-list">
+            <label>
+              <li>
+                <input type="radio" name="location"
+                       value="<%= locations[i] %>"
+                       style="display: none"
+                       class="planet-image" required>
+                <img src="<%= TaskForce.Helpers.planetProfilePic[locations[i]] %>">
+              </li>
+              <li><%= locations[i] %></li>
+            </label>
+          </ul>
+        </div>
+      <% } %>
       <input type="submit" value="Submit Task" class="btn btn-primary btn-std-color btn-submit">
     </form>
   </div>

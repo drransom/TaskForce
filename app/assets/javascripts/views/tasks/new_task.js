@@ -3,7 +3,7 @@
 TaskForce.Views.NewTask = Backbone.CompositeView.extend({
 
   initialize: function () {
-    this.$el.append('<section class="form-area"></section>');
+    this.$el.append('<section class="form-area container"></section>');
     this.$el.append('<section class="tasker-area" id="tasker-area"></section>');
     this.$el.append('<section class="tasker-detail"></section>');
 
