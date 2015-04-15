@@ -24,13 +24,12 @@ body .tasker-dead {
   padding: 0px 0px 0px 0px;
   background-color: $background;
   border-radius: $task-border-radius;
-  transition: background 0.5s linear, color 0.25s linear
+  transition: background 0.5s linear, color 0.25s linear;
   overflow: hidden
 }
 
 .mini-task-list > li {
   background-image: none;
-  // background-color: $background;
   background-color: inherit;
 }
 
@@ -47,6 +46,10 @@ body .tasker-dead {
   color: white;
 }
 
-mini-task-button {
+.mini-task-button {
   border-radius: $task-border-radius
+}
+
+ .tasker-rated {
+  background-color: inherit
 }

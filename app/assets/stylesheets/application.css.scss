@@ -62,6 +62,12 @@ body .btn-std-color:hover {
   background-color: #0d7488
 }
 
+body.btn-alt-color {
+  
+  -webkit-transition: background-color 0.2s;
+  transition: background-color 0.2s;
+}
+
 body .profile-img {
   overflow: hidden;
 }

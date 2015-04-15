@@ -28,9 +28,12 @@
 <% } else if (model.get('rating') === 0) { %>
   <% buttonText = "Rate Tasker" %>
   <% buttonClass = "btn-alt-color rate-tasker mini-task-button" %>
+<% } else if (model.get('rating') > 0 ) { %>
+  <% buttonText = "<span class='glyphicon glyphicon-thumbs-down'></span>" %>
+  <% buttonClass = "tasker-rated glyphicon glyphicon-thumbs-up" %>
 <% } else { %>
-  <% buttonText = "tasker rated" %>
-  <% buttonClass = "tasker rated" %>
+  <% buttonText = "<span class='glyphicon glyphicon-thumbs-down'></span>" %>
+  <% buttonClass = "tasker-rated " %>
 <% } %>
 
 <% if (tasker.get('alive')) { %>
@@ -47,8 +50,7 @@
         <li class="list-group-item mini-task-item">Tasker: <span class="<%= taskerDead %>"><a href="javascript:void(0)" class="tasker-profile"><%= taskerName %></a></span></li>
         <li class="list-group-item date-time mini-task-item"><span class="text-left"><%=date_str %></span><span class="pull-right"><%= time %></span></li>
       </ul>
-      <button type="button" class="btn btn-default <%= buttonClass %>"
-        data-id="<%= model.get('id') %>"><%=buttonText%></button><br>
+      <button class="<%= buttonClass %>"><%= buttonText %></button>
     </div>
   </div>
 </div>
