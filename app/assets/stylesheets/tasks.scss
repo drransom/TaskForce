@@ -2,6 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+$background: #CAEBF2;
+
 #task-rate {
   top: 20%;
   outline: none;
@@ -13,4 +15,25 @@
 
 body .tasker-dead {
   text-decoration: line-through;
+}
+
+.mini-task {
+  background-image: none;
+  margin-bottom: 20px;
+  background-color: $background;
+  border-radius: 5px;
+}
+
+.mini-task-list > li {
+  background-image: none;
+  // background-color: $background;
+  background-color: inherit;
+}
+
+.list-group.mini-task-list {
+  // background-color: $background;
+}
+
+.mini-task:hover {
+  background-color: black;
 }

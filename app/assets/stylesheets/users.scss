@@ -3,7 +3,9 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 $profile-background: white;
-$profile-border-radius: 4px;
+$profile-border-radius: 5px;
+$profile-border: 1px solid rgba(228, 229, 229, 1);
+$division-background-color: #00964B;
 
 a.a-rating {
   text-decoration: none
@@ -27,6 +29,21 @@ body .profile-modal {
 body .profile-area {
   background-color: $profile-background;
   border-radius: $profile-border-radius;
+  padding: 0px 0px 0px 0px;
+}
+
+body .close-profile-button {
+  background-color: $division-background-color;
+  border-top-right-radius: $profile-border-radius;
+  border-top-left-radius: $profile-border-radius;
+}
+
+button.close-profile-button {
+  border: 0px transparent;
+  margin: 6px 0px 0px 0px;
+  padding: 0px 0px 0px 10px;
+  font-size: 25px;
+  line-height: 15px;
 }
 
 .profile-picture {
@@ -34,11 +51,12 @@ body .profile-area {
 }
 .profile-modal .profile-border {
   background-color: $profile-background;
-  border: 0px transparent;
   margin-bottom: 0px
 }
 
 h2.profile-name {
-  margin-top: 10px;
+  background-color: #00964B;
+  color: white;
+  margin-top: 0px;
   text-align: center;
 }

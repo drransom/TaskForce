@@ -1,25 +1,25 @@
 <% var submitButton = submitButton || false %>
 
 <div id="tasker-detail taskforce-modal-window">
-  <div class="container modal-noclose profile-modal">
+  <div class="container modal-noclose profile-modal profile-area">
     <% if (!user.isNew()) { %>
+      <div class="close-profile-button">
+        <button type="button" class="close-profile-button" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      </div>
       <div class="thumbnail modal-noclose profile-border">
         <img src="<%= user.get('profile_url') %>" class="modal-noclose img-circle profile-picture" width ="200">
       </div>
-      <div class="profile-area">
-        <button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h2 class="profile-name"><%= user.get('name') %></h2>
-        <ul class="list-group">
-          <li class="list-group-item modal-noclose">100% Positive <%= user.get('num_completed') %> completed</li>
-          <li class="list-group-item modal-noclose">Vehicle: <%= user.get('vehicle') %></li>
-          <li class="list-group-item modal-noclose">Location: <%= user.get('location') %></li>
-          <li class="list-group-item modal-noclose"><%= user.get('description') %></li>
-          <% if (submitButton) { %>
-            <li class="list-group-item modal-noclose"><button type="button" class="modal-noclose btn btn-default btn-large btn-std-color select-me"
-                  >Choose This Tasker</button><br></li>
-          <% } %>
-        </ul>
-      </div>
+      <h2 class="profile-name"><%= user.get('name') %></h2>
+      <ul class="list-group">
+        <li class="list-group-item modal-noclose">100% Positive <%= user.get('num_completed') %> completed</li>
+        <li class="list-group-item modal-noclose">Vehicle: <%= user.get('vehicle') %></li>
+        <li class="list-group-item modal-noclose">Location: <%= user.get('location') %></li>
+        <li class="list-group-item modal-noclose"><%= user.get('description') %></li>
+        <% if (submitButton) { %>
+          <li class="list-group-item modal-noclose"><button type="button" class="modal-noclose btn btn-default btn-large btn-std-color select-me"
+                >Choose This Tasker</button><br></li>
+        <% } %>
+      </ul>
     <% } %>
   </div>
 </div>

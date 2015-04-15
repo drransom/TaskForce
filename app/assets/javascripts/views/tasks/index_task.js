@@ -3,7 +3,7 @@
 TaskForce.Views.TaskIndex = Backbone.CompositeView.extend({
 
   initialize: function (options) {
-    this.$el.append('<section class="task-area container"></section>');
+    this.$el.append('<section class="container task-area"></section>');
 
     this.tasks = new TaskForce.Collections.Tasks();
     this.taskers = new TaskForce.Collections.Users();
