@@ -24,15 +24,18 @@ TaskForce.Views.TaskIndex = Backbone.CompositeView.extend({
   },
 
   createMiniTaskSubviews: function () {
-    var tasker, tasker, subview;
+    var tasker, tasker, subview, i;
+    i = 0;
     this.tasks.each( function(task) {
       tasker = this.taskers.get(task.get('tasker_id'))
       subview = new TaskForce.Views.MiniTask({
         task: task,
         tasker: tasker,
-        indexTasker: this.indexTasker
+        indexTasker: this.indexTasker,
+        offset: (i % 3 !== 0)
       })
       this.addSubview('.task-area', subview)
+      i += 1
     }.bind(this))
   }
 });

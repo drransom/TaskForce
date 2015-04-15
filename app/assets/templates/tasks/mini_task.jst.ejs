@@ -1,7 +1,7 @@
 
 
 <% var times, date, day, month, day_num, year, date_str, time %>
-<% var taskerName, buttonText, buttonClass %>
+<% var taskerName, buttonText, buttonClass, offsetClass %>
 
 <% var activities = { "moving": "Help moving", "military": "Defeat my enemies" } %>
 
@@ -39,12 +39,16 @@
  <% var taskerDead = "tasker-dead" %>
 <% } %>
 
-<div class="col-md-3 col-md-offset-1 mini-task">
-  <ul class="list-group mini-task-list">
-    <li class="list-group-item mini-task-item"><%= activities[model.get('category')] %></li>
-    <li class="list-group-item mini-task-item">Tasker: <span class="<%= taskerDead %>"><a href="javascript:void(0)" class="tasker-profile"><%= taskerName %></a></span></li>
-    <li class="list-group-item date-time mini-task-item"><span class="text-left"><%=date_str %></span><span class="pull-right"><%= time %></span></li>
-  </ul>
-  <button type="button" class="btn btn-default <%= buttonClass %>"
-    data-id="<%= model.get('id') %>"><%=buttonText%></button><br>
+<div class="col-md-4">
+  <div class="column-padding">
+    <div class="mini-task">
+      <ul class="list-group mini-task-list">
+        <li class="list-group-item mini-task-item"><%= activities[model.get('category')] %></li>
+        <li class="list-group-item mini-task-item">Tasker: <span class="<%= taskerDead %>"><a href="javascript:void(0)" class="tasker-profile"><%= taskerName %></a></span></li>
+        <li class="list-group-item date-time mini-task-item"><span class="text-left"><%=date_str %></span><span class="pull-right"><%= time %></span></li>
+      </ul>
+      <button type="button" class="btn btn-default <%= buttonClass %>"
+        data-id="<%= model.get('id') %>"><%=buttonText%></button><br>
+    </div>
+  </div>
 </div>

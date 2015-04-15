@@ -6,6 +6,7 @@ TaskForce.Views.MiniTask = Backbone.View.extend({
     this.task = options.task;
     this.tasker = options.tasker;
     this.indexTasker = options.indexTasker;
+    this.offset = options.offset || false
     this.listenTo(this.task, 'set change', this.render);
     this.listenTo(this.tasker, 'set change', this.render);
   },
@@ -20,7 +21,7 @@ TaskForce.Views.MiniTask = Backbone.View.extend({
   },
 
   render: function () {
-    var content = this.template({ model: this.task, tasker: this.tasker });
+    var content = this.template({ model: this.task, tasker: this.tasker, offset: this.offset });
     this.$el.html(content);
     return this;
   },

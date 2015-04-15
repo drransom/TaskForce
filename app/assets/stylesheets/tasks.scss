@@ -20,8 +20,10 @@ body .tasker-dead {
 .mini-task {
   background-image: none;
   margin-bottom: 20px;
+  padding: 0px 0px 0px 0px;
   background-color: $background;
   border-radius: 5px;
+  transition: background 0.5s linear, color 0.25s linear
 }
 
 .mini-task-list > li {
@@ -30,10 +32,15 @@ body .tasker-dead {
   background-color: inherit;
 }
 
+.mini-task > ul {
+  background-color: inherit;
+}
+
 .list-group.mini-task-list {
   // background-color: $background;
 }
 
 .mini-task:hover {
-  background-color: black;
+  background-color: blue;
+  color: white;
 }
