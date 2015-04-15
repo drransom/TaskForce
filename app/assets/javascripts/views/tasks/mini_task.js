@@ -6,7 +6,6 @@ TaskForce.Views.MiniTask = Backbone.View.extend({
     this.task = options.task;
     this.tasker = options.tasker;
     this.indexTasker = options.indexTasker;
-
     this.offset = options.offset || false
     this.listenTo(this.task, 'set change', this.render);
     this.listenTo(this.tasker, 'set change', this.render);
@@ -19,6 +18,7 @@ TaskForce.Views.MiniTask = Backbone.View.extend({
     'click button.mark-complete' : 'markComplete',
     'click button.rate-tasker' : 'rateTasker',
     'click a.tasker-profile' : 'showTasker',
+    'click button.tasker-rated' : 'reRateTasker'
   },
 
   render: function () {
@@ -45,5 +45,25 @@ TaskForce.Views.MiniTask = Backbone.View.extend({
     event.preventDefault();
     var detail = new TaskForce.Views.TaskerProfile({task: this.task, model: this.tasker})
     detail.render();
-  }
+  },
+
+  reRateTasker: function () {
+    if (this.task.get('rating') > 0) {
+      var rating = new TaskForce.Views.TaskRating( {
+        templateOptions: { tasker: this.tasker, task: this.task },
+        tasker: this.tasker,
+        task: this.task,
+        template: this.rateTemplate,
+      })
+      rating.downvote();
+    } else {
+      var rating = new TaskForce.Views.TaskRating( {
+        templateOptions: { tasker: this.tasker, task: this.task },
+        tasker: this.tasker,
+        task: this.task,
+        template: this.rateTemplate,
+      })
+      rating.upvote();
+    }
+  },
 });

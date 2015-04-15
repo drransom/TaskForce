@@ -1,7 +1,7 @@
 
 
 <% var times, date, day, month, day_num, year, date_str, time %>
-<% var taskerName, buttonText, buttonClass, offsetClass %>
+<% var taskerName, buttonText, buttonClass, offsetClass, tooltip %>
 
 <% var activities = { "moving": "Help moving", "military": "Defeat my enemies" } %>
 
@@ -22,17 +22,19 @@
   <% } %>
 <% })() %>
 
+<% tooltip = "data-toggle='tooltip' data-delay='100' title='change rating' data-placement='left'" %>
+
 <% if (!model.get('user_completed')) { %>
   <% buttonText = "Mark complete" %>
-  <% buttonClass = "btn-std-color mark-complete mini-task-button" %>
+  <% buttonClass = "btn-default btn-std-color mark-complete mini-task-button" %>
 <% } else if (model.get('rating') === 0) { %>
   <% buttonText = "Rate Tasker" %>
-  <% buttonClass = "btn-alt-color rate-tasker mini-task-button" %>
+  <% buttonClass = "btn-default btn-alt-color rate-tasker mini-task-button" %>
 <% } else if (model.get('rating') > 0 ) { %>
-  <% buttonText = "<span class='glyphicon glyphicon-thumbs-down'></span>" %>
-  <% buttonClass = "tasker-rated glyphicon glyphicon-thumbs-up" %>
+  <% buttonText = "<span class='glyphicon glyphicon-thumbs-up' " + tooltip + "></span>" %>
+  <% buttonClass = "tasker-rated " %>
 <% } else { %>
-  <% buttonText = "<span class='glyphicon glyphicon-thumbs-down'></span>" %>
+  <% buttonText = "<span class='glyphicon glyphicon-thumbs-down' " + tooltip + "></span>" %>
   <% buttonClass = "tasker-rated " %>
 <% } %>
 
@@ -50,7 +52,8 @@
         <li class="list-group-item mini-task-item">Tasker: <span class="<%= taskerDead %>"><a href="javascript:void(0)" class="tasker-profile"><%= taskerName %></a></span></li>
         <li class="list-group-item date-time mini-task-item"><span class="text-left"><%=date_str %></span><span class="pull-right"><%= time %></span></li>
       </ul>
-      <button class="<%= buttonClass %>"><%= buttonText %></button>
+      <button type="button" class="btn <%= buttonClass %>"
+        data-id="<%= model.get('id')%>"><%= buttonText %></button><br>
     </div>
   </div>
 </div>
