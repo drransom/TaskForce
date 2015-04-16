@@ -17,6 +17,7 @@ json.array! @tasks do |task|
     json.tasker_description task.tasker.description
     json.tasker_alive task.tasker.alive
     json.tasker_location task.tasker.location
+    json.tasker_vehicle task.tasker.vehicle
     json.tasker_price task.tasker.price
   else
     json.tasker_name nil

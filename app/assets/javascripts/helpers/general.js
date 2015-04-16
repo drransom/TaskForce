@@ -13,6 +13,7 @@ TaskForce.Helpers = {
           description: task.get('tasker_description'),
           alive: task.get('tasker_alive'),
           location: task.get('tasker_location'),
+          vehicle: task.get('tasker_vehicle'),
           price: task.get('tasker_price')
         })
         taskers.add(tasker)
