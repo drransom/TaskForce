@@ -5,20 +5,21 @@
 <% var locations = ["Coruscant", "Endor", "Hoth", "Tatooine"] %>
 <% var task_types = [["military", "Defeat My Enemies"], ["moving", "I need help moving"]] %>
 
-<section class="new-task-form row">
-  <div class="col-md-6 col-md-offset-3">
+<section class="new-task-form">
+  <div class="col-md-8 col-md-offset-2">
     <h2>New Task</h2>
+    <span class="subheading">Based on the details entered below, we'll show you relevant Taskers for you to choose from.</span>
     <form class="form-group" action="/tasks" method="post">
       <div class="form-field-title-section">TASK DETAILS</div>
       <h4 class="input-fields-title">Will the task require a vehicle?</h4>
 
       <% for (var i=0; i < vehicles.length; i++) { %>
-        <div class="col-md-6" id="<= locations[i] %>">
+        <div class="col-md-4" id="<= locations[i] %>">
           <input type="radio" name="vehicle"
                value="<%= vehicles[i][0] %>"
                style="display: none"
                id="<%= vehicles[i][0] %>" required>
-          <label for="vehicles[i][0] %>" class="form-images">
+          <label for="<%= vehicles[i][0] %>" class="form-images">
             <ul class="radio-image-list">
               <li class="text-center">
                 <img src="<%= TaskForce.Helpers.profilePic[vehicles[i][0]] %>">
