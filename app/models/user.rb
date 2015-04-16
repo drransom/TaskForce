@@ -28,6 +28,9 @@ class User < ActiveRecord::Base
   has_many :owned_tasks, class_name: "Task", foreign_key: :owner_id
   has_many :accepted_tasks, class_name: "Task", foreign_key: :tasker_id
 
+  has_many :comments, as: :commentable
+  has_many :comments_written, class_name: "Comment", foreign_key: :commenter_id
+
   attr_reader :password
   after_initialize :ensure_session_token
 
