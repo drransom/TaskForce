@@ -7,12 +7,12 @@
 
 <section class="new-task-form">
   <div class="col-md-8 col-md-offset-2 new-task-form">
-    <h2>New Task</h2>
-    <span class="subheading">Based on the details entered below, we'll show you relevant Taskers for you to choose from.</span>
-    <form class="form-group" action="/tasks" method="post">
+    <div class="new-task-form">
+      <h2>New Task</h2>
+      <span class="subheading">Based on the details entered below, we'll show you relevant Taskers for you to choose from.</span>
+      <form class="form-group" action="/tasks" method="post">
       <div class="form-field-title-section">TASK DETAILS</div>
       <h4 class="input-fields-title">Will the task require a vehicle?</h4>
-
       <% for (var i=0; i < vehicles.length; i++) { %>
         <div class="col-md-4" id="<= locations[i] %>">
           <input type="radio" name="vehicle"
@@ -22,7 +22,9 @@
           <label for="<%= vehicles[i][0] %>" class="form-images">
             <ul class="radio-image-list">
               <li class="text-center">
-                <img src="<%= TaskForce.Helpers.profilePic[vehicles[i][0]] %>">
+                <div class="profile-image">
+                  <img src="<%= TaskForce.Helpers.profilePic[vehicles[i][0]] %>">
+                </div>
               </li>
               <li class="text-center"><%= vehicles[i][1] %></li>
               </ul>
@@ -59,7 +61,9 @@
           <label for="<%= locations[i] %>" class="form-images">
             <ul class="radio-image-list">
               <li class="text-center">
-                <img src="<%= TaskForce.Helpers.profilePic[locations[i]] %>">
+                <div class="planet-profile-image">
+                  <img src="<%= TaskForce.Helpers.profilePic[locations[i]] %>">
+                </div>
               </li>
               <li class="text-center"><%= locations[i] %></li>
               </ul>
