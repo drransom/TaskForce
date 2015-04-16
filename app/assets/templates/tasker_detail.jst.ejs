@@ -21,6 +21,13 @@
                 >Choose This Tasker</button><br></li>
         <% } %>
       </ul>
+      <% comments.forEach(function(comment) { %>
+
+        <ul class="list-group">
+          <li>Commenter: <%=comment.get('name') %></li>
+          <li>Body: <%= comment.get('body') %></li>
+        </ul>
+      <% }) %>
     <% } %>
   </div>
 </div>
