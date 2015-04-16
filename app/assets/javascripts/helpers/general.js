@@ -10,7 +10,10 @@ TaskForce.Helpers = {
           id: task.get('tasker_id'),
           name: task.get('tasker_name'),
           profile_url: task.get('tasker_profile_url'),
-          alive: task.get('tasker_alive')
+          description: task.get('tasker_description'),
+          alive: task.get('tasker_alive'),
+          location: task.get('tasker_location'),
+          price: task.get('tasker_price')
         })
         taskers.add(tasker)
       }
