@@ -1,6 +1,8 @@
-<% comments.forEach(function(comment) { %>
-  <ul>
-    <li>Commenter: <%=comment.get('name') %></li>
-    <li>Body: <%= comment.get('body') %></li>
-  </ul>
-<% }) %>
+<div class="container modal-noclose profile-modal">
+  <% comments.forEach(function(comment) { %>
+    <ul>
+      <li>Commenter: <%=comment.get('name') %></li>
+      <li>Body: <%= comment.get('body') %></li>
+    </ul>
+  <% }) %>
+</div>

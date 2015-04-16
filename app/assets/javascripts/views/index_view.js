@@ -3,9 +3,6 @@ TaskForce.Views.IndexView = Backbone.CompositeView.extend({
   //heading, templateOptions
   //assumes that each individual template item will have id data
 
-  tagName: 'section',
-  className: 'container',
-
   initialize: function (options) {
     this.indexModel = options.indexModel;
     this.heading = options.heading;
