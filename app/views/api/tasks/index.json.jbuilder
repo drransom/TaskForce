@@ -10,9 +10,15 @@ json.array! @tasks do |task|
   json.time task.time_slot
   json.rating task.rating
   if task.tasker
+    json.tasker_id task.tasker.id
     json.tasker_name task.tasker.name
+    json.num_completed task.tasker.num_completed
     json.tasker_profile_url task.tasker.profile_url
+    json.tasker_description task.tasker.description
     json.tasker_alive task.tasker.alive
+    json.tasker_location task.tasker.location
+    json.tasker_price task.tasker.price
+    json.tasker_alive task.tasker.price
   else
     json.tasker_name nil
     json.tasker_profile_url nil
