@@ -2,6 +2,16 @@ class UsersController < ApplicationController
   def new
   end
 
+  def show
+    @user = User.find(params[:id])
+    if @user
+      @comments = Comment.joins(:comment_author).where({id: @user.id})
+      render :show
+    else
+      render json: @user.errors.full_messages, status: :unprocessable_entity
+    end
+  end
+
   def index
     @taskers = find_taskers.where(user_filter).limit(3)
     if @taskers.empty?

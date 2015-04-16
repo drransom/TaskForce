@@ -1,6 +1,14 @@
 "use strict";
 
 TaskForce.Models.User = Backbone.Model.extend({
-  urlRoot: '/users'
+  urlRoot: '/users',
 
+  parse: function (response) {
+    var attributes = {};
+    _(response.user).each(function (value, attribute) {
+      attributes[attribute] = value
+    });
+    debugger
+    return attributes
+  }
 });

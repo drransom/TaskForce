@@ -18,11 +18,13 @@ TaskForce.Views.TaskerProfile = TaskForce.Views.Modal.extend({
       submitButton: this.submitButton,
       parent: this });
     this.taskerComments = new TaskForce.Views.TaskerComments( {
-      model: this.model,
       collection: this.comments } );
 
     this.addSubview('.tasker-detail', this.taskerDetail);
-    this.addSubview('.tasker-comments', this.TaskerComments);
+    this.addSubview('.tasker-comments', this.taskerComments);
+    this.model.fetch({success: function (response) {
+      debugger
+    }})
   },
 
   render: function () {
