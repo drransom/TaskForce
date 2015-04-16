@@ -7,53 +7,23 @@ TaskForce.Views.TaskerProfile = TaskForce.Views.Modal.extend({
       $('body').prepend('<section class="taskforce-modal"></section>');
       this.setElement('.taskforce-modal');
     }
-    this.task = options.task
-    this.$el.append('<section class="tasker-detail"></section>');
-    this.$el.append('<section class="tasker-comments"></section>');
+    this.task = options.task;
     this.submitButton = options.submitButton || false;
-    this.comments = new TaskForce.Collections.Comments();
-    this.taskerDetail = new TaskForce.Views.TaskerDetail({
-      model: this.model,
-      task: this.task,
-      submitButton: this.submitButton,
-      parent: this });
-    this.taskerComments = new TaskForce.Views.TaskerComments( {
-      collection: this.comments,
-      templateOptions: {comments: this.comments}
-      } );
-
-    this.addSubview('.tasker-detail', this.taskerDetail);
-    this.addSubview('.tasker-comments', this.taskerComments);
-    this.model.fetch({success: function (response) {
-      TaskForce.Helpers.constructCommentsFromUser(this.model, this.comments)
-      this.comments.trigger('sync')
-    }.bind(this)})
+    // this.taskerComments = new TaskForce.Views.TaskerComments( {
+    //   collection: this.comments,
+    //   templateOptions: {comments: this.comments}
+    //   } );
+    //
+    // this.model.fetch({success: function (response) {
+    //   TaskForce.Helpers.constructCommentsFromUser(this.model, this.comments)
+    //   this.comments.trigger('sync')
+    // }.bind(this)})
+    this.template = JST['tasker_detail'];
   },
 
-  render: function () {
-    this.attachSubviews();
-    return this;
-  }
-});
-
-TaskForce.Views.TaskerDetail = Backbone.CompositeView.extend({
 
   events: {
     'click button.select-me' : 'submit'
-  },
-
-  template: JST['tasker_detail'],
-
-  initialize: function (options) {
-    this.task = options.task;
-    this.parent = options.parent;
-    this.submitButton = options.submitButton;
-  },
-
-  render: function () {
-    var content = this.template( { user: this.model, submitButton: this.submitButton });
-    this.$el.html(content);
-    return this;
   },
 
   submit: function (event) {
@@ -61,7 +31,6 @@ TaskForce.Views.TaskerDetail = Backbone.CompositeView.extend({
     this.task.set( { tasker_id: this.model.get('id') });
     this.task.save ({}, {
       success: function () {
-        this.parent.remove();
         Backbone.history.navigate('', {trigger: true})
       }.bind(this),
       error: function () {
@@ -69,4 +38,30 @@ TaskForce.Views.TaskerDetail = Backbone.CompositeView.extend({
       }
     })
   },
+
+  render: function () {
+    var content = this.template( { user: this.model, submitButton: this.submitButton });
+    this.$el.html(content);
+    return this;
+  }
 });
+//
+// TaskForce.Views.TaskerDetail = Backbone.CompositeView.extend({
+//
+//   events: {
+//     'click button.select-me' : 'submit'
+//   },
+//
+//
+//   initialize: function (options) {
+//     this.task = options.task;
+//     this.submitButton = options.submitButton;
+//   },
+//
+//   render: function () {
+//     var content = this.template( { user: this.model, submitButton: this.submitButton });
+//     this.$el.html(content);
+//     return this;
+//   },
+//
+// });
