@@ -23,8 +23,9 @@ TaskForce.Views.TaskerProfile = TaskForce.Views.Modal.extend({
     this.addSubview('.tasker-detail', this.taskerDetail);
     this.addSubview('.tasker-comments', this.taskerComments);
     this.model.fetch({success: function (response) {
+      TaskForce.Helpers.constructCommentsFromUser(this.model, this.comments)
       debugger
-    }})
+    }.bind(this)})
   },
 
   render: function () {
@@ -67,15 +68,3 @@ TaskForce.Views.TaskerDetail = Backbone.CompositeView.extend({
     })
   },
 });
-
-// TaskForce.Views.TaskerComments = Backbone.View.extend({
-//
-//   template: {},
-//
-//   tagName: 'section',
-//   className: 'container',
-//
-//   render: function () {
-//     return this;
-//   }
-// });

@@ -8,7 +8,6 @@ TaskForce.Models.User = Backbone.Model.extend({
     _(response.user).each(function (value, attribute) {
       attributes[attribute] = value
     });
-    debugger
     return attributes
   }
 });

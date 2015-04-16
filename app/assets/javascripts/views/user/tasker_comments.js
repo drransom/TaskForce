@@ -1,4 +1,4 @@
 TaskForce.Views.TaskerComments = TaskForce.Views.IndexView.extend( {
-  //model = tasker
+  template: JST['tasker_comments']
 
 })

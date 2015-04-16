@@ -35,6 +35,22 @@ TaskForce.Helpers = {
     return rating
   },
 
+  constructCommentsFromUser: function (user, collection) {
+    var attributes, id;
+    _(user.get('comments')).each( function (comment) {
+      attributes = {}
+      var existingComment = collection.find(id);
+      _(comment).each(function (value, attribute) {
+        attributes[attribute] = value;
+      })
+      if (existingComment) {
+        existingComment.set(attributes)
+      } else {
+        collection.add(new TaskForce.Models.Comment(attributes))
+      }
+    })
+  },
+
   profilePic: {
     "Endor": "http://img4.wikia.nocookie.net/__cb20130731183030/starwars/images/1/1f/Endor.jpg",
     "Hoth": "http://img2.wikia.nocookie.net/__cb20071019040631/starwars/images/d/d1/Hoth.jpg",
