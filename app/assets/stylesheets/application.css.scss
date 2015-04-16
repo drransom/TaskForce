@@ -28,6 +28,10 @@
 //   font-family: starjedihol;
 // }
 
+body.signed-in {
+  background-color: #F5F6F6;
+}
+
 li.list-group-item {
   border: transparent
 }
@@ -63,7 +67,7 @@ body .btn-std-color:hover {
 }
 
 body.btn-alt-color {
-  
+
   -webkit-transition: background-color 0.2s;
   transition: background-color 0.2s;
 }
