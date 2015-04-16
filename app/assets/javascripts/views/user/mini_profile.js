@@ -1,4 +1,5 @@
 TaskForce.Views.MiniProfile = TaskForce.Views.IndexView.extend({
+  template: JST['mini_profile'],
 
   tagName: 'section',
   className: 'container',

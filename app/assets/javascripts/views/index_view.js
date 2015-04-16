@@ -9,13 +9,8 @@ TaskForce.Views.IndexView = Backbone.CompositeView.extend({
   initialize: function (options) {
     this.indexModel = options.indexModel;
     this.heading = options.heading;
-    this.template = options.template;
     this.templateOptions = options.templateOptions || {};
     this.listenTo(this.collection, 'sync', this.render)
-    if (options.model2) {
-      this.model2 = options.model2;
-      this.listenTo(this.collection, 'sync', this.render)
-    }
   },
 
   render: function () {

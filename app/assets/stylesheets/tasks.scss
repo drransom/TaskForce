@@ -96,6 +96,8 @@ div.planet-profile-image {
 div.profile-image {
   width: 300px;
   overflow: hidden;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 input[type=radio]:not(:checked) + label:hover {

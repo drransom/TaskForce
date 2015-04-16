@@ -16,7 +16,6 @@ TaskForce.Views.NewTask = Backbone.CompositeView.extend({
 
       indexModel: this.tasker,
       heading: "<h2>Taskers</h2>",
-      template: JST['mini_profile'],
       templateOptions: { submitButton: true },
     }
 
