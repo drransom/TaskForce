@@ -23,6 +23,7 @@ TaskForce.Views.TaskerProfile = TaskForce.Views.Modal.extend({
 
 
   events: {
+    'click' : 'closeBackdrop',
     'click button.select-me' : 'submit'
   },
 
