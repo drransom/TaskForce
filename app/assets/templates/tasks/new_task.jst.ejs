@@ -13,8 +13,11 @@
       <form class="form-group" action="/tasks" method="post">
       <div class="form-field-title-section">TASK DETAILS</div>
       <h4 class="input-fields-title">Will the task require a vehicle?</h4>
+        <input type="radio" name="vehicle"
+             value="no vehicle"
+             style="display: none" checked required>
       <% for (var i=0; i < vehicles.length; i++) { %>
-        <div class="col-md-4" id="<= locations[i] %>">
+        <div class="col-md-4" id="<%= locations[i] %>">
           <input type="radio" name="vehicle"
                value="<%= vehicles[i][0] %>"
                style="display: none"
@@ -53,7 +56,7 @@
 
       <div class="form-field-title-section">WHAT SYSTEM IS YOUR TASK IN?</div>
       <% for (var i=0; i < locations.length; i++) { %>
-        <div class="col-md-6" id="<= locations[i] %>">
+        <div class="col-md-6" id="<%= locations[i] %>">
           <input type="radio" name="location"
                value="<%= locations[i] %>"
                style="display: none"
