@@ -62,7 +62,7 @@ class UsersController < ApplicationController
   end
 
   def find_taskers
-    User.where(tasker: true, alive: true)
+    User.where(tasker: true)
   end
 
 end
