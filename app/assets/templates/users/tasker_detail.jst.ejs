@@ -1,3 +1,16 @@
+<% var vehicleText, userRating %>
+<% if (user.get('vehicle') === 'none') { %>
+  <% vehicleText = "Does not travel" %>
+<% } else { %>
+  <% vehicleText = "Has a " + (user.get('vehicle')) %>
+<% } %>
+
+<% if (user.get('alive')) { %>
+  <% userRating = TaskForce.Helpers.taskerRating(user) %>
+<% } else { %>
+  <% userRating = "Failed for the last time" %>
+<% } %>
+
 <% var submitButton = submitButton || false %>
 
 <div id="tasker-detail taskforce-modal-window">
@@ -12,7 +25,7 @@
             <%= TaskForce.Helpers.taskerRating(user) %>
           </div>
           <div class="profile-picture-container-bottom modal-noclose">
-            <%= user.get('num_completed') %> completed
+            <%= user.get('num_completed') %> tasks completed
           </div>
         </div>
         <div class="profile-picture-container modal-noclose">
@@ -23,7 +36,7 @@
             Works on <%= user.get('location') %>
           </div>
           <div class="profile-picture-container-bottom modal-noclose">
-            Drives a <%= user.get('vehicle') %>
+            <%= vehicleText %>
           </div>
         </div>
       </div>

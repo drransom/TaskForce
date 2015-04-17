@@ -63,7 +63,7 @@ han_solo = User.create({
 obi_wan = User.create({
   name: "Ben K.",
   email: "obiwan@starwars.com",
-  location: "Tattoine",
+  location: "Tatooine",
   vehicle: "none",
   description: "If you want someone more powerful than you can possibly imagine, I'm your man.",
   num_completed: Random.rand(100) + 1,
@@ -125,7 +125,7 @@ palpatine = User.create({
 c3P0 = User.create({
   email: "c3PO@starwars.com",
   name: "C-3PO",
-  location: "Tattoine",
+  location: "Tatooine",
   vehicle: "none",
   description: "I am fluent in over six million forms of communication.",
   num_completed: Random.rand(100) + 1,
