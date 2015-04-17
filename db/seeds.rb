@@ -155,6 +155,40 @@ guest = User.create({
   password: 'password'
   })
 
+#comments on Luke
+c1 = Comment.create({
+  commentable_id: luke.id,
+  commentable_type: "User",
+  comment_author: yoda,
+  body: "He may seem too young to begin the training, but he did an " +
+        "excellent job."
+  })
+
+c2 = Comment.create({
+  commentable_id: leia.id,
+  commentable_type: "User",
+  comment_author: stormtrooper,
+  body: "Leia is far more precise with a blaster than I could ever hope to " +
+        "be. Highly recommended and I will definitely hire her again."
+  })
+
+  c3 = Comment.create({
+    commentable_id: palpatine.id,
+    commentable_type: "User",
+    comment_author: obi_wan,
+    body: "Darth seemed to foresee my needs before I even knew what they " +
+          "were. Well done!"
+    })
+
+  c4 = Comment.create({
+    commentable_id: r2D2.id,
+    commentable_type: "User",
+    comment_author: darth_vader,
+    body: "R2 was great. I would definitely hire him again. He took " +
+          "charge and got the job done in half the time I had estimated."
+    })
+
+
 t1 = Task.create({
   owner_id: User.last.id,
   title: "Destroy Death Star",

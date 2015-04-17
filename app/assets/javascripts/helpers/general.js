@@ -51,6 +51,14 @@ TaskForce.Helpers = {
     })
   },
 
+  hireButton: function (user) {
+    return "<li class='list-group-item modal-noclose'>" +
+      "<button type='button' class='modal-noclose btn btn-default " +
+      "btn-large btn-std-color select-me'>" +
+      "Hire Me! <span class='lighter-text'>$" + user.get('price') +
+      "/hr</span></button><br></li>"
+  },
+
   profilePic: {
     "Endor": "http://img4.wikia.nocookie.net/__cb20130731183030/starwars/images/1/1f/Endor.jpg",
     "Hoth": "http://img2.wikia.nocookie.net/__cb20071019040631/starwars/images/d/d1/Hoth.jpg",
