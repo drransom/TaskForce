@@ -1,4 +1,4 @@
-<% var vehicleText, userRating %>
+<% var vehicleText, userRating, displayStyling, spanEnd, divEnd %>
 <% if (user.get('vehicle') === 'none') { %>
   <% vehicleText = "Does not travel" %>
 <% } else { %>
@@ -12,6 +12,16 @@
 <% } %>
 
 <% var submitButton = submitButton || false %>
+<% if (submitButton) { %>
+  <% displayStyling = "<div class='profile-body-area modal-noclose'>" %>
+  <% displayStyling += "<span class='profile-body-description modal-noclose'>" %>
+  <% spanEnd = "</span>" %>
+  <% submitButtonText = TaskForce.Helpers.hireButton(user) + "</div>" %>
+<% } else { %>
+  <% displayStyling = "" %>
+  <% spanEnd = "" %>
+  <% submitButtonText = "" %>
+<% } %>
 
 <div id="tasker-detail taskforce-modal-window">
   <div class="container modal-noclose profile-modal profile-area">
@@ -43,13 +53,12 @@
       <h2 class="profile-name modal-noclose"><%= user.get('name') %></h2>
       <div class="description-area modal-noclose">
         <span class="subheading modal-noclose">A BIT ABOUT ME</span><br>
+        <%= displayStyling %>
         <%= user.get('description') %>
-        <% if (submitButton) { %>
-          <%= TaskForce.Helpers.hireButton(user) %>
-        <% } %>
+        <%= spanEnd %>
+        <%= submitButtonText %>
       </div>
       <% comments.forEach(function(comment) { %>
-
         <ul class="list-group modal-noclose">
           <li class="modal-noclose">Commenter: <%=comment.get('author_name') %></li>
           <li class="modal-noclose">Body: <%= comment.get('body') %></li>
