@@ -1,12 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
-
-
 
 luke = User.create({
   name: 'Luke S.',
@@ -78,21 +69,11 @@ yoda = User.create({
   name: "Yoda",
   location: "Endor",
   vehicle: "Starship",
-  description: "I do. I do not do not. There is no try.",
+  description: "Let me help you with all your heavy lifting needs!",
   num_completed: Random.rand(100) + 1,
   price: 25,
   profile_url: 'http://www.empireonline.com/images/features/100greatestcharacters/photos/25.jpg',
   tasker: true,
-  password: 'password'
-  })
-
-stormtrooper = User.create({
-  email: "stormtrooper@starwars.com",
-  name: "Anthony S.",
-  location: "Hoth",
-  vehicle: "Starship",
-  profile_url: 'http://img2.wikia.nocookie.net/__cb20111205022230/starwars/images/0/0d/Storm-CHRON.jpg',
-  tasker: false,
   password: 'password'
   })
 
@@ -122,7 +103,7 @@ palpatine = User.create({
   password: 'password'
   })
 
-c3P0 = User.create({
+c3PO = User.create({
   email: "c3PO@starwars.com",
   name: "C-3PO",
   location: "Tatooine",
@@ -148,6 +129,72 @@ r2D2 = User.create({
   password: 'password'
   })
 
+admiral_ackbar = User.create({
+  email: "admiralackbar@starwars.com",
+  name: "Glal A.",
+  location: "Endor",
+  vehicle: "Starship",
+  description: "Enemies setting a trap for you? I've got your back!",
+  num_completed: Random.rand(100) + 1,
+  price: Random.rand(100) + 100,
+  profile_url: "http://img1.wikia.nocookie.net/__cb20081118162020/starwars/images/f/fb/Ackbar_HS.jpg",
+  tasker: true,
+  password: 'password',
+  })
+
+lando = User.create ({
+  email: "lando@starwars.com",
+  name: "Lando C.",
+  location: "Hoth",
+  vehicle: "Starship",
+  description: "I can handle all your long-term storage needs while you're moving.",
+  num_completed: Random.rand(500) + 1,
+  price: Random.rand(100) + 10,
+  profile_url: "http://img1.wikia.nocookie.net/__cb20080715214753/starwars/images/7/7d/Lando_WoSW.jpg",
+  tasker: true,
+  password: 'password'
+  })
+
+boba_fett = User.create ({
+  email: "bobafett@starwars.com",
+  name: "Boba F.",
+  location: "Endor",
+  vehicle: "Starship",
+  description: "I can disintegrate with the best of them.",
+  num_completed: Random.rand(100) + 1,
+  price: Random.rand(5000) + 3,
+  profile_url: "http://img2.wikia.nocookie.net/__cb20130920001614/starwars/images/5/58/BobaFettMain2.jpg",
+  tasker: true,
+  password: 'password'
+  })
+#nontaskers
+
+stormtrooper = User.create({
+  email: "stormtrooper@starwars.com",
+  name: "Anthony S.",
+  location: "Hoth",
+  vehicle: "Starship",
+  profile_url: 'http://img2.wikia.nocookie.net/__cb20111205022230/starwars/images/0/0d/Storm-CHRON.jpg',
+  tasker: false,
+  password: 'password'
+  })
+
+admiral_ozzel = User.create ({
+  email: "ozzel@starwars.com",
+  name: "Kendall O.",
+  password: "password",
+  profile_url: "http://img1.wikia.nocookie.net/__cb20090331015238/starwars/images/thumb/9/90/Ozzel.jpg/400px-Ozzel.jpg",
+  tasker: false
+  })
+
+wampa = User.create(
+  email: "wampa@starwars.com",
+  name: "Wampa",
+  password: "password",
+  profile_url: "http://img2.wikia.nocookie.net/__cb20130920001614/starwars/images/5/58/BobaFettMain2.jpg",
+  tasker: false
+  )
+
 guest = User.create({
   email: "guest@starwars.com",
   name: "Guest",
@@ -156,7 +203,7 @@ guest = User.create({
   })
 
 #comments on Luke
-c1 = Comment.create({
+Comment.create({
   commentable_id: luke.id,
   commentable_type: "User",
   comment_author: yoda,
@@ -164,7 +211,23 @@ c1 = Comment.create({
         "excellent job."
   })
 
-c2 = Comment.create({
+
+Comment.create({
+  commentable_id: luke.id,
+  commentable_type: "User",
+  comment_author: stormtrooper,
+  body: "Luke was far better than I could have imagined. Highly recommended!"
+  })
+
+Comment.create({
+  commentable_id: luke.id,
+  commentable_type: "User",
+  comment_author: wampa,
+  body: "It seemed like Luke was having trouble at first, but he really pulled through."
+})
+
+#comments on leia
+Comment.create({
   commentable_id: leia.id,
   commentable_type: "User",
   comment_author: stormtrooper,
@@ -172,21 +235,103 @@ c2 = Comment.create({
         "be. Highly recommended and I will definitely hire her again."
   })
 
-  c3 = Comment.create({
-    commentable_id: palpatine.id,
-    commentable_type: "User",
-    comment_author: obi_wan,
-    body: "Darth seemed to foresee my needs before I even knew what they " +
-          "were. Well done!"
-    })
+Comment.create({
+  commentable_id: leia.id,
+  commentable_type: "User",
+  comment_author: gmt,
+  body: "Her determination and resilience were extremely impressive."
+})
 
-  c4 = Comment.create({
-    commentable_id: r2D2.id,
-    commentable_type: "User",
-    comment_author: darth_vader,
-    body: "R2 was great. I would definitely hire him again. He took " +
-          "charge and got the job done in half the time I had estimated."
-    })
+#comments on Darth Vader
+
+Comment.create({
+  commentable_id: darth_vader.id,
+  commentable_type: "User",
+  comment_author: admiral_ozzel,
+  body: "Efficient and decisive."
+})
+
+Comment.create({
+  commentable_id: darth_vader.id,
+  commentable_type: "User",
+  comment_author: leia,
+  body: "Darth really knows what he is doing and really sees through people" +
+    " who try to pull a fast one on him."
+})
+
+#comments on Palpatine
+c3 = Comment.create({
+  commentable_id: palpatine.id,
+  commentable_type: "User",
+  comment_author: obi_wan,
+  body: "Darth seemed to foresee my needs before I even knew what they " +
+        "were. Well done!"
+  })
+
+Comment.create({
+  commentable_id: palpatine.id,
+  commentable_type: "User",
+  comment_author: r2D2,
+  body: "Very methodocial and had everthing planned from the get-go."
+})
+
+#comments on R2D2
+Comment.create({
+  commentable_id: r2D2.id,
+  commentable_type: "User",
+  comment_author: darth_vader,
+  body: "R2 was great. I would definitely hire him again. He took " +
+        "charge and got the job done in half the time I had estimated."
+  })
+
+Comment.create({
+  commentable_id: r2D2.id,
+  commentable_type: "User",
+  comment_author: luke,
+  body: "This droid is hard-working and will serve you well."
+})
+
+#comments on C3PO
+
+Comment.create({
+  commentable_id: c3PO.id,
+  commentable_type: "User",
+  comment_author: admiral_ozzel,
+  body: "c3PO was great! Excellent communication throughout the entire process " +
+    "and was a pleasure to talk to. Highly recommended!"
+})
+
+#comments on admiral ackbar
+
+Comment.create({
+  commentable_id: admiral_ackbar.id,
+  commentable_type: "User",
+  comment_author: lando,
+  body: "My needs for this project changed very rapidly. Glal came up with " +
+   "a new plan on the spot."
+})
+
+#comments on lando
+
+
+
+#comments on boba fett
+
+Comment.create({
+  commentable_id: boba_fett.id,
+  commentable_type: "User",
+  comment_author: darth_vader,
+  body: "I had a job that my company's staff couldn't handle, and Boba got " +
+    "it done in no time. Five stars!"
+})
+
+Comment.create({
+  commentable_id: boba_fett.id,
+  commentable_type: "User",
+  comment_author: c3PO,
+  body: "So easy to work with, detail-oriented, and just an all-around " +
+    "positive person."
+})
 
 
 t1 = Task.create({
@@ -214,3 +359,5 @@ t2 = Task.create({
  task_date: Date.today() - 3,
  time_slot: Random.rand(4)
  })
+
+#comments on boba fett

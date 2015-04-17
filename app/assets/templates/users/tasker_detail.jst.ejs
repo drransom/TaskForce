@@ -60,13 +60,13 @@
       </div>
       <% if (comments.length > 0) { %>
         <% comments.forEach(function(comment) { %>
-          <div class="media modal-noclose">
-            <div class="media-left media-middle modal-noclose">
-              <img class="media-object modal-noclose" src=<%= comment.get('commenter_profile_url') %>>
+          <div class="media modal-noclose comment-area">
+            <div class="media-left media-middle modal-noclose comment-profile-pic-area">
+              <img class="media-object modal-noclose comment-profile-pic" src=<%= comment.get('commenter_profile_url') %>>
             </div>
             <div class="media-body modal-noclose">
-              Commenter: <%=comment.get('author_name') %>
-              Body: <%= comment.get('body') %>
+              <h4 class="media-heading"><%=comment.get('author_name') %> says:</h4>
+              <%= comment.get('body') %>
             </div>
           </div>
         <% }) %>

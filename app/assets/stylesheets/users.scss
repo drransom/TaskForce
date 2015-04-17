@@ -47,6 +47,11 @@ button.close-profile-button {
   line-height: 15px;
 }
 
+.comment-profile-pic {
+  width: 100px;
+  overflow: hidden;
+}
+
 .description-area {
   background-color: white;
   padding: 5px 10px 5px 10px
@@ -92,7 +97,7 @@ h2.profile-name {
 
 .profile-body-description {
   float: left;
-  width: 80%;
+  width: 75%;
 
 }
 
@@ -102,5 +107,19 @@ h2.profile-name {
 }
 
 .subheading {
-  color: $subheading-color
+  color: $subheading-color;
+}
+
+div.media-comment-area {
+
+  img: {
+    height: 100px;
+    overflow: hidden;
+  }
+
+  .comment-profile-pic-area {
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+  }
 }

@@ -26,9 +26,15 @@ module Api
     end
 
     def task_params
-      params.require(:task).permit(:owner_id, :title, :description, :location,
-        :task_date, :time_slot, :vehicle, :price, :tasker_id, :category,
-        :user_completed, :tasker_completed, :rating)
+      task_params = params.require(:task).permit(:owner_id, :title,
+        :description, :location, :task_date, :time_slot, :vehicle, :price,
+        :tasker_id, :category, :user_completed, :tasker_completed, :rating)
+      if task_params[:description]
+        task_params[:description] = h(task_params[:description])
+      end
+      if task_params[:title]
+        task_params[:title] = h(task_params[:title])
+      end
     end
   end
 end
