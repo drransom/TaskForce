@@ -9,8 +9,10 @@
       &nbsp;<%= model.get('num_completed') %> completed</li>
     </ul>
     <% if (submitButton) { %>
-      <%= TaskForce.Helpers.hireButton(model) %>
-      <a href="javascript:void(0)" data-id="<%= model.get('id') %>" class="tasker-profile">See reviews & profile</a>
+      <span style="display: inline-block">
+        <%= TaskForce.Helpers.hireButton(model) %>
+        <a href="javascript:void(0)" data-id="<%= model.get('id') %>" class="tasker-profile">See reviews & profile</a>
+      </span>
     <% } %>
   </div>
 </div>

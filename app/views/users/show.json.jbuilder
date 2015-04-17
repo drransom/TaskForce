@@ -10,7 +10,7 @@ json.alive @user.alive
 json.comments @comments do |comment|
   json.body comment.body
   json.id comment.id
-  json.commenter_name comment.comment_author.name
+  json.author_name comment.comment_author.name
   json.commenter_profile_url comment.comment_author.profile_url
   json.commenter_alive comment.comment_author.alive
 end

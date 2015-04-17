@@ -52,11 +52,10 @@ TaskForce.Helpers = {
   },
 
   hireButton: function (user) {
-    return "<li class='list-group-item modal-noclose'>" +
-      "<button type='button' class='modal-noclose btn btn-default " +
+    return "<button type='button' class='modal-noclose btn btn-default " +
       "btn-large btn-std-color select-me'>" +
       "Hire Me! <span class='lighter-text'>$" + user.get('price') +
-      "/hr</span></button><br></li>"
+      "/hr</button>"
   },
 
   profilePic: {

@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-$profile-background: white;
+$profile-background: #D1DFD2;
 $profile-border-radius: 5px;
 $profile-border: 1px solid rgba(228, 229, 229, 1);
 $division-background-color: #00964B;
@@ -23,7 +23,7 @@ a.rating-tasks {
 body .profile-modal {
   position: relative;
   top: 50px;
-  width: 500px;
+  width: 750px;
 }
 
 body .profile-area {
@@ -59,4 +59,8 @@ h2.profile-name {
   color: white;
   margin-top: 0px;
   text-align: center;
+}
+
+.tasker-area.margin-bottom {
+  margin-bottom: 50px;
 }

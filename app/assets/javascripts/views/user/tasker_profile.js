@@ -18,7 +18,7 @@ TaskForce.Views.TaskerProfile = TaskForce.Views.Modal.extend({
         }.bind(this)
     })
 
-    this.template = JST['tasker_detail'];
+    this.template = JST['users/tasker_detail'];
   },
 
   events: {

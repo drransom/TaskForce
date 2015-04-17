@@ -3,13 +3,13 @@
 <div id="tasker-detail taskforce-modal-window">
   <div class="container modal-noclose profile-modal profile-area">
     <% if (!user.isNew()) { %>
-      <div class="close-profile-button">
+      <div class="close-profile-button modal-noclose">
         <button type="button" class="close-profile-button" aria-label="Close"><span aria-hidden="true">&times;</span></button>
       </div>
       <div class="thumbnail modal-noclose profile-border">
         <img src="<%= user.get('profile_url') %>" class="modal-noclose img-circle profile-picture" width ="200">
       </div>
-      <h2 class="profile-name"><%= user.get('name') %></h2>
+      <h2 class="profile-name modal-noclose"><%= user.get('name') %></h2>
       <ul class="list-group">
         <li class="list-group-item modal-noclose"><%= TaskForce.Helpers.taskerRating(user) %>
         <%= user.get('num_completed') %> completed</li>
@@ -22,9 +22,9 @@
       </ul>
       <% comments.forEach(function(comment) { %>
 
-        <ul class="list-group">
-          <li>Commenter: <%=comment.get('name') %></li>
-          <li>Body: <%= comment.get('body') %></li>
+        <ul class="list-group modal-noclose">
+          <li class="modal-noclose">Commenter: <%=comment.get('author_name') %></li>
+          <li class="modal-noclose">Body: <%= comment.get('body') %></li>
         </ul>
       <% }) %>
     <% } %>
