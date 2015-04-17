@@ -5,6 +5,7 @@
 $background: #CAEBF2;
 $task-border-radius: 5px;
 $background-hover-color: #A3D6A7;
+$subheading-color: #969d9e;
 
 #task-rate {
   top: 20%;
@@ -72,7 +73,7 @@ section.form-area div.new-task-form {
   background-color: white;
   padding-top: 10px;
   .subheading {
-    color:#969d9e
+    color: $subheading-color
   }
 }
 
