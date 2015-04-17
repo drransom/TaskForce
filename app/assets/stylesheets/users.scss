@@ -110,15 +110,15 @@ h2.profile-name {
   color: $subheading-color;
 }
 
-div.media-comment-area {
+div.media.comment-area {
+  overflow: scroll;
 
-  img: {
-    height: 100px;
+  img {
+    width: 100px;
     overflow: hidden;
   }
 
   .comment-profile-pic-area {
-    width: 100px;
     height: 100px;
     overflow: hidden;
   }

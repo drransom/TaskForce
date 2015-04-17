@@ -30,11 +30,12 @@ module Api
         :description, :location, :task_date, :time_slot, :vehicle, :price,
         :tasker_id, :category, :user_completed, :tasker_completed, :rating)
       if task_params[:description]
-        task_params[:description] = h(task_params[:description])
+        task_params[:description] = task_params[:description].html_safe
       end
       if task_params[:title]
-        task_params[:title] = h(task_params[:title])
+        task_params[:title] = task_params[:title].html_safe
       end
+      task_params
     end
   end
 end

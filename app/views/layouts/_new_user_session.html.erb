@@ -5,6 +5,7 @@
   <% header = "Sign Up" %>
   <% action = "/users" %>
 <% end %>
+
 <section id='main'>
 <section class=".container login-form">
   <div class="row">
@@ -24,6 +25,11 @@
           <label>Password<br>
             <input name="user[password]" type="password"><br>
           </label><br>
+          <% if form_type != :login %>
+            <label>Name (optional)</br>
+              <input name="user[name]" type="text">
+            </label><br>
+          <% end %>
           <input type="submit" value="Submit" class="btn btn-primary btn-std-color">
         </form>
         or <form action="/session" method="post">

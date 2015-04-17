@@ -39,7 +39,7 @@ TaskForce.Helpers = {
     var attributes, id;
     _(user.get('comments')).each( function (comment) {
       attributes = {}
-      var existingComment = collection.find(id);
+      var existingComment = collection.find(comment.id);
       _(comment).each(function (value, attribute) {
         attributes[attribute] = value;
       })

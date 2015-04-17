@@ -20,6 +20,7 @@ TaskForce.Views.TaskIndex = Backbone.CompositeView.extend({
 
   render: function () {
     this.attachSubviews();
+    this.prependHeading();
     this.$el.find('[data-toggle="tooltip"]').tooltip()
     return this;
   },
@@ -38,5 +39,9 @@ TaskForce.Views.TaskIndex = Backbone.CompositeView.extend({
       this.addSubview('.task-area', subview)
       i += 1
     }.bind(this))
+  },
+
+  prependHeading: function () {
+    this.$el.find('.task-area').prepend("<h3 class='task-heading'>My Tasks</h3>")
   }
 });
