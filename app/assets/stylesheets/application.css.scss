@@ -207,3 +207,13 @@ body .taskforce-modal div.taskforce-modal-window {
   color: black;
   z-index: 200;
 }
+
+.clearfix:before,
+.clearfix:after {
+  content: "";
+  display: table;
+}
+
+.clearfix:after {
+  clear: both;
+}

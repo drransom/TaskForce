@@ -7,7 +7,25 @@
         <button type="button" class="close-profile-button" aria-label="Close"><span aria-hidden="true">&times;</span></button>
       </div>
       <div class="thumbnail modal-noclose profile-border">
-        <img src="<%= user.get('profile_url') %>" class="modal-noclose img-circle profile-picture" width ="200">
+        <div class="profile-picture-container modal-noclose">
+          <div class="profile-picture-container-top modal-noclose">
+            <%= TaskForce.Helpers.taskerRating(user) %>
+          </div>
+          <div class="profile-picture-container-bottom modal-noclose">
+            <%= user.get('num_completed') %> completed
+          </div>
+        </div>
+        <div class="profile-picture-container modal-noclose">
+          <img src="<%= user.get('profile_url') %>" class="modal-noclose img-circle profile-picture" width ="200">
+        </div>
+        <div class="profile-picture-container modal-noclose">
+          <div class="profile-picture-container-top modal-noclose">
+            Works on <%= user.get('location') %>
+          </div>
+          <div class="profile-picture-container-bottom modal-noclose">
+            Drives a <%= user.get('vehicle') %>
+          </div>
+        </div>
       </div>
       <h2 class="profile-name modal-noclose"><%= user.get('name') %></h2>
       <ul class="list-group">

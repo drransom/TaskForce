@@ -25,7 +25,7 @@ TaskForce.Helpers = {
   taskerRating: function (tasker) {
     var rating;
     if (tasker.get('alive')) {
-      rating = "<a class='a-rating rating-tasks' " +
+      rating = "<a class='a-rating rating-tasks modal-noclose' " +
       "href='javascript:void(0)' data-toggle='tooltip' data-placement='left' " +
       "data-delay='100' + title='" + this.guarantee +
       "'>100% Positive</a>";
