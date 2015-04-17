@@ -58,12 +58,19 @@
         <%= spanEnd %>
         <%= submitButtonText %>
       </div>
-      <% comments.forEach(function(comment) { %>
-        <ul class="list-group modal-noclose">
-          <li class="modal-noclose">Commenter: <%=comment.get('author_name') %></li>
-          <li class="modal-noclose">Body: <%= comment.get('body') %></li>
-        </ul>
-      <% }) %>
+      <% if (comments.length > 0) { %>
+        <% comments.forEach(function(comment) { %>
+          <div class="media modal-noclose">
+            <div class="media-left media-middle modal-noclose">
+              <img class="media-object modal-noclose" src=<%= comment.get('commenter_profile_url') %>>
+            </div>
+            <div class="media-body modal-noclose">
+              Commenter: <%=comment.get('author_name') %>
+              Body: <%= comment.get('body') %>
+            </div>
+          </div>
+        <% }) %>
+      <% } %>
     <% } %>
   </div>
 </div>
