@@ -10,7 +10,6 @@ TaskForce.Views.NewTask = Backbone.CompositeView.extend({
     this.task = new TaskForce.Models.Task();
     this.taskers = new TaskForce.Collections.Users();
     this.tasker = new TaskForce.Models.User();
-    debugger
     var viewsOptions = {
       collection: this.taskers,
       indexModel: this.tasker,

@@ -52,10 +52,15 @@ TaskForce.Helpers = {
   },
 
   hireButton: function (user) {
-    return "<button type='button' class='modal-noclose btn btn-default " +
-      "btn-large btn-std-color select-me'>" +
-      "Hire Me! <span class='lighter-text'>$" + user.get('price') +
-      "/hr</button>"
+    var submitText
+    submitText = "<button type='button' class='modal-noclose btn btn-default " +
+      "btn-large btn-std-color select-me'";
+    if (user.get('id')) {
+      submitText += (" data-id='" + user.get('id') + "' ")
+    }
+    submitText += ">Hire Me! <span class='lighter-text'>$" + user.get('price') +
+      "/hr</button>";
+    return submitText;
   },
 
   profilePic: {
