@@ -31,6 +31,7 @@ body .profile-area {
   background-color: $profile-background;
   border-radius: $profile-border-radius;
   padding: 0px 0px 0px 0px;
+  overflow: scroll
 }
 
 body .close-profile-button {
@@ -122,4 +123,8 @@ div.media.comment-area {
     height: 100px;
     overflow: hidden;
   }
+}
+
+div.media .comment-region {
+  overflow: scroll;
 }

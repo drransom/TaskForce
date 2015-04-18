@@ -82,7 +82,7 @@ gmt = User.create({
   name: "Wilhuff T.",
   location: "Hoth",
   vehicle: "Battle Station",
-  description: "Fear will keep the local systems in line. Fear of this battle station.",
+  description: "Fear will keep the local systems in line. Fear of my battle station.",
   num_completed: Random.rand(100) + 1,
   price: 58,
   profile_url: "http://img1.wikia.nocookie.net/__cb20100620213033/starwars/images/thumb/c/c1/Tarkininfobox.jpg/400px-Tarkininfobox.jpg",

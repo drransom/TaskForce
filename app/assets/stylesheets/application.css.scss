@@ -175,7 +175,7 @@ nav a.ur-nav.header-link-first::before {
 }
 
 body .taskforce-modal {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   right: 0;
@@ -184,6 +184,7 @@ body .taskforce-modal {
   height: 100%;
   z-index: 50;
   background-color: rgba(0, 0, 0, 0.5);
+  overflow: scroll;
 }
 
 body .taskforce-modal-initial {
