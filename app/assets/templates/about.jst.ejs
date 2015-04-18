@@ -1,10 +1,27 @@
+<% var locations = ["Coruscant", "Endor", "Hoth", "Tatooine"] %>
+
 <section class="about container">
-  <div class="col-md-6 col-md-offset-3">
+  <div class="col-md-12">
     <h1>About TaskForce</h1>
     At TaskForce, we have the help you're looking for. Go to the 'New Task' link to create a task and find a Tasker!
     <h2>Why TaskForce is Different</h2>
     TaskForce is the only task service that guarantees 100% satisfaction with
     all tasks. If a Tasker fails to satisfy a customer's expectations, they
     are permanently removed.
+    <h2>Where we operate</h2>
+    <% for (var i=0; i < locations.length; i++) { %>
+      <div class="col-md-6">
+        <div class="list-images">
+          <ul class="radio-image-list" style="list-style-type: none">
+            <li class="text-center">
+              <div class="planet-profile-image">
+                <img src="<%= TaskForce.Helpers.profilePic[locations[i]] %>">
+              </div>
+            </li>
+            <li class="text-center" style="text-align:center; width: 300px"><%= locations[i] %></li>
+          </ul>
+        </div>
+      </div>
+    <% } %>
   </div>
 </section>

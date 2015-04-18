@@ -70,6 +70,7 @@ button.close-profile-button {
 
 .description-area {
   background-color: white;
+  padding-bottom: 5px;
 }
 
 .profile-picture {
@@ -132,6 +133,11 @@ h2.profile-name {
   height: 10px;
   padding-left: 10px;
   padding-right: 10px;
+}
+
+div.profile-end-row {
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 
 div.comment-area {
