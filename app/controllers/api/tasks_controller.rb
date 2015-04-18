@@ -2,6 +2,7 @@ module Api
 
   class TasksController < ApplicationController
     def create
+      debugger
       @task = Task.new(task_params);
       @task.owner_id = current_user.id
       if @task.save

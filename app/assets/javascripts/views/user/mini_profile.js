@@ -14,6 +14,7 @@ TaskForce.Views.MiniProfile = TaskForce.Views.IndexView.extend({
   },
 
   submit: function (event) {
+    debugger
     event.preventDefault();
     var id = $(event.currentTarget).data('id');
     this.task.set( { tasker_id: id });
