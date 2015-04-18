@@ -77,7 +77,8 @@ button.close-profile-button {
 }
 .profile-modal .profile-border {
   background-color: $profile-background;
-  margin-bottom: 0px
+  margin-bottom: 0px;
+  border-radius: 0px;
 }
 
 h2.profile-name {
@@ -125,6 +126,14 @@ h2.profile-name {
   color: $subheading-color;
 }
 
+.comment-bottom {
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  height: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
 div.comment-area {
   background-color: $profile-background;
   padding-top: 10px;
@@ -140,7 +149,12 @@ div.comment-area {
     overflow: hidden;
     border-radius: 5px;
   }
+}
 
+div.comment-area.last-comment-row {
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  padding-bottom: 10px;
 }
 
 div.media .comment-region {

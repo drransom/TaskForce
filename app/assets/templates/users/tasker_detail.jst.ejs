@@ -22,6 +22,13 @@
   <% spanEnd = "" %>
   <% submitButtonText = "" %>
 <% } %>
+<% var endClass = function(num) { %>
+  <% if (num === comments.length) { %>
+    <% return "last-comment-row" %>
+  <% } else { %>
+    <% return "" %>
+  <% } %>
+<% } %>
 
 <div id="tasker-detail taskforce-modal-window">
   <div class="container modal-noclose profile-modal profile-area">
@@ -62,8 +69,10 @@
         </div>
       </div>
       <% if (comments.length > 0) { %>
+        <% var i = 0 %>
         <% comments.forEach(function(comment) { %>
-          <div class="row modal-noclose comment-area">
+          <% i += 1 %>
+          <div class="row modal-noclose comment-area <%= endClass(i) %>">
             <div class="col-md-2 modal-noclose comment-profile-pic-area">
                 <div class="img-wrapper modal-noclose">
                   <img class="modal-noclose img-responsive" src=<%= comment.get('commenter_profile_url') %>>
