@@ -19,6 +19,7 @@ TaskForce.Views.TaskIndex = Backbone.CompositeView.extend({
   },
 
   render: function () {
+    this.$el.find('.task-area').empty();
     this.attachSubviews();
     this.prependHeading();
     this.$el.find('[data-toggle="tooltip"]').tooltip()

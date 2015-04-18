@@ -32,13 +32,17 @@ TaskForce.Views.TaskRating = TaskForce.Views.Modal.extend({
   upvote: function () {
     this.confirmationText = "We're glad you were satisfied with " +
       this.taskerFirstName() + "'s performance!"
-    this.voteFlag = "upvote"
-    this.task.save( { rating: 1 }, {
-      patch: true,
-      wait: true,
-      success: function () {
-      }.bind(this)
-    });
+    this.voteFlag = "upvote";
+    if (this.task.get('rating') === 1) {
+      this.task.trigger('change')
+    } else {
+      this.task.save( { rating: 1 }, {
+        patch: true,
+        wait: true,
+        success: function () {
+        }.bind(this)
+      })
+    }
   },
 
   downvote: function () {
