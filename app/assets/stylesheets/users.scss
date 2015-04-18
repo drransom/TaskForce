@@ -31,7 +31,22 @@ body .profile-area {
   background-color: $profile-background;
   border-radius: $profile-border-radius;
   padding: 0px 0px 0px 0px;
-  overflow: scroll
+
+  ::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  ::-webkit-scrollbar-track {
+      -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+      border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+  }
+
+
 }
 
 body .close-profile-button {
@@ -55,7 +70,6 @@ button.close-profile-button {
 
 .description-area {
   background-color: white;
-  padding: 5px 10px 5px 10px
 }
 
 .profile-picture {
@@ -111,18 +125,22 @@ h2.profile-name {
   color: $subheading-color;
 }
 
-div.media.comment-area {
-  overflow: scroll;
+div.comment-area {
+  background-color: $profile-background;
+  padding-top: 10px;
 
   img {
     width: 100px;
     overflow: hidden;
+    border-radius: 5px;
   }
 
-  .comment-profile-pic-area {
-    height: 100px;
+  .img-wrapper {
+    height: 115px;
     overflow: hidden;
+    border-radius: 5px;
   }
+
 }
 
 div.media .comment-region {

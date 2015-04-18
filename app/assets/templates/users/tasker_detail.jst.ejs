@@ -26,10 +26,10 @@
 <div id="tasker-detail taskforce-modal-window">
   <div class="container modal-noclose profile-modal profile-area">
     <% if (!user.isNew()) { %>
-      <div class="close-profile-button modal-noclose">
+      <div class="row close-profile-button modal-noclose">
         <button type="button" class="close-profile-button" aria-label="Close"><span aria-hidden="true">&times;</span></button>
       </div>
-      <div class="thumbnail modal-noclose profile-border">
+      <div class="row thumbnail modal-noclose profile-border">
         <div class="profile-picture-container modal-noclose">
           <div class="profile-picture-container-top modal-noclose">
             <%= TaskForce.Helpers.taskerRating(user) %>
@@ -50,21 +50,26 @@
           </div>
         </div>
       </div>
-      <h2 class="profile-name modal-noclose"><%= user.get('name') %></h2>
-      <div class="description-area modal-noclose">
-        <span class="subheading modal-noclose">A BIT ABOUT ME</span><br>
-        <%= displayStyling %>
-        <%= user.get('description') %>
-        <%= spanEnd %>
-        <%= submitButtonText %>
+      <h2 class="row profile-name modal-noclose"><%= user.get('name') %></h2>
+      <div class="row description-area modal-noclose">
+        <div class="col-md-12 modal-noclose">
+          <span class="subheading modal-noclose">A BIT ABOUT ME</span><br>
+
+          <%= displayStyling %>
+          <%= user.get('description') %>
+          <%= spanEnd %>
+          <%= submitButtonText %>
+        </div>
       </div>
       <% if (comments.length > 0) { %>
         <% comments.forEach(function(comment) { %>
-          <div class="media modal-noclose comment-area">
-            <div class="media-left media-middle modal-noclose comment-profile-pic-area">
-              <img class="media-object modal-noclose comment-profile-pic" src=<%= comment.get('commenter_profile_url') %>>
+          <div class="row modal-noclose comment-area">
+            <div class="col-md-2 modal-noclose comment-profile-pic-area">
+                <div class="img-wrapper modal-noclose">
+                  <img class="modal-noclose img-responsive" src=<%= comment.get('commenter_profile_url') %>>
+                </div>
             </div>
-            <div class="media-body modal-noclose">
+            <div class="col-md-9 modal-noclose">
               <h4 class="media-heading modal-noclose"><%=comment.get('author_name') %> says:</h4>
               <%= comment.get('body') %>
             </div>

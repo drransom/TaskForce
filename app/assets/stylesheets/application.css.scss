@@ -184,7 +184,7 @@ body .taskforce-modal {
   height: 100%;
   z-index: 50;
   background-color: rgba(0, 0, 0, 0.5);
-  overflow: scroll;
+  overflow-y: scroll;
 }
 
 body .taskforce-modal-initial {
