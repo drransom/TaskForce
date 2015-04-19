@@ -13,7 +13,7 @@ TaskForce.Views.NewTask = Backbone.CompositeView.extend({
     var viewsOptions = {
       collection: this.taskers,
       indexModel: this.tasker,
-      heading: "<h2>Hire a Tasker to Create Your Task</h2>",
+      heading: "<div class='row'><h2 class='col-md-12'>Hire a Tasker to Create Your Task</h2></div>",
       templateOptions: { submitButton: true },
     }
 

@@ -7,7 +7,7 @@ luke = User.create({
   description: "Corteous and professional. I used to bullseye two-meter womp rats in my T-16 back home.",
   num_completed: 54,
   price: 38,
-  profile_url: "http://img3.wikia.nocookie.net/__cb20091030151422/starwars/images/d/d9/Luke-rotjpromo.jpg",
+  profile_url: "luke_profile.png",
   tasker: true,
   password: 'password'
   })
@@ -20,7 +20,7 @@ leia = User.create({
   description: "I do diplomatic missions and undiplomatic ones as well",
   num_completed: Random.rand(100)+1,
   price: 50,
-  profile_url: "http://img1.wikia.nocookie.net/__cb20080506155343/starwars/images/8/89/Leia_endorpromo02.jpg",
+  profile_url: "leia_profile.png",
   tasker: true,
   password: 'password'
   })
@@ -33,8 +33,7 @@ darth_vader = User.create({
   description: "With our combined strength, we can end this destructive conflict and bring order to the galaxy.",
   num_completed: Random.rand(100) +1,
   price: 45,
-  profile_url: 'http://img2.wikia.nocookie.net/__cb20130621191704/starwars/images/thumb/7/76/Vader%27s_revelation.png/1000px-Vader%27s_revelation.png',
-  tasker: true,
+  profile_url: 'darthvader_profile.png',
   password: 'password'
   })
 
@@ -46,7 +45,7 @@ han_solo = User.create({
   description: "I have the fastest ship in the galaxy. I can make the Kessel Run in less than twelve parsecs.",
   num_completed: Random.rand(100) + 1,
   price: 250,
-  profile_url: "http://www.starwars7news.com/wp-content/uploads/2014/05/star-wars-harrison-ford-is-han-solo1.jpg",
+  profile_url: "hansolo_profile.png",
   tasker: true,
   password: 'password'
   })
@@ -59,7 +58,7 @@ obi_wan = User.create({
   description: "If you want someone more powerful than you can possibly imagine, I'm your man.",
   num_completed: Random.rand(100) + 1,
   price: 50,
-  profile_url: "http://img3.wikia.nocookie.net/__cb20111115052816/starwars/images/4/4e/ObiWanHS-SWE.jpg",
+  profile_url: "obiwan_profile.png",
   tasker: true,
   password: 'password',
   })
@@ -67,12 +66,12 @@ obi_wan = User.create({
 yoda = User.create({
   email: "yoda@starwars.com",
   name: "Yoda",
-  location: "Endor",
+  location: "Coruscant",
   vehicle: "Starship",
   description: "Let me help you with all your heavy lifting needs!",
   num_completed: Random.rand(100) + 1,
   price: 25,
-  profile_url: 'http://www.empireonline.com/images/features/100greatestcharacters/photos/25.jpg',
+  profile_url: 'yoda_profile.png',
   tasker: true,
   password: 'password'
   })
@@ -85,7 +84,7 @@ gmt = User.create({
   description: "Fear will keep the local systems in line. Fear of my battle station.",
   num_completed: Random.rand(100) + 1,
   price: 58,
-  profile_url: "http://img1.wikia.nocookie.net/__cb20100620213033/starwars/images/thumb/c/c1/Tarkininfobox.jpg/400px-Tarkininfobox.jpg",
+  profile_url: "gmt_profile.png",
   tasker: true,
   password: 'password'
   })
@@ -98,7 +97,7 @@ palpatine = User.create({
   description: "I'm looking forward to completing your training. In time you will call me master.",
   num_completed: Random.rand(100) + 1,
   price: 1000,
-  profile_url: "http://img1.wikia.nocookie.net/__cb20130620100935/starwars/images/thumb/d/d8/Emperor_Sidious.png/400px-Emperor_Sidious.png",
+  profile_url: "palpatine_profile.png",
   tasker: true,
   password: 'password'
   })
@@ -111,7 +110,7 @@ c3PO = User.create({
   description: "I am fluent in over six million forms of communication.",
   num_completed: Random.rand(100) + 1,
   price: 15,
-  profile_url: "http://img2.wikia.nocookie.net/__cb20131005124036/starwars/images/thumb/5/51/C-3PO_EP3.png/400px-C-3PO_EP3.png",
+  profile_url: "c3po_profile.png",
   tasker: true,
   password: 'password'
   })
@@ -124,7 +123,7 @@ r2D2 = User.create({
   description: "I am the most competent being in the galaxy.",
   num_completed: Random.rand(100) + 1,
   price: 72,
-  profile_url: "http://img2.wikia.nocookie.net/__cb20090524204255/starwars/images/1/1a/R2d2.jpg",
+  profile_url: "r2d2_profile.png",
   tasker: true,
   password: 'password'
   })
@@ -137,7 +136,7 @@ admiral_ackbar = User.create({
   description: "Enemies setting a trap for you? I've got your back!",
   num_completed: Random.rand(100) + 1,
   price: Random.rand(100) + 100,
-  profile_url: "http://img1.wikia.nocookie.net/__cb20081118162020/starwars/images/f/fb/Ackbar_HS.jpg",
+  profile_url: "ackbar_profile.png",
   tasker: true,
   password: 'password',
   })
@@ -150,7 +149,7 @@ lando = User.create ({
   description: "I can handle all your long-term storage needs while you're moving.",
   num_completed: Random.rand(500) + 1,
   price: Random.rand(100) + 10,
-  profile_url: "http://img1.wikia.nocookie.net/__cb20080715214753/starwars/images/7/7d/Lando_WoSW.jpg",
+  profile_url: "lando_profile.png",
   tasker: true,
   password: 'password'
   })
@@ -158,12 +157,12 @@ lando = User.create ({
 boba_fett = User.create ({
   email: "bobafett@starwars.com",
   name: "Boba F.",
-  location: "Endor",
+  location: "Coruscant",
   vehicle: "Starship",
   description: "I can disintegrate with the best of them.",
   num_completed: Random.rand(100) + 1,
   price: Random.rand(5000) + 3,
-  profile_url: "http://img2.wikia.nocookie.net/__cb20130920001614/starwars/images/5/58/BobaFettMain2.jpg",
+  profile_url: "bobafett_profile.png",
   tasker: true,
   password: 'password'
   })
@@ -174,7 +173,7 @@ stormtrooper = User.create({
   name: "Anthony S.",
   location: "Hoth",
   vehicle: "Starship",
-  profile_url: 'http://img2.wikia.nocookie.net/__cb20111205022230/starwars/images/0/0d/Storm-CHRON.jpg',
+  profile_url: 'stormtrooper_profile.png',
   tasker: false,
   password: 'password'
   })
@@ -183,7 +182,7 @@ admiral_ozzel = User.create ({
   email: "ozzel@starwars.com",
   name: "Kendall O.",
   password: "password",
-  profile_url: "http://img1.wikia.nocookie.net/__cb20090331015238/starwars/images/thumb/9/90/Ozzel.jpg/400px-Ozzel.jpg",
+  profile_url: "ozzel_profile.png",
   tasker: false
   })
 
@@ -191,7 +190,7 @@ wampa = User.create(
   email: "wampa@starwars.com",
   name: "Wampa",
   password: "password",
-  profile_url: "http://img2.wikia.nocookie.net/__cb20130920001614/starwars/images/5/58/BobaFettMain2.jpg",
+  profile_url: "wampa_profile.png",
   tasker: false
   )
 
@@ -272,7 +271,7 @@ Comment.create({
   commentable_id: palpatine.id,
   commentable_type: "User",
   comment_author: r2D2,
-  body: "Very methodocial and had everthing planned from the get-go."
+  body: "Very methodocial and had everything planned from the get-go."
 })
 
 #comments on R2D2

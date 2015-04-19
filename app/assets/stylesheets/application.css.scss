@@ -78,12 +78,22 @@ body.btn-alt-color {
   transition: background-color 0.2s;
 }
 
-body .profile-img {
+body .navbar-img {
   overflow: hidden;
 }
 
-body .navbar-img {
-  overflow: hidden;
+body {
+  button {
+    font-size: 16px
+  }
+
+  button btn.default {
+    font-size: 16px
+  }
+
+  input.btn-primary {
+    font-size: 16px
+  }
 }
 
 
@@ -98,7 +108,7 @@ h4.input-fields-title {
 
 div.form-field-title-section {
   color: #969d9e;
-  font-size: 16px;
+  font-size: 20px;
 }
 
 div.view-header {
@@ -131,6 +141,7 @@ section.front-page .front-page-gray {
 }
 
 section.front-page .title-mod {
+  margin-top: 15px;
   font-size: 32px;
   font-weight: 300;
   height: 44px;

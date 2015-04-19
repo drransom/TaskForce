@@ -7,67 +7,62 @@
 <% end %>
 
 <section id='main'>
-<section class=".container login-form">
-  <div class="row login-form-row">
-  <div class="col-md-3 col-md-offset-4">
-    <div class="panel panel-primary">
-      <div class="panel-heading">
-        <h2 class="panel-title"><%= header %></h2>
-      </div>
-      <div class="panel-body">
-        <%= render partial: 'layouts/errors' %>
 
-        <form action="<%= action %>" method="post">
-          <%= auth_token_input %>
-          <div class="form-group">
-            <label for "email-input">Email</label>
-              <input name="user[email]" type="text" class="form-control" id="email-input">
+  <section class=".container-fluid login-form">
+      <div class="row">
+      <div class="col-md-3 col-md-offset-4">
+        <div class="panel panel-primary login-form-area">
+          <div class="panel-heading">
+            <h2 class="panel-title"><%= header %></h2>
           </div>
-          <div class="form-group">
-            <label for "password-input">Password</label>
-              <input name="user[password]" type="password" class="form-control" id="password-input">
-          </div>
-          <% if form_type != :login %>
-            <div class="form-group">
-              <label for "name-input">Name (optional)</label>
-                <input name="user[name]" type="text" class="form-control" id="name-input">
-            </div>
-          <% end %>
-          <input type="submit" value="Submit" class="btn btn-primary btn-std-color">
-        </form>
-        or <form action="/session" method="post">
-          <%= auth_token_input %>
-            <input type = "hidden" name="user[email]" value="guest@starwars.com">
-            <input name="user[password]" type ="hidden" value="password">
-            <input type="submit" value="Login as guest" class="btn btn-primary btn-std-color">
-        </form>
-      </div>
-    </div>
-  </div>
-  </div>
-</section>
+          <div class="panel-body">
+            <%= render partial: 'layouts/errors' %>
 
-<section class="container front-page">
-  <div class="front-page-gray title-mod">This is the Help You're Looking For</div>
-  <div class="row">
-    <div class="col col-md-3">
-      <div class="text-center"><span class="glyphicon glyphicon-pencil glyphicon-front-page"></span></div>
-      <h4 class="hiw front-page-headers text-center">Describe Your Task</h4>
-      <div class="text-center front-page-lower front-page-gray">This helps us determine which Taskers are best for your job.</div>
+            <form action="<%= action %>" method="post">
+              <%= auth_token_input %>
+              <div class="form-group">
+                <label for "email-input">Email</label>
+                  <input name="user[email]" type="text" class="form-control" id="email-input">
+              </div>
+              <div class="form-group">
+                <label for "password-input">Password</label>
+                  <input name="user[password]" type="password" class="form-control" id="password-input">
+              </div>
+              <input type="submit" value="Submit" class="btn btn-primary">
+            </form>
+            or <form action="/session" method="post">
+              <%= auth_token_input %>
+                <input type = "hidden" name="user[email]" value="guest@starwars.com">
+                <input name="user[password]" type ="hidden" value="password">
+                <input type="submit" value="Login as guest" class="btn btn-primary">
+            </form>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <section class="container front-page">
+      <div class="front-page-gray title-mod">This is the Help You're Looking For</div>
+      <div class="row">
+        <div class="col col-md-3">
+          <div class="text-center"><span class="glyphicon glyphicon-pencil glyphicon-front-page"></span></div>
+          <h4 class="hiw front-page-headers text-center">Describe Your Task</h4>
+          <div class="text-center front-page-lower front-page-gray">This helps us determine which Taskers are best for your job.</div>
+        </div>
+        <div class="col col-md-1"><span class="glyphicon glyphicon-arrow-right glyphicon-front-arrow"></span>
+        </div>
+        <div class="col col-md-3">
+          <div class="text-center"><span class="glyphicon glyphicon-user glyphicon-front-page"></span></div>
+          <h4 class="hiw front-page-headers text-center">Choose a Tasker</h4>
+          <div class="text-center front-page-lower front-page-gray">All Taskers are fully-vetted & 100% guaranteed.</div>
+        </div>
+        <div class="col col-md-1"><span class="glyphicon glyphicon-arrow-right glyphicon-front-arrow"></span></div>
+        <div class="col col-md-3">
+          <div class="text-center"><span class="glyphicon glyphicon-sunglasses glyphicon-front-page"></span></div>
+          <h4 class="hiw front-page-headers text-center">Kick Back & Relax</h4>
+          <div class="text-center front-page-lower front-page-gray">If you are not satisfied, the Tasker will be removed.</div>
+        </div>
     </div>
-    <div class="col col-md-1"><span class="glyphicon glyphicon-arrow-right glyphicon-front-arrow"></span>
-    </div>
-    <div class="col col-md-3">
-      <div class="text-center"><span class="glyphicon glyphicon-user glyphicon-front-page"></span></div>
-      <h4 class="hiw front-page-headers text-center">Choose a Tasker</h4>
-      <div class="text-center front-page-lower front-page-gray">All Taskers are fully-vetted & 100% guaranteed.</div>
-    </div>
-    <div class="col col-md-1"><span class="glyphicon glyphicon-arrow-right glyphicon-front-arrow"></span></div>
-    <div class="col col-md-3">
-      <div class="text-center"><span class="glyphicon glyphicon-sunglasses glyphicon-front-page"></span></div>
-      <h4 class="hiw front-page-headers text-center">Kick Back & Relax</h4>
-      <div class="text-center front-page-lower front-page-gray">If you are not satisfied, the Tasker will be removed.</div>
-    </div>
-</div>
-</section>
+    </section>
 </section>
