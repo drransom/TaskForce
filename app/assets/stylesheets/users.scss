@@ -189,3 +189,50 @@ div.media .comment-region {
     margin-top: 0px;
   }
 }
+
+section.login-form {
+  color: white;
+  background-image: image-url('splash_background.png');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  margin-top: 0px;
+}
+
+.login-form  {
+  .panel-primary {
+    background: transparent;
+    border: 0;
+
+    .panel-heading {
+      background: transparent;
+      border: 0
+    }
+  }
+
+  input {
+    background-color: rgba(1, 1, 1, 0.5);
+    color: white
+  }
+
+  .panel-title {
+    background: transparent;
+    border: 0
+  }
+
+  .btn {
+    width: 100%;
+    background-color: rgba(29, 136, 191, 0.5);
+    -webkit-transition: background-color 0.2s;
+    transition: background-color 0.2s;
+  }
+
+  .btn:hover {
+    background-color: rgba(22, 192, 225, 0.5);
+  }
+
+  text-align: center;
+
+
+  border: 0;
+
+}
