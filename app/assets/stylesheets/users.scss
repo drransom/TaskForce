@@ -156,8 +156,14 @@ div.comment-area {
 
 div.mini-profile {
 
-  img {
-    max-height: 200px;
+  margin: 15px 15px 15px 15px;
+  border: 1px solid black;
+  border-radius: 5px;
+
+  .thumbnail{
+    img {
+      max-height: 200px;
+    }
   }
 
   .thumbnail {
@@ -196,6 +202,43 @@ section.login-form {
   background-repeat: no-repeat;
   background-size: 100%;
   margin-top: 0px;
+}
+
+.tasker-mini-profiles {
+  background-color: white;
+  height: 100%;
+  padding-bottom: 40px;
+
+  .mini-profile-info {
+    display: inline-block;
+    width: 50%;
+    text-align: center;
+  }
+
+  .mini-profile-info-right {
+    float: right;
+    border-left: 1px solid gray;
+  }
+
+  .mini-profile-info-left {
+    float: left
+  }
+
+  .hire-button {
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto
+  }
+
+  button {
+    width: 100%
+  }
+
+
+
+  a.tasker-profile {
+    text-align: center
+  }
 }
 
 .login-form  {

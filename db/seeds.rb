@@ -66,7 +66,7 @@ obi_wan = User.create({
 yoda = User.create({
   email: "yoda@starwars.com",
   name: "Yoda",
-  location: "Endor",
+  location: "Coruscant",
   vehicle: "Starship",
   description: "Let me help you with all your heavy lifting needs!",
   num_completed: Random.rand(100) + 1,
@@ -157,7 +157,7 @@ lando = User.create ({
 boba_fett = User.create ({
   email: "bobafett@starwars.com",
   name: "Boba F.",
-  location: "Endor",
+  location: "Coruscant",
   vehicle: "Starship",
   description: "I can disintegrate with the best of them.",
   num_completed: Random.rand(100) + 1,
@@ -271,7 +271,7 @@ Comment.create({
   commentable_id: palpatine.id,
   commentable_type: "User",
   comment_author: r2D2,
-  body: "Very methodocial and had everthing planned from the get-go."
+  body: "Very methodocial and had everything planned from the get-go."
 })
 
 #comments on R2D2

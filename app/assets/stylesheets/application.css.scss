@@ -82,6 +82,20 @@ body .navbar-img {
   overflow: hidden;
 }
 
+body {
+  button {
+    font-size: 16px
+  }
+
+  button btn.default {
+    font-size: 16px
+  }
+
+  input.btn-primary {
+    font-size: 16px
+  }
+}
+
 
 h4.input-fields-title {
   font-family: Proxima, Arial, Helvetica, sans-serif;
@@ -94,7 +108,7 @@ h4.input-fields-title {
 
 div.form-field-title-section {
   color: #969d9e;
-  font-size: 16px;
+  font-size: 20px;
 }
 
 div.view-header {
