@@ -71,6 +71,7 @@ body .tasker-dead {
 
 section.form-area div.new-task-form {
   background-color: white;
+  padding-bottom: 20px;
   padding-top: 10px;
   .subheading {
     color: $subheading-color
@@ -122,9 +123,17 @@ input[type=radio]:checked + label {
 }
 
 .task-area {
-  padding-top: 20px;
+  background-color: white;
+  padding-top: 10px;
+  height: 100vh;
 }
 
 .task-heading {
   padding-left: 15px
+}
+
+.tasker-mini-profiles {
+  background-color: white;
+  height: 100%;
+  padding-bottom: 40px;
 }

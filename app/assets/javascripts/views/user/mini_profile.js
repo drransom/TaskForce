@@ -2,7 +2,7 @@ TaskForce.Views.MiniProfile = TaskForce.Views.IndexView.extend({
   template: JST['users/mini_profile'],
 
   tagName: 'section',
-  className: 'container',
+  className: 'col-md-8 col-md-offset-2 tasker-mini-profiles',
 
   events: {
     'click button.select-me' : 'submit',

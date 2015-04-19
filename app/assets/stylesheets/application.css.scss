@@ -21,13 +21,16 @@
  //   font-family: 'starjedihol';
  //   font-style: normal;
  //   font-weight: normal;
- //   src:font-url('Starjhol.tff') format("truetype");
+ //   src:font-url('Starjhol.tff') format("trueype");
  // }
 
 // h1 {
 //   font-family: starjedihol;
 // }
 
+.login-form-row {
+  margin-top: 50px
+}
 body.signed-in {
   background-color: #F5F6F6;
 }
