@@ -7,6 +7,7 @@ $profile-border-radius: 5px;
 $profile-border: 1px solid rgba(228, 229, 229, 1);
 $division-background-color: #00964B;
 $subheading-color: #969d9e;
+$mini-profile-heading-color: #A3D6A7;
 
 a.a-rating {
   text-decoration: none
@@ -153,6 +154,19 @@ div.comment-area {
   }
 }
 
+div.mini-profile {
+
+  img {
+    max-height: 200px;
+  }
+
+  .thumbnail {
+    border: 0;
+    margin-bottom: 0
+  }
+
+}
+
 div.comment-area.last-comment-row {
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
@@ -161,4 +175,17 @@ div.comment-area.last-comment-row {
 
 div.media .comment-region {
   overflow: scroll;
+}
+
+.tasker-mini-profiles {
+  h2 {
+    background-color: $mini-profile-heading-color;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  h3 {
+    text-align: center;
+    margin-top: 0px;
+  }
 }

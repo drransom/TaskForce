@@ -1,12 +1,12 @@
 <% var submitButton = submitButton || false %>
   <div class="col-md-4 mini-profile">
-    <div class="thumbnail">
-      <img src="<%= model.get('profile_url')%>"  class="profile-img">
+    <div class="thumbnail mini-profile-thumbnail">
+      <img src="<%= model.get('profile_url')%>">
     </div>
     <ul class="list-group">
-      <li class="list-group-item"><%= model.get('name') %></li>
-      <li class="list-group-item"><%= TaskForce.Helpers.taskerRating(model) %>
-      &nbsp;<%= model.get('num_completed') %> completed</li>
+      <li class="list-group-item"><h3><%= model.get('name') %></h3></li>
+      <li class="list-group-item"><span class="mini-profile-positive-rating"><%= TaskForce.Helpers.taskerRating(model) %></span>
+      <span class="mini-profile-num-completed"><%= model.get('num_completed') %> completed</span></li>
     </ul>
     <% if (submitButton) { %>
       <span style="display: inline-block">
