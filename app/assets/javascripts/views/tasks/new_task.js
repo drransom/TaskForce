@@ -58,6 +58,7 @@ TaskForce.Views.NewTaskForm = Backbone.CompositeView.extend({
     var content = $('form').serializeJSON();
     var tasker = this.tasker;
     this.task.set(content);
+    $('.error-messages').addClass("hidden")
 
     this.taskers.fetch({
       data: content,
@@ -70,7 +71,7 @@ TaskForce.Views.NewTaskForm = Backbone.CompositeView.extend({
         }); // trigger detail reset and mark model new
       },
       error: function () {
-          alert("no taskers available that fit those criteria sorry");
+        $('.error-messages').removeClass("hidden")
       }
     });
   },

@@ -129,6 +129,10 @@ section.form-area div.new-task-form {
   .subheading {
     color: $subheading-color
   }
+
+  .error-messages .hidden {
+    height: 0;
+  }
 }
 
 ul.radio-image-list {

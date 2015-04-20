@@ -34,7 +34,7 @@ TaskForce.Views.FormSection = Backbone.View.extend({
           $('.btn-submit').attr("value", "Change Task");
         },
         error: function () {
-          alert("no taskers available that fit those criteria sorry");
+          $('.error-messages').addClass("visible").removeClass("hidden");
         }
       });
     }
