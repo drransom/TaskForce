@@ -83,7 +83,7 @@ ul.radio-image-list {
   transition: all 5s;
 
   img {
-    height: 200px;
+    max-height: 200px;
     align: center;
     overflow: hidden;
   }

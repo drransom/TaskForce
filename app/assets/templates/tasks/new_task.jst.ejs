@@ -11,34 +11,35 @@
       <h2>New Task</h2>
       <span class="subheading">Based on the details entered below, we'll show you relevant Taskers for you to choose from.</span>
       <form class="form-group" action="/tasks" method="post">
-      <div class="form-field-title-section">TASK DETAILS</div>
       <h4 class="input-fields-title">Will the task require a vehicle?</h4>
         <input type="radio" name="vehicle"
              value="no vehicle"
              style="display: none" checked required>
-      <% for (var i=0; i < vehicles.length; i++) { %>
-        <div class="col-md-4"">
-          <input type="radio" name="vehicle"
-               value="<%= vehicles[i][0] %>"
-               style="display: none"
-               id="<%= vehicles[i][0] %>" required>
-          <label for="<%= vehicles[i][0] %>" class="list-images">
-            <ul class="radio-image-list">
-              <li class="text-center">
-                <div class="profile-image">
-                  <img src="<%= TaskForce.Helpers.profilePic[vehicles[i][0]] %>">
-                </div>
-              </li>
-              <li class="text-center"><%= vehicles[i][1] %></li>
-              </ul>
-          </label>
-        </div>
-      <% } %>
+      <div class="row">
+        <% for (var i=0; i < vehicles.length; i++) { %>
+          <div class="col-md-4">
+            <input type="radio" name="vehicle"
+                 value="<%= vehicles[i][0] %>"
+                 style="display: none"
+                 id="<%= vehicles[i][0] %>" required>
+            <label for="<%= vehicles[i][0] %>" class="list-images">
+              <ul class="radio-image-list">
+                <li class="text-center">
+                  <img src="<%= TaskForce.Helpers.profilePic[vehicles[i][0]] %>" class="img-responsive">
+                </li>
+                <li class="text-center"><%= vehicles[i][1] %></li>
+                </ul>
+            </label>
+          </div>
+        <% } %>
+      </div>
 
       <div class="form-field-title-section">WHAT TYPE OF TASK IS IT?</div>
-      <div class="input-group" type="hidden">
+      <div class="form-group" type="hidden">
         <% for (var i = 0; i < task_types.length; i++) { %>
-          <label><input type="radio" name="category" value = "<%= task_types[i][0] %>" required><%= task_types[i][1] %></label><br>
+          <div class="radio-inline">
+            <label><input type="radio" name="category" value = "<%= task_types[i][0] %>" required><%= task_types[i][1] %></label>
+          </div>
         <% } %>
       </div>
 
@@ -50,13 +51,15 @@
         <input type="date" name="task_date" required>
         <br>
         <% for (var i = 0; i < times.length; i++) { %>
-          <label><input type="radio" name="time_slot" value = "<%= i %>" required><%= times[i] %></label><br>
+          <div class="radio-inline">
+            <label><input type="radio" name="time_slot" value = "<%= i %>" required><%= times[i] %>
+          </div>
         <% } %>
       </div>
 
       <div class="form-field-title-section">WHAT SYSTEM IS YOUR TASK IN?</div>
       <% for (var i=0; i < locations.length; i++) { %>
-        <div class="col-md-6">
+        <div class="col-md-3">
           <input type="radio" name="location"
                value="<%= locations[i] %>"
                style="display: none"
@@ -64,9 +67,7 @@
           <label for="<%= locations[i] %>" class="list-images">
             <ul class="radio-image-list">
               <li class="text-center">
-                <div class="planet-profile-image">
-                  <img src="<%= TaskForce.Helpers.profilePic[locations[i]] %>">
-                </div>
+                <img src="<%= TaskForce.Helpers.profilePic[locations[i]] %>" class="img-responsive">
               </li>
               <li class="text-center"><%= locations[i] %></li>
               </ul>
