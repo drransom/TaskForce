@@ -4,7 +4,7 @@
 
 $background: #CAEBF2;
 $task-border-radius: 5px;
-$background-hover-color: #A3D6A7;
+$light-green: #A3D6A7;
 $subheading-color: #969d9e;
 
 #task-rate {
@@ -24,32 +24,45 @@ body .tasker-dead {
   outline: 0;
 }
 
-.mini-task {
+.panel.mini-task {
   background-image: none;
   margin-bottom: 20px;
   padding: 0px 0px 0px 0px;
   background-color: $background;
   border-radius: $task-border-radius;
   transition: background 0.5s linear, color 0.25s linear;
-  overflow: hidden
-}
+  overflow: hidden;
+  border: 1px solid $light-green;
 
-.mini-task-list > li {
-  background-image: none;
-  background-color: inherit;
-}
+  .panel-heading.mini-task-panel-heading {
+    border-bottom: 0;
+    background-color: $light-green;
 
-.mini-task > ul {
-  background-color: inherit;
-}
+    h3 {
+      margin-top: 0px;
+      margin-bottom: 0px
+    }
+  }
 
-.list-group.mini-task-list {
-  // background-color: $background;
-}
+  .panel-body {
+    border-top: 0;
+    border-bottom: 0;
+  }
 
-.mini-task:hover {
-  background-color: #0d7488;
-  color: white;
+  .panel-footer {
+    border-top: 0;
+  }
+
+  .mini-task-item {
+    background-image: none;
+    background-color: inherit;
+    padding: 5px 5px 5px 5px
+  }
+
+  .mini-task-heading {
+    background-image: none;
+    background-color: inherit;
+  }
 }
 
 .mini-task-button {
@@ -103,13 +116,13 @@ div.profile-image {
 }
 
 input[type=radio]:not(:checked) + label:hover {
-  background-color: $background-hover-color;
+  background-color: $light-green;
   filter: brightness(1.3) contrast(110%);
   -webkit-filter: brightness(1.3) contrast(110%);
 }
 
 input[type=radio]:checked + label {
-  background-color: $background-hover-color;
+  background-color: $light-green;
 
   img {
     filter: brightness(1.3) contrast(110%);

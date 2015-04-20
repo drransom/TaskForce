@@ -12,8 +12,14 @@
 <% month = date[1] %>
 <% day_num = date[2] %>
 <% year = date[3] %>
-<% date_str = day + " " + month + " " + day_num + ", " + year %>
+<% date_str = day + ", " + month + " " + day_num + ", " + year %>
 <% time = times[model.get('time')] %>
+<% if (time === 'any') { %>
+  <% time = " at any time" %>
+<% } else { %>
+  <% time = " in the " + time + ""%>
+<% } %>
+
 <% taskerName = (function () { %>
   <% if (model.get('tasker_name')) { %>
     <% return model.get('tasker_name') %>
@@ -46,15 +52,20 @@
 
 <div class="col-md-4">
   <div class="column-padding">
-    <div class="mini-task">
-      <ul class="list-group mini-task-list">
-        <li class="list-group-item mini-task-item"><%= activities[model.get('category')] %></li>
-        <li class="list-group-item mini-task-item"><%= model.get('description') %></li>
-        <li class="list-group-item mini-task-item">Tasker: <span class="<%= taskerDead %>"><a href="javascript:void(0)" class="tasker-profile"><%= taskerName %></a></span></li>
-        <li class="list-group-item date-time mini-task-item"><span class="text-left"><%=date_str %></span><span class="pull-right"><%= time %></span></li>
-      </ul>
-      <button type="button" class="btn <%= buttonClass %>"
-        data-id="<%= model.get('id')%>"><%= buttonText %></button><br>
+    <div class="mini-task panel">
+      <div class="panel-heading mini-task-panel-heading">
+        <h3><%= activities[model.get('category')] %></h3>
+      </div>
+      <div class ="panel-body">
+        <div class="row mini-task-item"><strong>Description: </strong><%= model.get('description') %></div>
+        <div class="row mini-task-item"><strong>Tasker: </strong> <span class="<%= taskerDead %>"><a href="javascript:void(0)" class="tasker-profile"><%= taskerName %></a></span></div>
+        <div class="row mini-task-item"><strong>System: </strong><%= model.get('location') %></div>
+        <div class="row date-time mini-task-item"><%=date_str +", " + time %></div>
+      </div>
+      <div class="panel-footer mini-task-item">
+        <button type="button" class="btn <%= buttonClass %>"
+          data-id="<%= model.get('id')%>"><%= buttonText %></button><br>
+      </div>
     </div>
   </div>
 </div>
