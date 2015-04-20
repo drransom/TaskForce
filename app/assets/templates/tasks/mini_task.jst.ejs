@@ -2,6 +2,7 @@
 
 <% var times, date, day, month, day_num, year, date_str, time, activities %>
 <% var taskerName, buttonText, buttonClass, offsetClass, tooltip %>
+<% var preButtonText = "" %>
 
 <% activities = { "moving": "Help moving", "military": "Defeat my enemies" } %>
 
@@ -35,12 +36,14 @@
   <% buttonClass = "btn-default btn-std-color mark-complete mini-task-button" %>
 <% } else if (model.get('rating') === 0) { %>
   <% buttonText = "Rate Tasker" %>
-  <% buttonClass = "btn-default btn-alt-color rate-tasker mini-task-button" %>
+  <% buttonClass = "btn-default btn-std-color rate-tasker mini-task-button" %>
 <% } else if (model.get('rating') > 0 ) { %>
-  <% buttonText = "<span class='glyphicon glyphicon-thumbs-up' " + tooltip + "></span>" %>
-  <% buttonClass = "tasker-rated " %>
+  <% preButtonText = "Your rating: <span class='glyphicon glyphicon-thumbs-up'></span>" %>
+  <% buttonText = "(change rating)" %>
+  <% buttonClass = "tasker-rated" %>
 <% } else { %>
-  <% buttonText = "<span class='glyphicon glyphicon-thumbs-down' " + tooltip + "></span>" %>
+  <% preButtonText = "Your rating: <span class='glyphicon glyphicon-thumbs-down'></span>" %>
+  <% buttonText = "(<span class='underlined-text'>change rating</span>)" %>
   <% buttonClass = "tasker-rated " %>
 <% } %>
 
@@ -63,7 +66,7 @@
         <div class="row date-time mini-task-item"><%=date_str +", " + time %></div>
       </div>
       <div class="panel-footer mini-task-item">
-        <button type="button" class="btn <%= buttonClass %>"
+        <%= preButtonText %><button type="button" class="btn <%= buttonClass %>"
           data-id="<%= model.get('id')%>"><%= buttonText %></button><br>
       </div>
     </div>

@@ -63,10 +63,50 @@ body .tasker-dead {
     background-image: none;
     background-color: inherit;
   }
+  .underlined-text {
+    font-style: underline
+  }
 }
 
 .mini-task-button {
   border-radius: $task-border-radius;
+}
+
+button.btn.tasker-rated {
+  background-color: inherit;
+  font-size: 14px;
+  color: blue;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+
+  :active {
+    border: 0;
+    font-size: 14px;
+    color: blue;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+  }
+
+  :hover {
+    border: 0;
+    font-size: 14px;
+    color: blue;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+  }
+
+  :focus {
+    border: 0;
+    font-size: 14px;
+    color: blue;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+  }
+
 }
 
 .list-images {
@@ -128,11 +168,6 @@ input[type=radio]:checked + label {
     filter: brightness(1.3) contrast(110%);
     -webkit-filter: brightness(1.3) contrast(110%);
   }
-}
-
-
-.tasker-rated {
-  background-color: inherit
 }
 
 .task-area {
