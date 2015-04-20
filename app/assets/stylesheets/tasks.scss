@@ -131,3 +131,15 @@ input[type=radio]:checked + label {
 .task-heading {
   padding-left: 15px
 }
+
+.task-heading-area {
+  color: white;
+  background-image: image-url('jedi_background.png');
+  background-repeat: no-repeat;
+  height: 400px;
+  background-position: center;
+  overflow: hidden;
+  margin-top: 0px;
+  margin-left: auto;
+  margin-right: auto
+}

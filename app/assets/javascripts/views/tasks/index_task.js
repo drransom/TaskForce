@@ -43,12 +43,12 @@ TaskForce.Views.TaskIndex = Backbone.CompositeView.extend({
 
   prependHeading: function () {
     var subheading, content;
-    if (this.$el.find('.task-heading-area').empty) {
+    if (this.$el.find('.task-heading-area').length === 0) {
       var subheading = "We\'ve created some sample "+
       "tasks for you, or click \"New Task\" to create a new task. " +
       "Let\'s get started!";
       content = JST['tasks/task_index']({subheading: subheading});
-      this.$el.find('.task-area').prepend(content)
+      this.$el.prepend(content)
     }
   }
 });
