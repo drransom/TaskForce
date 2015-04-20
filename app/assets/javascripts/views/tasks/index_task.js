@@ -45,11 +45,11 @@ TaskForce.Views.TaskIndex = Backbone.CompositeView.extend({
   prependHeading: function () {
     if (this.tasks.findWhere({description: "Create a chain reaction"})) {
       this.$el.find('.task-area').prepend("<h3 class='task-heading'>" +
-        "My Tasks</h3><h4 class='task-heading'>We've created some sample "+
+        "Welcome to TaskForce!</h3><h4 class='task-heading'>We've created some sample "+
         "tasks for you, or click \"New Task\" to create a new task.</h4>")
     } else {
       this.$el.find('.task-area').prepend("<h3 class='task-heading'>" +
-        "My Tasks</h3>")
+        "Welcome to TaskForce!</h3>")
     }
   }
 });
