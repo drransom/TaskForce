@@ -60,14 +60,30 @@
         <h3><%= activities[model.get('category')] %></h3>
       </div>
       <div class ="panel-body">
-        <div class="row mini-task-item"><strong>Description: </strong><%= model.get('description') %></div>
-        <div class="row mini-task-item"><strong>Tasker: </strong> <span class="<%= taskerDead %>"><a href="javascript:void(0)" class="tasker-profile"><%= taskerName %></a></span></div>
-        <div class="row mini-task-item"><strong>System: </strong><%= model.get('location') %></div>
-        <div class="row date-time mini-task-item"><%=date_str +", " + time %></div>
+        <div class="row mini-task-item">
+          <strong>Description: </strong><%= model.get('description') %>
+        </div>
+        <div class="row mini-task-item">
+          <strong>Tasker</strong>:
+          <span class="<%= taskerDead %>">
+            <a href="javascript:void(0)" class="tasker-profile">
+              <%=" " + taskerName %>
+              </a>
+            </span>
+          </div>
+        <div class="row mini-task-item">
+          <strong>System: </strong><%= model.get('location') %>
+        </div>
+        <div class="row date-time mini-task-item">
+          <%=date_str +", " + time %>
+        </div>
       </div>
       <div class="panel-footer mini-task-item">
-        <%= preButtonText %><button type="button" class="btn <%= buttonClass %>"
-          data-id="<%= model.get('id')%>"><%= buttonText %></button><br>
+        <%= preButtonText %>
+        <button type="button" class="btn <%= buttonClass %>"
+          data-id="<%= model.get('id')%>">
+          <%= buttonText %>
+        </button>
       </div>
     </div>
   </div>

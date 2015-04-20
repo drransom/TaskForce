@@ -9,7 +9,7 @@
 <section id='main'>
 
   <section class=".container-fluid login-form">
-      <div class="row">
+    <div class="row">
       <div class="col-md-3 col-md-offset-4">
         <div class="panel panel-primary login-form-area">
           <div class="panel-heading">
@@ -32,37 +32,39 @@
             </form>
             or <form action="/session" method="post">
               <%= auth_token_input %>
-                <input type = "hidden" name="user[email]" value="guest@starwars.com">
-                <input name="user[password]" type ="hidden" value="password">
-                <input type="submit" value="Login as guest" class="btn btn-primary">
+              <input type = "hidden" name="user[email]" value="guest@starwars.com">
+              <input name="user[password]" type ="hidden" value="password">
+              <input type="submit" value="Login as guest" class="btn btn-primary">
             </form>
           </div>
         </div>
       </div>
-      </div>
-    </section>
-
-    <section class="container front-page">
-      <div class="front-page-gray title-mod">This is the Help You're Looking For</div>
-      <div class="row">
-        <div class="col col-md-3">
-          <div class="text-center"><span class="glyphicon glyphicon-pencil glyphicon-front-page"></span></div>
-          <h4 class="hiw front-page-headers text-center">Describe Your Task</h4>
-          <div class="text-center front-page-lower front-page-gray">This helps us determine which Taskers are best for your job.</div>
-        </div>
-        <div class="col col-md-1"><span class="glyphicon glyphicon-arrow-right glyphicon-front-arrow"></span>
-        </div>
-        <div class="col col-md-3">
-          <div class="text-center"><span class="glyphicon glyphicon-user glyphicon-front-page"></span></div>
-          <h4 class="hiw front-page-headers text-center">Choose a Tasker</h4>
-          <div class="text-center front-page-lower front-page-gray">All Taskers are fully-vetted & 100% guaranteed.</div>
-        </div>
-        <div class="col col-md-1"><span class="glyphicon glyphicon-arrow-right glyphicon-front-arrow"></span></div>
-        <div class="col col-md-3">
-          <div class="text-center"><span class="glyphicon glyphicon-sunglasses glyphicon-front-page"></span></div>
-          <h4 class="hiw front-page-headers text-center">Kick Back & Relax</h4>
-          <div class="text-center front-page-lower front-page-gray">If you are not satisfied, the Tasker will be removed.</div>
-        </div>
     </div>
-    </section>
+  </section>
+
+  <section class="container front-page">
+    <div class="row front-page-gray title-mod">
+      This is the Help You're Looking For
+    </div>
+    <div class="row">
+      <div class="col col-md-3">
+        <div class="text-center"><span class="glyphicon glyphicon-pencil glyphicon-front-page"></span></div>
+        <h4 class="hiw front-page-headers text-center">Describe Your Task</h4>
+        <div class="text-center front-page-lower front-page-gray">This helps us determine which Taskers are best for your job.</div>
+      </div>
+      <div class="col col-md-1"><span class="glyphicon glyphicon-arrow-right glyphicon-front-arrow"></span>
+      </div>
+      <div class="col col-md-3">
+        <div class="text-center"><span class="glyphicon glyphicon-user glyphicon-front-page"></span></div>
+        <h4 class="hiw front-page-headers text-center">Choose a Tasker</h4>
+        <div class="text-center front-page-lower front-page-gray">All Taskers are fully-vetted & 100% guaranteed.</div>
+      </div>
+      <div class="col col-md-1"><span class="glyphicon glyphicon-arrow-right glyphicon-front-arrow"></span></div>
+      <div class="col col-md-3">
+        <div class="text-center"><span class="glyphicon glyphicon-sunglasses glyphicon-front-page"></span></div>
+        <h4 class="hiw front-page-headers text-center">Kick Back & Relax</h4>
+        <div class="text-center front-page-lower front-page-gray">If you are not satisfied, the Tasker will be removed.</div>
+      </div>
+    </div>
+  </section>
 </section>
