@@ -165,7 +165,7 @@ div.form-field-title-section {
 div.view-header {
   background-color: black;
   padding:  25px 8px 0px 8px;
-  height: 100px;
+  min-height: 100px;
   width: 100%
 }
 
@@ -226,13 +226,6 @@ div.date-picker_date-container.active {
   background-color: #00964B
 }
 
-nav a.ur-nav.header-link-first::before {
-  content: "";
-  display: inline-block;
-  height: 14px;
-  width: 1px;
-  vertical-align: middle;
-}
 
 #main {
   width: 100%;
