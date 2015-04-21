@@ -64,7 +64,7 @@ all associated with the same Backbone `User`.
 
 The app user can click buttons to mark the task as complete and rate the task.
 Clicking the 'rate task' button triggers an event that creates a new `Rating` Backbone
-view, which extends the `Modal` view I created earlier. The `Modal` is associated
+view, which extends the `Modal` view I created earlier. The `Rating` is associated
 with both the `User` and `Task` objects, and creates buttons that allow the user
 to rate the `Task` up or down.  Rating the task up updates the `Task` rating
 and sends a PATCH request to the Rails server to update the `Task` object.
@@ -80,12 +80,12 @@ reflecting that the Tasker is no longer with us.
 * [View Wireframes][views]
 * [DB schema][schema]
 
-[Phase One: User Authentication and Task Creation][phase-one]
-[Phase Two: Viewing Taskers][phase-two]
-[Phase Three, Updating, and Displaying Tasks][phase-three]
-[Phase Four: Viewing Task Feed][phase-four]
-[Phase Five: User Reviews][phase-five]
-[Stretch Goal][stretch]
+* [Phase One: User Authentication and Task Creation][phase-one]
+* [Phase Two: Viewing Taskers][phase-two]
+* [Phase Three, Updating, and Displaying Tasks][phase-three]
+* [Phase Four: Viewing Task Feed][phase-four]
+* [Phase Five: User Reviews][phase-five]
+* [Stretch Goal][stretch]
 
 [views]: ./docs/views.md
 [schema]: ./docs/schema.md
@@ -95,4 +95,4 @@ reflecting that the Tasker is no longer with us.
 [phase-three]: ./docs/phases/phase3.md
 [phase-four]: ./docs/phases/phase4.md
 [phase-five]: ./docs/phases/phase5.md
-[stretch-one]: ./docs/phases.stretch.md
+[stretch]: ./docs/phases.stretch.md
