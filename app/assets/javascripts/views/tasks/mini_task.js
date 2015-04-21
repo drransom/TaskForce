@@ -49,7 +49,6 @@ TaskForce.Views.MiniTask = Backbone.View.extend({
   },
 
   reRateTasker: function () {
-    debugger
     if (this.task.get('rating') < 0) {
       this.task.save( {rating: 1}, {wait: true} );
     } else if (this.tasker.get('alive')) {
