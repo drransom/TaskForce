@@ -189,7 +189,7 @@ nav a.ur-nav.header-link-first::before {
 }
 
 body .taskforce-modal {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
@@ -208,19 +208,6 @@ body .taskforce-modal-initial {
 body .taskforce-modal-final {
   opacity: 1;
 
-}
-
-body .taskforce-modal div.taskforce-modal-window {
-  position: absolute;
-  top: 200px;
-  left: 700px;
-  width: 200px;
-  margin: 10% auto;
-  padding: 5px 20px 13px 20px;
-  border-radius: 10px;
-  background-color: white;
-  color: black;
-  z-index: 200;
 }
 
 .clearfix:before,
