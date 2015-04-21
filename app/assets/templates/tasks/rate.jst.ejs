@@ -1,18 +1,19 @@
 <% var taskerName = task.get('tasker_name').split(' ')[0] %>
 <% var rating = task.get('rating') %>
 
-
-<div class="taskforce-modal-window taskforce-modal-window-initial modal-noclose">
-  <button type="button" class="close"aria-label="Close"><span aria-hidden="true">&times;</span></button>
-  <% if (flag === "") { %>
-    <span class="question modal-noclose">Were you satisfied with <%= taskerName %>'s performance?</span><br>
-    <button type="button" class="btn btn-default btn-std-color upvote modal-noclose">Yes</button>
-    <button type="button" class="btn btn-default btn-std-color downvote modal-noclose">No</button>
-  <% } else if (flag === "downvote") { %>
-    <span class="question modal-noclose">Are you sure you were not satisfied?" <%= taskerName %> will be permanently removed.</span><br>
-    <button type="button" class="confirm-delete modal-noclose">Eliminate</button>
-    <button type="button" class="upvote modal-noclose">No, I was satisfied</button>
-  <% } else { %>
-    <span class="confirmation"><%= confirmationText %></span>
-  <% } %>
+<div class="container">
+  <div class="rating-window taskforce-modal-window taskforce-modal-window-initial modal-noclose">
+    <button type="button" class="close"aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <% if (flag === "") { %>
+      <span class="question modal-noclose">Were you satisfied with <%= taskerName %>'s performance?</span><br>
+      <button type="button" class="btn btn-default btn-std-color upvote modal-noclose">Yes</button>
+      <button type="button" class="btn btn-default btn-std-color downvote modal-noclose">No</button>
+    <% } else if (flag === "downvote") { %>
+      <span class="question modal-noclose">Are you sure you were not satisfied?" <%= taskerName %> will be permanently removed.</span><br>
+      <button type="button" class="confirm-delete modal-noclose">Eliminate</button>
+      <button type="button" class="upvote modal-noclose">No, I was satisfied</button>
+    <% } else { %>
+      <span class="confirmation"><%= confirmationText %></span>
+    <% } %>
+  </div>
 </div>
