@@ -49,7 +49,10 @@ TaskForce.Views.MiniTask = Backbone.View.extend({
   },
 
   reRateTasker: function () {
-    if (this.task.get('rating') > 0) {
+    debugger
+    if (this.task.get('rating') < 0) {
+      this.task.save( {rating: 1}, {wait: true} );
+    } else if (this.tasker.get('alive')) {
       var rating = new TaskForce.Views.TaskRating( {
         templateOptions: { tasker: this.tasker, task: this.task },
         tasker: this.tasker,
@@ -58,13 +61,7 @@ TaskForce.Views.MiniTask = Backbone.View.extend({
       })
       rating.downvote();
     } else {
-      var rating = new TaskForce.Views.TaskRating( {
-        templateOptions: { tasker: this.tasker, task: this.task },
-        tasker: this.tasker,
-        task: this.task,
-        template: this.rateTemplate,
-      })
-      rating.upvote();
+      this.task.save({rating: -1}, {wait: true})
     }
   },
 });

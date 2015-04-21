@@ -2,20 +2,22 @@
 <% var rating = task.get('rating') %>
 
 <div class="container">
-  <div class="rating-window taskforce-modal-window taskforce-modal-window-initial modal-noclose">
-    <button type="button" class="close"aria-label="Close"><span aria-hidden="true">&times;</span></button>
-    <div class="rating-modal-interior">
-      <% if (flag === "") { %>
-        <div class="question modal-noclose">Were you satisfied with <%= taskerName %>'s performance?</div>
-        <button type="button" class="btn btn-green btn-default upvote modal-noclose">Yes</button>
-        <button type="button" class="btn btn-red btn-default downvote modal-noclose">No</button>
-      <% } else if (flag === "downvote") { %>
-        <div class="question modal-noclose">Are you sure you were not satisfied? <%= taskerName %> will be permanently removed.</div><br>
-        <button type="button" class="btn btn-red btn-default confirm-delete modal-noclose">Eliminate</button>
-        <button type="button" class="btn btn-green btn-default upvote modal-noclose">No, I was satisfied</button>
-      <% } else { %>
-        <div class="confirmation"><%= confirmationText %></div>
-      <% } %>
+  <div class="taskforce-modal-wrapper">
+    <div class="rating-window taskforce-modal-window taskforce-modal-window-initial modal-noclose">
+      <button type="button" class="close"aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="rating-modal-interior">
+        <% if (flag === "") { %>
+          <div class="question modal-noclose">Were you satisfied with <%= taskerName %>'s performance?</div>
+          <button type="button" class="btn btn-green btn-default upvote modal-noclose">Yes</button>
+          <button type="button" class="btn btn-red btn-default downvote modal-noclose">No</button>
+        <% } else if (flag === "downvote") { %>
+          <div class="question modal-noclose">Are you sure you were not satisfied? <%= taskerName %> will be permanently removed.</div><br>
+          <button type="button" class="btn btn-red btn-default confirm-delete modal-noclose">Eliminate</button>
+          <button type="button" class="btn btn-green btn-default upvote modal-noclose">No, I was satisfied</button>
+        <% } else { %>
+          <div class="confirmation"><%= confirmationText %></div>
+        <% } %>
+      </div>
     </div>
   </div>
 </div>

@@ -34,12 +34,16 @@ $dark-green: #157E2C;
 $light-red: #F0092B;
 $dark-red: #A10537;
 
-.rating-window {
+.taskforce-modal-wrapper {
+  position: relative;
   width: 250px;
-  position: absolute;
-  top: 350px;
   margin-left: auto;
   margin-right: auto;
+}
+
+.rating-window {
+  position: absolute;
+  top: 350px;
   background-color: $light-blue;
   border-radius: 5px;
   border: 1px solid $light-green;
