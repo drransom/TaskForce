@@ -7,7 +7,7 @@ luke = User.create({
   description: "Corteous and professional. I used to bullseye two-meter womp rats in my T-16 back home.",
   num_completed: 54,
   price: 38,
-  profile_url: "luke_profile.png",
+  profile_url: "http://elliot-c-reed-taskforce.s3.amazonaws.com/luke_profile.png",
   tasker: true,
   password: 'password'
   })
@@ -20,7 +20,7 @@ leia = User.create({
   description: "I do diplomatic missions and undiplomatic ones as well",
   num_completed: Random.rand(100)+1,
   price: 50,
-  profile_url: "leia_profile.png",
+  profile_url: "http://elliot-c-reed-taskforce.s3.amazonaws.com/leia_profile.png",
   tasker: true,
   password: 'password'
   })
@@ -33,7 +33,7 @@ darth_vader = User.create({
   description: "With our combined strength, we can end this destructive conflict and bring order to the galaxy.",
   num_completed: Random.rand(100) +1,
   price: 45,
-  profile_url: 'darthvader_profile.png',
+  profile_url: 'http://elliot-c-reed-taskforce.s3.amazonaws.com/darthvader_profile.png',
   password: 'password'
   })
 
@@ -45,7 +45,7 @@ han_solo = User.create({
   description: "I have the fastest ship in the galaxy. I can make the Kessel Run in less than twelve parsecs.",
   num_completed: Random.rand(100) + 1,
   price: 250,
-  profile_url: "hansolo_profile.png",
+  profile_url: "http://elliot-c-reed-taskforce.s3.amazonaws.com/hansolo_profile.png",
   tasker: true,
   password: 'password'
   })
@@ -58,7 +58,7 @@ obi_wan = User.create({
   description: "If you want someone more powerful than you can possibly imagine, I'm your man.",
   num_completed: Random.rand(100) + 1,
   price: 50,
-  profile_url: "obiwan_profile.png",
+  profile_url: "http://elliot-c-reed-taskforce.s3.amazonaws.com/obiwan_profile.png",
   tasker: true,
   password: 'password',
   })
@@ -71,7 +71,7 @@ yoda = User.create({
   description: "Let me help you with all your heavy lifting needs!",
   num_completed: Random.rand(100) + 1,
   price: 25,
-  profile_url: 'yoda_profile.png',
+  profile_url: 'http://elliot-c-reed-taskforce.s3.amazonaws.com/yoda_profile.png',
   tasker: true,
   password: 'password'
   })
@@ -84,7 +84,7 @@ gmt = User.create({
   description: "Fear will keep the local systems in line. Fear of my battle station.",
   num_completed: Random.rand(100) + 1,
   price: 58,
-  profile_url: "gmt_profile.png",
+  profile_url: "http://elliot-c-reed-taskforce.s3.amazonaws.com/gmt_profile.png",
   tasker: true,
   password: 'password'
   })
@@ -97,7 +97,7 @@ palpatine = User.create({
   description: "I'm looking forward to completing your training. In time you will call me master.",
   num_completed: Random.rand(100) + 1,
   price: 1000,
-  profile_url: "palpatine_profile.png",
+  profile_url: "http://elliot-c-reed-taskforce.s3.amazonaws.com/palpatine_profile.png",
   tasker: true,
   password: 'password'
   })
@@ -110,7 +110,7 @@ c3PO = User.create({
   description: "I am fluent in over six million forms of communication.",
   num_completed: Random.rand(100) + 1,
   price: 15,
-  profile_url: "c3po_profile.png",
+  profile_url: "http://elliot-c-reed-taskforce.s3.amazonaws.com/c3po_profile.png",
   tasker: true,
   password: 'password'
   })
@@ -123,7 +123,7 @@ r2D2 = User.create({
   description: "I am the most competent being in the galaxy.",
   num_completed: Random.rand(100) + 1,
   price: 72,
-  profile_url: "r2d2_profile.png",
+  profile_url: "http://elliot-c-reed-taskforce.s3.amazonaws.com/r2d2_profile.png",
   tasker: true,
   password: 'password'
   })
@@ -136,7 +136,7 @@ admiral_ackbar = User.create({
   description: "Enemies setting a trap for you? I've got your back!",
   num_completed: Random.rand(100) + 1,
   price: Random.rand(100) + 100,
-  profile_url: "ackbar_profile.png",
+  profile_url: "http://elliot-c-reed-taskforce.s3.amazonaws.com/ackbar_profile.png",
   tasker: true,
   password: 'password',
   })
@@ -149,7 +149,7 @@ lando = User.create ({
   description: "I can handle all your long-term storage needs while you're moving.",
   num_completed: Random.rand(500) + 1,
   price: Random.rand(100) + 10,
-  profile_url: "lando_profile.png",
+  profile_url: "http://elliot-c-reed-taskforce.s3.amazonaws.com/lando_profile.png",
   tasker: true,
   password: 'password'
   })
@@ -162,7 +162,7 @@ boba_fett = User.create ({
   description: "I can disintegrate with the best of them.",
   num_completed: Random.rand(100) + 1,
   price: Random.rand(5000) + 3,
-  profile_url: "bobafett_profile.png",
+  profile_url: "http://elliot-c-reed-taskforce.s3.amazonaws.com/bobafett_profile.png",
   tasker: true,
   password: 'password'
   })
@@ -173,7 +173,7 @@ stormtrooper = User.create({
   name: "Anthony S.",
   location: "Hoth",
   vehicle: "Starship",
-  profile_url: 'stormtrooper_profile.png',
+  profile_url: 'http://elliot-c-reed-taskforce.s3.amazonaws.com/stormtrooper_profile.png',
   tasker: false,
   password: 'password'
   })
@@ -182,7 +182,7 @@ admiral_ozzel = User.create ({
   email: "ozzel@starwars.com",
   name: "Kendall O.",
   password: "password",
-  profile_url: "ozzel_profile.png",
+  profile_url: "http://elliot-c-reed-taskforce.s3.amazonaws.com/ozzel_profile.png",
   tasker: false
   })
 
@@ -190,7 +190,7 @@ wampa = User.create(
   email: "wampa@starwars.com",
   name: "Wampa",
   password: "password",
-  profile_url: "wampa_profile.png",
+  profile_url: "http://elliot-c-reed-taskforce.s3.amazonaws.com/wampa_profile.png",
   tasker: false
   )
 
