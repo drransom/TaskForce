@@ -4,10 +4,10 @@
 
 [live]: http://www.elliotreed.com
 
-## Minimum Viable Product
-TaskForce is a TaskRabbit-inspired app built on Rails and Backbone. Users can
-hire Taskers to perform tasks for the, monitor the status of their tasks,
-and rate taskers.
+## Summary
+TaskForce is a Star Wars-themed app inspired by the user-facing side of [TaskRabbit][taskrabbit] built on Rails and Backbone. The app is styled based on a combination of custom CSS and Twitter Bootstrap.
+
+[taskrabbit]: http://www.taskrabbit.com
 
 Users can:
 
@@ -15,71 +15,80 @@ Users can:
 - [X] Create sessions (log in)
 - [X] Create tasks
 - [X] View potential Taskers for a task
-- [X] Submit tasks for approval by a user
+- [X] View comments on Taskers
+- [X] View an index of all tasks
 - [X] Mark tasks as completed
-- [ ] View new tasks, completed tasks, and pending tasks
-- [ ] Review tasks
+- [X] Review tasks up or down
+- [X] Change task votes
+- [X] Kill off Taskers when they fail for the last time
 
-## Design Docs
+
+### Account Creation and Sessions
+I implemented user authentication in Rails based on the practices learned at
+App Academy. The splash page/login form is a Rails .erb template. I implemented
+a guest login so that users are not required to create an account to use the
+app. To allow multiple guests to be logged in at the same time, a new user entry
+is created every time the guest login is used.
+
+### Task Creation and User mini-profiles
+I started the task process by implementing the new task form. I created a
+Rails `Task` class and a corresponding Backbone model, along with a `User` model and
+collection to display the potential Taskers. The form page is a Backbone
+composite view, comprising two subviews, a `NewTaskForm` view and a `MiniProfile`
+view. When the `NewTaskForm` view receives a `submit` event, it sends a GET request
+to the Users index. The Rails server returns a JSON representation of the Rails `User`
+objects that match the form submit data. The JSON representation is constructed using
+JBuilder. The `MiniProfile` view then displays basic information about the members
+of the Backbone `Users` collection. Each `User` has a button object allowing the
+`User` to be selected for the `Task` and a link to display the `User`'s profile.
+
+
+### Tasker Detailed Profiles and Comments
+I chose to display the `User`'s detailed profile as a modal. I wrote my own custom
+modal. To allow the same modal logic to be used for multiple purposes, I created
+a `Modal` Backbone view. The `TaskerProfile` view extends the `Modal` view. To
+have user comments, I created a Rails `Comment` object.
+
+Triggering the event that creates the `TaskerProfile` view sends a GET request
+to the Rails server, which returns both the `User` data and the corresponding
+`Comment` data as JSON. The `TaskerProfile` view uses the JSON to update the
+`User` object and create a new `Comment` collection of `Comment` objects, all
+of which are displayed in the modal profile.
+
+
+### Task Index
+The `Task` index is implemented as a separate Backbone composite of `TaskDetail`
+subview. Each `TaskDetail` subview is associated with a `Task` and `User` object.
+There is only one Backbone `Users` collection, so tasks with the same Tasker are
+all associated with the same Backbone `User`.
+
+The app user can click buttons to mark the task as complete and rate the task.
+Clicking the 'rate task' button triggers an event that creates a new `Rating` Backbone
+view, which extends the `Modal` view I created earlier. The `Modal` is associated
+with both the `User` and `Task` objects, and creates buttons that allow the user
+to rate the `Task` up or down.  Rating the task up updates the `Task` rating
+and sends a PATCH request to the Rails server to update the `Task` object.
+
+### Tasker Failure
+
+When the user downvotes a task in the `Rating` Backbone view, the `Task` is updated
+and the `User` Backbone modal and Rails database are updated to indicate that the
+Tasker has been killed off. When this happens, each `TaskDetail` view re-renders,
+reflecting that the Tasker is no longer with us.
+
+## Original Design Docs
 * [View Wireframes][views]
 * [DB schema][schema]
 
+[Phase One: User Authentication and Task Creation][phase-one]
+[Phase Two: Viewing Taskers][phase-two]
+[Phase Three, Updating, and Displaying Tasks][phase-three]
+[Phase Four: Viewing Task Feed][phase-four]
+[Phase Five: User Reviews][phase-five]
+[Stretch Goal][stretch]
+
 [views]: ./docs/views.md
 [schema]: ./docs/schema.md
-
-## Implementation Timeline
-
-### Phase 1: User Authentication, Task Creation (~1 day)
-I will implement user authentication in Rails based on the practices learned at
-App Academy. By the end of this phase, users will be able to create tasks using
-a simple text form in a Rails view. The most important part of this phase will
-be pushing the app to Heroku and ensuring that everything works before moving on
-to phase 2.
-
-[Details][phase-one]
-
-### Phase 2: Viewing Taskers (~2 days)
-I will add API routes to serve user profile data as JSON, then add Backbone
-models and collections that fetch data from those routes. Users will be
-displayed based on whether they match the submitted form data for the task
-requested. Users will be able to view the details of a user's profile.
-By the end of this phase, users will be able to create tasks and
-submit them to the user inside a single Backbone app.
-
-[Details][phase-two]
-
-### Phase 3: Approving, Updating, and Displaying Tasks (~1 day)
-I will need to add a `TaskShow` view in which the details of a task are displayed. The user will have the ability to mark tasks as complete. Later this will trigger a notification to the other user (tasker or requester).
-
-[Details][phase-three]
-
-### Phase 4: Viewing Task Feed (~1 day)
-I will need to add a `TaskIndex` view containing a feed of the user's tasks,
-and indicating their status. Ultimately, this will be the page users see after logging in.
-
-[Details][phase-four]
-
-### Phase 5: User Reviews (~1-2 days)
-I'll start by adding a `Comment` subview that uses the `User`'s `Comment` association to serve a list of comments ordered reverse chronogically and indicating the `Commenter`'s relation to the `User` being reviewed. On the Backbone side, I'll make a `FeedShow` view whose `posts` collection fetches
-from the new route.
-
-[Details][phase-five]
-
-## Stretch Goal: Searching for Tasks (~2 days)
-I'll need to add a `search` route to the Task view. On the Backbone side, there
-will be a `SearchResults` composite view that has a `TaskList`subview. This
-view will use the plain old 'tasks' collection, but it will fetch from the
-new `search` route.
-
-[Details][stretch]
-
-### Other Bonus Features
-
-
-- [ ] Map of task locations
-- [ ] Activity history (previous tasks)
-- [ ] Multiple sessions/session management
-- [ ] User avatar upload
 
 [phase-one]: ./docs/phases/phase1.md
 [phase-two]: ./docs/phases/phase2.md

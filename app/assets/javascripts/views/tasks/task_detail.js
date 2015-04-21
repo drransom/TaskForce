@@ -1,6 +1,6 @@
 "use strict"
 
-TaskForce.Views.MiniTask = Backbone.View.extend({
+TaskForce.Views.TaskDetail = Backbone.View.extend({
 
   initialize: function (options) {
     this.task = options.task;
@@ -11,7 +11,7 @@ TaskForce.Views.MiniTask = Backbone.View.extend({
     this.listenTo(this.tasker, 'set change', this.render);
   },
 
-  template: JST['tasks/mini_task'],
+  template: JST['tasks/task_detail'],
   rateTemplate: JST['tasks/rate'],
 
   events: {

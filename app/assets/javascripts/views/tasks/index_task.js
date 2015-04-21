@@ -12,7 +12,7 @@ TaskForce.Views.TaskIndex = Backbone.CompositeView.extend({
     this.tasks.fetch({
       success: function () {
         TaskForce.Helpers.createTaskersFromTasks(this.tasks, this.taskers)
-        this.createMiniTaskSubviews();
+        this.createTaskDetailSubviews();
         this.render();
       }.bind(this)
     });
@@ -25,12 +25,12 @@ TaskForce.Views.TaskIndex = Backbone.CompositeView.extend({
     return this;
   },
 
-  createMiniTaskSubviews: function () {
+  createTaskDetailSubviews: function () {
     var tasker, tasker, subview, i;
     i = 0;
     this.tasks.each( function(task) {
       tasker = this.taskers.get(task.get('tasker_id'))
-      subview = new TaskForce.Views.MiniTask({
+      subview = new TaskForce.Views.TaskDetail({
         task: task,
         tasker: tasker,
         indexTasker: this.indexTasker,
