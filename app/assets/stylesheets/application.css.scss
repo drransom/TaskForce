@@ -29,16 +29,48 @@
 // }
 
 $light-green: #A3D6A7;
+$light-blue: #CAEBF2;
+$dark-green: #157E2C;
+$light-red: #F0092B;
+$dark-red: #A10537;
 
 .rating-window {
   width: 250px;
-  position: relative;
+  position: absolute;
   top: 350px;
   margin-left: auto;
   margin-right: auto;
-  background-color: $light-green;
+  background-color: $light-blue;
   border-radius: 5px;
-  border: 1px solid black;
+  border: 1px solid $light-green;
+
+  .rating-modal-interior {
+    padding: 10px 5px 5px 5px;
+  }
+
+  button.btn-green {
+    color: white;
+    background-color: #098C29;
+    -webkit-transition: background-color 0.2s;
+    transition: background-color 0.2s;
+  }
+
+  button.btn-green:hover {
+    background-color: $dark-green;
+    color: white
+  }
+
+  button.btn-red {
+    color: white;
+    background-color: $light-red;
+    -webkit-transition: background-color 0.2s;
+    transition: background-color 0.2s;
+  }
+
+  button.btn-red:hover {
+    background-color: $dark-red;
+    color: white
+  }
 }
 
 .login-form-row {
@@ -84,6 +116,8 @@ body .btn-std-color:hover {
   background-color: #0d7488;
   color: white
 }
+
+
 
 body.btn-alt-color {
 
