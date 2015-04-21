@@ -31,6 +31,12 @@ class User < ActiveRecord::Base
   has_many :comments, as: :commentable
   has_many :comments_written, class_name: "Comment", foreign_key: :commenter_id
 
+  has_many :killings_off, class_name: "Killing", foreign_key: :killer_id
+  has_many :deaths, class_name: "Killing", foreign_key: :killed_id
+
+  has_many :killed_users, through: :killings_off, source: :killed
+  has_many :killers, through: :deaths, source: :killer
+
   attr_reader :password
   after_initialize :ensure_session_token
 
