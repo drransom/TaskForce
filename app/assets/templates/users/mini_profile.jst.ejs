@@ -1,13 +1,14 @@
 <% var submitButton = submitButton || false %>
-  <div class="col-md-4">
+  <div class="col-md-6">
       <div class="mini-profile">
         <div class="thumbnail mini-profile-thumbnail">
           <img src="<%= model.get('profile_url')%>">
         </div>
         <div class="row"><h3><%= model.get('name') %></h3></div>
-        <div class="row" style="margin-bottom: 10px">
-          <div class="mini-profile-info mini-profile-info-left"><%= TaskForce.Helpers.taskerRating(model, true) %></div>
-          <div class="mini-profile-info mini-profile-info-right"><%= model.get('num_completed') %> tasks<br>completed</div>
+        <div class="row row-no-margin" style="margin-bottom: 10px">
+        <div class="row row-no-margin" style="margin-bottom: 10px">
+          <div class="col-xs-6 mini-profile-info mini-profile-info-left"><%= TaskForce.Helpers.taskerRating(model, true) %></div>
+          <div class="col-xs-6 mini-profile-info mini-profile-info-right"><%= model.get('num_completed') %> tasks<br>completed</div>
         </div>
         <% if (submitButton) { %>
           <div class= "row">
