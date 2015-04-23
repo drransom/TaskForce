@@ -86,8 +86,9 @@ TaskForce.Views.NewTaskForm = Backbone.CompositeView.extend({
     $('#no-vehicle').attr('checked', 'checked');
     $('#military').attr('checked', 'checked');
     $('#description').val(text);
-    debugger;
     $('#date').val(this.todaysDate());
+    $('#time-slot0').attr('checked', 'checked');
+    $('#Tatooine').attr('checked', 'checked');
   },
 
   todaysDate: function () {

@@ -54,7 +54,7 @@
         <br>
         <% for (var i = 0; i < times.length; i++) { %>
           <div class="radio-inline">
-            <label><input type="radio" name="time_slot" value = "<%= i %>" required><%= times[i] %>
+            <label><input type="radio" id="time-slot<%= i %>" name="time_slot" value = "<%= i %>" required><%= times[i] %>
           </div>
         <% } %>
       </div>
