@@ -1,6 +1,6 @@
-<% var vehicles = [["no vehicle", "No vehicle required"],
-                   ["Starship", "Starship"],
-                   ["Battle Station", "Battle Station"]] %>
+<% var vehicles = [["no vehicle", "No vehicle required", "no-vehicle"],
+                   ["Starship", "Starship", "Starship"],
+                   ["Battle Station", "Battle Station", "Battle-Station"]] %>
 <% var times = ["Any Time", "8AM - 12PM", "12PM - 4PM", "4PM - 8PM"] %>
 <% var locations = ["Coruscant", "Endor", "Hoth", "Tatooine"] %>
 <% var task_types = [["military", "Defeat My Enemies"], ["moving", "I need help moving"]] %>
@@ -10,6 +10,7 @@
     <div class="new-task-form">
       <h2>New Task</h2>
       <span class="subheading">Based on the details entered below, we'll show you relevant Taskers for you to choose from.</span>
+      <button class="autofill">Autofill</button>
       <form class="form-group" action="/tasks" method="post">
       <h4 class="input-fields-title">Will the task require a vehicle?</h4>
         <input type="radio" name="vehicle"
@@ -21,7 +22,7 @@
             <input type="radio" name="vehicle"
                  value="<%= vehicles[i][0] %>"
                  style="display: none"
-                 id="<%= vehicles[i][0] %>" required>
+                 id="<%= vehicles[i][2] %>" required>
             <label for="<%= vehicles[i][0] %>" class="list-images">
               <ul class="radio-image-list">
                 <li class="text-center">
@@ -38,7 +39,8 @@
       <div class="form-group" type="hidden">
         <% for (var i = 0; i < task_types.length; i++) { %>
           <div class="radio-inline">
-            <label><input type="radio" name="category" value = "<%= task_types[i][0] %>" required><%= task_types[i][1] %></label>
+            <label><input type="radio" name="category" id="<%= task_types[i][0] %>"
+              value = "<%= task_types[i][0] %>" required><%= task_types[i][1] %></label>
           </div>
         <% } %>
       </div>
@@ -48,7 +50,7 @@
 
       <div class="form-field-title-section">YOUR TASK DATE & TIME</div>
       <div class="input-group" type="hidden">
-        <input type="date" name="task_date" required>
+        <input type="date" name="task_date" id="date" required>
         <br>
         <% for (var i = 0; i < times.length; i++) { %>
           <div class="radio-inline">

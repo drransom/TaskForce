@@ -15,7 +15,7 @@ TaskForce.Views.NewTask = Backbone.CompositeView.extend({
       indexModel: this.tasker,
       heading: "<div class='row'><h2 class='col-md-12'>Hire a Tasker to Create Your Task</h2></div>",
       templateOptions: { submitButton: true }
-    }
+    };
 
     this.taskForm = new TaskForce.Views.NewTaskForm( { task: this.task, taskers: this.taskers, tasker: this.tasker } );
     this.MiniProfile = new TaskForce.Views.MiniProfile( viewsOptions );
@@ -38,13 +38,14 @@ TaskForce.Views.NewTaskForm = Backbone.CompositeView.extend({
   initialize: function (options) {
     this.task = options.task;
     this.taskers = options.taskers;
-    this.tasker = options.tasker
+    this.tasker = options.tasker;
   },
 
   template: JST['tasks/new_task'],
 
   events: {
     'submit': 'submit',
+    'click button.autofill' : 'autofill'
   },
 
   render: function () {
@@ -58,7 +59,7 @@ TaskForce.Views.NewTaskForm = Backbone.CompositeView.extend({
     var content = $('form').serializeJSON();
     var tasker = this.tasker;
     this.task.set(content);
-    $('.error-messages').addClass("hidden")
+    $('.error-messages').addClass("hidden");
 
     this.taskers.fetch({
       data: content,
@@ -71,8 +72,17 @@ TaskForce.Views.NewTaskForm = Backbone.CompositeView.extend({
         }); // trigger detail reset and mark model new
       },
       error: function () {
-        $('.error-messages').removeClass("hidden")
+        $('.error-messages').removeClass("hidden");
       }
     });
   },
+
+  autofill: function (event) {
+    debugger;
+    event.preventDefault();
+    this.render();
+    $('#no-vehicle').attr('checked', 'checked');
+    // $('#military').attr('checked', 'checked');
+    // $('#date').val(new Date());
+  }
 });
