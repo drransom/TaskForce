@@ -89,6 +89,9 @@ TaskForce.Views.NewTaskForm = Backbone.CompositeView.extend({
     $('#date').val(this.todaysDate());
     $('#time-slot0').attr('checked', 'checked');
     $('#Tatooine').attr('checked', 'checked');
+    $('html, body').animate({
+      scrollTop: $('#tasker-area').position().top
+    });
   },
 
   todaysDate: function () {
