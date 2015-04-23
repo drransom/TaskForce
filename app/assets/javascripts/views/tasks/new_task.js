@@ -78,11 +78,20 @@ TaskForce.Views.NewTaskForm = Backbone.CompositeView.extend({
   },
 
   autofill: function (event) {
-    debugger;
     event.preventDefault();
     this.render();
+    var text = "There's a restaurant on 3rd St. that I really want to try, " +
+      "but a group of Imperial Stormtroopers are blocking the path. " +
+      "Can you take them out for me?";
     $('#no-vehicle').attr('checked', 'checked');
-    // $('#military').attr('checked', 'checked');
-    // $('#date').val(new Date());
+    $('#military').attr('checked', 'checked');
+    $('#description').val(text);
+    debugger;
+    $('#date').val(this.todaysDate());
+  },
+
+  todaysDate: function () {
+    var local = new Date();
+    return local.toJSON().slice(0,10);
   }
 });
