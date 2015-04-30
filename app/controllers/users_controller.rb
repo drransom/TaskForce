@@ -13,7 +13,9 @@ class UsersController < ApplicationController
   end
 
   def index
-    @taskers = find_taskers.where(user_filter)
+    debugger
+    @taskers = find_taskers.includes(:killers).where(user_filter)
+    @user = current_user
     if @taskers.empty?
       render json: 'sorry, no users found'
     else
