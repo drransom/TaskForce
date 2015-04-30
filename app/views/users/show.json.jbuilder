@@ -6,7 +6,7 @@ json.description @user.description
 json.vehicle @user.vehicle
 json.location @user.location
 json.price @user.price
-json.alive @user.alive
+json.alive @user.killers.include?(current_user)
 json.comments @comments do |comment|
   json.body comment.body
   json.id comment.id

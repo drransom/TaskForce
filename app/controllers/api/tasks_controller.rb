@@ -22,6 +22,7 @@ module Api
 
     def index
       @tasks = Task.where(owner_id: current_user.id).includes(:tasker)
+      @killed_taskers = current_user.killed_users
       render :index
     end
 

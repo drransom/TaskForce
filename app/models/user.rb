@@ -60,6 +60,38 @@ class User < ActiveRecord::Base
     self.session_token
   end
 
+  def kill (user)
+    Killing.create(killer_id: self.id, killed_id: user.id)
+  end
+
+  def create_sample_tasks
+    Task.create({
+      owner_id: self.id,
+      title: "Destroy Death Star",
+      description: "Create a chain reaction",
+      location: "Endor",
+      vehicle: "Starship",
+      category: "military",
+      tasker_id: 1,
+      price: User.find(1).price,
+      time_slot: Random.rand(4),
+      task_date: Date.today - 1
+      })
+
+    Task.create({
+     owner_id: self.id,
+     title: "Move X-wing",
+     description: "My X-wing is in a swamp and needs to be removed.",
+     location: "Dagobah",
+     vehicle: "none",
+     category: "moving",
+     tasker_id: 5,
+     price: User.find(5).price,
+     task_date: Date.today() - 3,
+     time_slot: Random.rand(4)
+     })
+  end
+
   protected
 
   def ensure_session_token

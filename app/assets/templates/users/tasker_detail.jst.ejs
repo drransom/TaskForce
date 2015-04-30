@@ -1,4 +1,4 @@
-<% var vehicleText, userRating, displayStyling, spanEnd, divEnd %>
+<% var vehicleText, userRating, displayStyling, spanEnd, divEnd, nameStyling %>
 <% if (user.get('vehicle') === 'none') { %>
   <% vehicleText = "Does not travel" %>
 <% } else { %>
@@ -7,8 +7,10 @@
 
 <% if (user.get('alive')) { %>
   <% userRating = TaskForce.Helpers.taskerRating(user) %>
+  <% nameStyling = "" %>
 <% } else { %>
   <% userRating = "Failed for the last time" %>
+  <% nameStyling = "style='text-decoration: line-through'" %>
 <% } %>
 
 <% var submitButton = submitButton || false %>
@@ -64,7 +66,7 @@
           </div>
         </div>
       </div>
-      <h2 class="row profile-name modal-noclose"><%= user.get('name') %></h2>
+      <h2 class="row profile-name modal-noclose" <%= nameStyling %>><%= user.get('name') %></h2>
       <div class="row description-area modal-noclose <%= profileBodyStyle %>">
         <div class="col-md-12 modal-noclose">
           <span class="subheading modal-noclose">A BIT ABOUT ME</span><br>

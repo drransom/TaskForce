@@ -16,7 +16,7 @@ json.array! @tasks do |task|
     json.num_completed task.tasker.num_completed
     json.tasker_profile_url task.tasker.profile_url
     json.tasker_description task.tasker.description
-    json.tasker_alive task.tasker.alive
+    json.tasker_alive !@killed_taskers.include?(task.tasker)
     json.tasker_location task.tasker.location
     json.tasker_vehicle task.tasker.vehicle
     json.tasker_price task.tasker.price

@@ -3,7 +3,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    debuggers
+    @user = User.include(:killers).find(params[:id])
     if @user
       @comments = Comment.joins(:comment_author).where({commentable_id: @user.id})
       render :show
@@ -13,7 +14,6 @@ class UsersController < ApplicationController
   end
 
   def index
-    debugger
     @taskers = find_taskers.includes(:killers).where(user_filter)
     @user = current_user
     if @taskers.empty?
@@ -24,10 +24,14 @@ class UsersController < ApplicationController
   end
 
   def create
+    debugger
     @user = User.new(user_params)
 
     if @user.save
       sign_in!(@user)
+      if @user.owned_tasks.empty?
+        @user.create_sample_tasks
+      end
       redirect_to root_url
     else
       flash.now[:errors] = @user.errors.full_messages
@@ -36,9 +40,12 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.find(params[:id])
+    @user = User.includes(:killers).find(params[:id])
+    if params[:user][:alive] == false #don't want nil to trigger death
+      @user = kill_or_remain_dead(@user)
+    end
     if @user.update(user_params)
-      render json: @user
+      render json: :update
     else
       render json: @user.errors.full_messages, status: :unprocessable_entity
     end
@@ -49,8 +56,17 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:email, :password, :tasker,
                                  :name, :location, :description,
-                                 :profile_url, :price, :alive)
+                                 :profile_url, :price)
   end
+
+  def kill_or_remain_dead (user)
+    unless user.killers.include?(current_user)
+      current_user.kill(user)
+      user = User.includes(:killers).find(user.id)
+    end
+    return user
+  end
+
 
   def user_filter
     options = {}
