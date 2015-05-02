@@ -3,8 +3,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    debuggers
-    @user = User.include(:killers).find(params[:id])
+    @user = User.includes(:killed_users).find(params[:id])
     if @user
       @comments = Comment.joins(:comment_author).where({commentable_id: @user.id})
       render :show
@@ -16,6 +15,8 @@ class UsersController < ApplicationController
   def index
     @taskers = find_taskers.includes(:killers).where(user_filter)
     @user = current_user
+    @taskers = @taskers.select { |tasker| !tasker.killers.include? @user }
+
     if @taskers.empty?
       render json: 'sorry, no users found'
     else
@@ -24,7 +25,6 @@ class UsersController < ApplicationController
   end
 
   def create
-    debugger
     @user = User.new(user_params)
 
     if @user.save
@@ -41,10 +41,10 @@ class UsersController < ApplicationController
 
   def update
     @user = User.includes(:killers).find(params[:id])
-    if params[:user][:alive] == false #don't want nil to trigger death
+    if params[:alive] == false #don't want nil to trigger death
       @user = kill_or_remain_dead(@user)
     end
-    if @user.update(user_params)
+    if params[:user].empty? || @user.update(user_params)
       render json: :update
     else
       render json: @user.errors.full_messages, status: :unprocessable_entity

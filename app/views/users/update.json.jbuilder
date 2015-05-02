@@ -6,4 +6,4 @@ json.description @user.description
 json.vehicle @user.vehicle
 json.location @user.location
 json.price @user.price
-json.alive @user.killers.include?(current_user)
+json.alive !@user.killers.include?(current_user)

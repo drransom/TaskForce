@@ -7,5 +7,5 @@ json.array! @taskers.each do |tasker|
   json.vehicle tasker.vehicle
   json.location tasker.location
   json.price tasker.price
-  json.alive tasker.killers.includes?(current_user)
+  json.alive !tasker.killers.include?(@user)
 end

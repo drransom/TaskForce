@@ -6,12 +6,12 @@ json.description @user.description
 json.vehicle @user.vehicle
 json.location @user.location
 json.price @user.price
-json.alive @user.killers.include?(current_user)
+json.alive !@user.killed_users.include?(current_user)
 json.comments @comments do |comment|
   json.body comment.body
   json.id comment.id
   json.commenter_profile_url comment.comment_author.profile_url
-  json.commenter_alive comment.comment_author.alive
+  json.commenter_alive !@user.killed_users.include?(comment.comment_author)
   if comment.comment_author.name && comment.comment_author.name.length > 0
     json.author_name comment.comment_author.name
   else
