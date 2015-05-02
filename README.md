@@ -55,7 +55,6 @@ to the Rails server, which returns both the `User` data and the corresponding
 `User` object and create a new `Comment` collection of `Comment` objects, all
 of which are displayed in the modal profile.
 
-
 ### Task Index
 The `Task` index is implemented as a separate Backbone composite of `TaskDetail`
 subview. Each `TaskDetail` subview is associated with a `Task` and `User` object.
@@ -70,11 +69,19 @@ to rate the `Task` up or down.  Rating the task up updates the `Task` rating
 and sends a PATCH request to the Rails server to update the `Task` object.
 
 ### Tasker Failure
+TaskForce guarantees a 100% satisfaction rating and guarantees that if a Tasker
+fails, they fail for the "last time." However, actually killing off Taskers would cause
+the app to become unusable quite rapidly. Consequently, the Tasker death is implemented
+as an illusion!
 
 When the user downvotes a task in the `Rating` Backbone view, the `Task` is updated
-and the `User` Backbone modal and Rails database are updated to indicate that the
-Tasker has been killed off. When this happens, each `TaskDetail` view re-renders,
-reflecting that the Tasker is no longer with us.
+and the `User` Backbone model is updated to indicate that the Tasker has been killed
+off. The Rails back end implements this by using a `Killing` join table
+to indicate which `Users` have killed which other `Users`. The JSON provided by
+the Rails server reflects the Rails `Killing` join table rather than any entry
+in the `User` database, and the Backbone model for a `User` has an `alive`
+boolean property even though Rails does not. Consequently, each user has their
+own perception of which Taskers are and are not alive.
 
 ## Original Design Docs
 * [View Wireframes][views]
