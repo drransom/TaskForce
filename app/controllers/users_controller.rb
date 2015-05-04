@@ -3,7 +3,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.includes(:killed_users).find(params[:id])
+    @user = User.find(params[:id])
+    @killed_users = current_user.killed_users
     if @user
       @comments = Comment.joins(:comment_author).where({commentable_id: @user.id})
       render :show
