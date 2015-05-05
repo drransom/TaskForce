@@ -39,12 +39,13 @@ TaskForce.Views.NewTaskForm = Backbone.CompositeView.extend({
     this.task = options.task;
     this.taskers = options.taskers;
     this.tasker = options.tasker;
+    this.animate = true;
   },
 
   template: JST['tasks/new_task'],
 
   events: {
-    'submit': 'submit',
+    'submit': 'submitWithAnimation',
     'click button.autofill' : 'autofill'
   },
 
@@ -54,22 +55,39 @@ TaskForce.Views.NewTaskForm = Backbone.CompositeView.extend({
     return this;
   },
 
-  submit: function (event) {
-    event.preventDefault();
+  submitWithAnimation: function (event) {
+    this.submit(event, true);
+  },
+
+  resubmitWithoutAnimation: function (event) {
     var content = $('form').serializeJSON();
-    var tasker = this.tasker;
+    this.submit(event, false);
+  },
+
+  submit: function (event, animation) {
+    var content, tasker, events, view;
+    animation = animation || false;
+    event.preventDefault();
+    content = $('form').serializeJSON();
+    tasker = this.tasker;
     this.task.set(content);
     $('.error-messages').addClass("hidden");
+    events = this.events;
+    view = this;
 
     this.taskers.fetch({
       data: content,
       success: function () {
         tasker.unset('id');
         $('.btn-submit').attr("value", "Change Task");
-        $('.tasker-area').addClass('margin-bottom')
-        $('html, body').animate({
-          scrollTop: $('#tasker-area').position().top
-        }); // trigger detail reset and mark model new
+        $('.tasker-area').addClass('margin-bottom');
+        events['change input[name="location"]'] = 'resubmitWithoutAnimation';
+        view.delegateEvents();
+        if (animation) {
+          $('html, body').animate({
+            scrollTop: $('#tasker-area').position().top
+          });
+        } // trigger detail reset and mark model new
       },
       error: function () {
         $('.error-messages').removeClass("hidden");
