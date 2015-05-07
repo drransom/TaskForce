@@ -84,7 +84,7 @@ class User < ActiveRecord::Base
      location: "Dagobah",
      vehicle: "none",
      category: "moving",
-     tasker_id: 5,
+     tasker_id: 6,
      price: User.find(5).price,
      task_date: Date.today() - 3,
      time_slot: Random.rand(4)

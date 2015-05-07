@@ -283,6 +283,21 @@ Comment.create({
         "charge and got the job done in half the time I had estimated."
   })
 
+#comments on yoda
+Comment.create({
+  commentable_id: yoda.id,
+  commentable_type: "User",
+  comment_author: admiral_ackbar,
+  body: "This guy foresees everything. No trapping him! Would hire again."
+  })
+
+Comment.create({
+  commentable_id: yoda.id,
+  commentable_type: "User",
+  comment_author: admiral_ozzel,
+  body: "Yoda's enthusiasm and energy were extraordinary."
+  })
+
 Comment.create({
   commentable_id: r2D2.id,
   commentable_type: "User",

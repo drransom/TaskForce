@@ -30,8 +30,10 @@ module Api
       task_params = params.require(:task).permit(:owner_id, :title,
         :description, :location, :task_date, :time_slot, :vehicle, :price,
         :tasker_id, :category, :user_completed, :tasker_completed, :rating)
-      if task_params[:description]
+      if task_params[:description] && !task_params[:description].empty?
         task_params[:description] = task_params[:description].html_safe
+      else
+        task_params[:description] = "No description entered yet."
       end
       if task_params[:title]
         task_params[:title] = task_params[:title].html_safe
