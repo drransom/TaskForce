@@ -27,6 +27,7 @@ TaskForce.Views.TaskerProfile = TaskForce.Views.Modal.extend({
   },
 
   submit: function (event) {
+    debugger
     event.preventDefault();
     this.task.set( { tasker_id: this.model.get('id') });
     this.task.save ({}, {
