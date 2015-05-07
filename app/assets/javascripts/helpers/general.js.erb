@@ -69,6 +69,19 @@ TaskForce.Helpers = {
     return submitText;
   },
 
+  checked: function (num) {
+    if (num === 0) {
+      return "checked";
+    } else {
+      return "";
+    }
+  },
+
+  todaysDate: function () {
+    var local = new Date();
+    return local.toJSON().slice(0,10);
+  },
+
   profilePic: {
     "Endor": "http://elliot-c-reed-taskforce.s3.amazonaws.com/endor-web.png",
     "Hoth": "http://elliot-c-reed-taskforce.s3.amazonaws.com/hoth-web.png",

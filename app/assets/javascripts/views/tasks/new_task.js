@@ -104,7 +104,7 @@ TaskForce.Views.NewTaskForm = Backbone.CompositeView.extend({
     $('#no-vehicle').attr('checked', 'checked');
     $('#military').attr('checked', 'checked');
     $('#description').val(text);
-    $('#date').val(this.todaysDate());
+    $('#date').val(TaskForce.Helpers.todaysDate());
     $('#time-slot0').attr('checked', 'checked');
     $('#Tatooine').attr('checked', 'checked');
     $('html, body').animate({
@@ -112,8 +112,4 @@ TaskForce.Views.NewTaskForm = Backbone.CompositeView.extend({
     });
   },
 
-  todaysDate: function () {
-    var local = new Date();
-    return local.toJSON().slice(0,10);
-  }
 });

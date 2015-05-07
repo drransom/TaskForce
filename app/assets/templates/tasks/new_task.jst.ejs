@@ -40,7 +40,8 @@
         <% for (var i = 0; i < task_types.length; i++) { %>
           <div class="radio-inline">
             <label><input type="radio" name="category" id="<%= task_types[i][0] %>"
-              value = "<%= task_types[i][0] %>" required><%= task_types[i][1] %></label>
+              value = "<%= task_types[i][0] %>" <%= TaskForce.Helpers.checked(i) %>
+              required><%= task_types[i][1] %></label>
           </div>
         <% } %>
       </div>
@@ -50,11 +51,14 @@
 
       <div class="form-field-title-section">YOUR TASK DATE & TIME</div>
       <div class="input-group" type="hidden">
-        <input type="date" name="task_date" id="date" required>
+        <input type="date" name="task_date" id="date" value="<%= TaskForce.Helpers.todaysDate() %>" 
+        required>
         <br>
         <% for (var i = 0; i < times.length; i++) { %>
           <div class="radio-inline">
-            <label><input type="radio" id="time-slot<%= i %>" name="time_slot" value = "<%= i %>" required><%= times[i] %>
+            <label><input type="radio" id="time-slot<%= i %>" name="time_slot"
+            value = "<%= i %>" <%= TaskForce.Helpers.checked(i) %>
+            required><%= times[i] %>
           </div>
         <% } %>
       </div>
