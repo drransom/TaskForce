@@ -67,7 +67,7 @@ class User < ActiveRecord::Base
     Task.create({
       owner_id: self.id,
       title: "Destroy Death Star",
-      description: "Create a chain reaction",
+      description: "Create a chain reaction to destroy the Death Star.",
       location: "Endor",
       vehicle: "Starship",
       category: "military",
