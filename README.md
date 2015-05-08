@@ -2,7 +2,7 @@
 
 [Live][live]
 
-[live]: http://www.elliotreed.com
+[live]: http://taskforce.elliotreed.com
 
 ## Summary
 TaskForce is a Star Wars-themed app inspired by the user-facing side of [TaskRabbit][taskrabbit] built on Rails and Backbone. The app is styled based on a combination of custom CSS and Twitter Bootstrap.
