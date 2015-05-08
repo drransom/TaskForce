@@ -13,8 +13,8 @@ TaskForce.Views.TaskerProfile = TaskForce.Views.Modal.extend({
     this.listenTo(this.comments, 'sync', this.render)
     this.model.fetch({
       success: function (response) {
-        TaskForce.Helpers.constructCommentsFromUser(this.model, this.comments)
-        this.comments.trigger('sync')
+        this.comments.set(this.model.get('comments').models);
+        this.comments.trigger('sync');
         }.bind(this)
     })
 

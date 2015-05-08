@@ -41,9 +41,9 @@ TaskForce.Helpers = {
     return rating
   },
 
-  constructCommentsFromUser: function (user, collection) {
+  constructCommentsfromResponse: function (response, collection) {
     var attributes, id;
-    _(user.get('comments')).each( function (comment) {
+    _(response.comments).each( function (comment) {
       attributes = {}
       var existingComment = collection.find(comment.id);
       _(comment).each(function (value, attribute) {
@@ -55,6 +55,7 @@ TaskForce.Helpers = {
         collection.add(new TaskForce.Models.Comment(attributes))
       }
     })
+    return collection;
   },
 
   hireButton: function (user) {
