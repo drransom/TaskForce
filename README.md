@@ -21,6 +21,7 @@ Users can:
 - [X] Review tasks up or down
 - [X] Change task votes
 - [X] Kill off Taskers when they fail for the last time
+- [X] See Tasker "alive" status based on join table
 
 
 ### Account Creation and Sessions
